@@ -1,0 +1,79 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/InventorySystem/inv_supplierinfo.js"></script>
+
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/StudentManagement/common.js"></script>
+
+
+        <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+</tr>
+    <td width="834" >
+      <table width="100%"  border="0" cellpadding="0" cellspacing="0" >
+        <tr>
+          <td></td>
+          <td style="color:#004080; font-size:16px; font-weight:bold" align="center" >&nbsp;</td>
+          <td style="color:#CC0066; font-weight:bold">&nbsp;</td>
+        </tr>
+        <tr>
+
+          <td width="187">
+
+	       <input type="text" id="searchq" name="searchq" value="Search" size="20" class="textBox" 
+			 onfocus="javascript:inputBoxLabelHide(this, 'Search');this.className='onFocus'" 
+			 onBlur="javascript:inputBoxLabelShow(this, 'Search');this.className='onBlur'"
+		   onKeyUp="javascript:ajaxCall('inv_supplierinfo','ajaxSearchSupplier&searchq='+this.value,'SupplierInfoDiv');" /></td>
+
+          <td width="704" style="color:#004080; font-size:16px; font-weight:bold" >Supplier's Information</td>
+          <td width="309" style="color:#CC0066; font-weight:bold"><?php echo getRequest('Dmsg');?>  <?php echo $msg; ?></td>
+        </tr>
+      </table> </td>
+
+  </tr>
+
+  <tr>
+
+    <td><div id="SupplierInfoDiv"  class="layoutBox" style="overflow: auto; width:1100px;">
+
+    <?php echo $SupplierInfoFetch; ?></div></td>
+  </tr>
+  <tr>
+
+    <td valign="bottom">
+
+  <form id="supplier_form" name="supplier_form" method="post" action="?app=inv_supplierinfo" onSubmit="return validate_form();">
+    <!--<table width="940" border="0" cellpadding="5" cellspacing="6" class="layoutBox">
+      <tr>
+        <td>Company Name :</td>
+        <td><input name="company_name" type="text" class="textBox" id="company_name" /></td>
+        <td>Contact Person : </td>
+        <td><input name="contact_person" id="contact_person" type="text" class="textBox" /></td>
+        <td>Mobile : </td>
+        <td><input name="mobile" id="mobile" type="text" class="textBox" /></td>
+        </tr>
+      <tr>
+        <td nowrap="nowrap">Address  :</td>
+        <td colspan="5"><input name="address" type="text" class="textBox" id="address" size="50"/></td>
+        </tr>
+      <tr>
+        <td nowrap="nowrap">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td colspan="2" align="center">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td nowrap="nowrap"><input type="hidden" name="supplier_ID" id="supplier_ID" /></td>
+        <td><input type="hidden" name="mode" id="mode" value="add" />
+          <input name="email" id="email" type="hidden" class="textBox" value="abc" />
+          <input name="acc_no" id="acc_no" type="hidden" class="textBox" value="00" /></td>
+        <td colspan="2" align="center"><input name="submit" type="submit" value="Save" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"/>
+          <input type="reset" name="reseat" value="Clear" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" /></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>-->
+  </form>  </td>
+  </tr>
+
+  <tr><td colspan="3">
+
+  </td></tr>
+</table>         

@@ -1,0 +1,86 @@
+
+<script language="javascript">
+function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+</script>
+<div align="center"><input type="button" onclick="printDiv('print_area')" value="Print" class="btnClass"  onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" /></div>
+<table width="900" align="center" id="print_area" bgcolor="#FFFFFF">
+
+  <tr>
+
+    <td colspan="2"><table width="100%" align="center" id="print_area" bgcolor="#FFFFFF">
+
+  <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:18px;color:#002953; font-style:oblique;"><img src="images/<?php echo getFromSession('complogo'); ?>" width="100" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;"><?php echo getFromSession('compaddress'); ?></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;"><?php echo getFromSession('compmobile'); ?></td>
+  </tr>
+ <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;"><?php echo getFromSession('compemail'); ?></td>
+  </tr>
+ <tr>
+   <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;"><?php echo getFromSession('compweb'); ?></td>
+ </tr>
+ <tr>
+   <td colspan="2" align="center" style="font-weight:bolder;font-size:18px;color:#002953; font-style:oblique;">&nbsp;</td>
+ </tr>
+ <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:18px;color:#002953; font-style:oblique;"><div style="width:150px; border:solid 1px #003399">CASH MEMO</div></td>
+  </tr>
+ <tr>
+   <td colspan="2" align="center" style="font-weight:bolder;font-size:18px;color:#002953; font-style:oblique;">
+   <table width="550" border="0" cellspacing="5" cellpadding="5">
+     <tr>
+       <td width="16%" nowrap="nowrap">Memo No. :</td>
+       <td width="42%"><?php echo $challan_no; ?></td>
+       <td width="42%">Date : <?php echo _date($receive_date); ?></td>
+     </tr>
+     <tr>
+       <td nowrap="nowrap">Name of Outlate : </td>
+       <td colspan="2"><?php echo $company_name; ?></td>
+     </tr>
+     <tr>
+       <td nowrap="nowrap">Address : </td>
+       <td colspan="2"><?php echo $address; ?></td>
+     </tr>
+   </table></td>
+ </tr>
+ <tr>
+    <td colspan="2" align="center"><hr /></td>
+  </tr>
+</table></td>
+  </tr>
+
+  <tr>
+    <td colspan="2"  align="center" valign="top" style="font-weight:bold; 	font-size:11px;color:#002953;">&nbsp;</td>
+  </tr>
+  <tr>
+
+    <td height="300" colspan="2" align="center" valign="top"><?php echo $ReceivedStock; ?></td>
+  </tr>
+
+  <tr>
+    <td colspan="2">&nbsp;&nbsp;In Words : ............................................................................................................. </td>
+  </tr>
+  <tr>
+    <td width="369">&nbsp;</td>
+    <td width="519">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Signature : ............................. </td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<?php  dateIFrame(REL_EXT_DIR); ?>

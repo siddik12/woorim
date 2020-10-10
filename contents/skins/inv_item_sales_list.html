@@ -1,0 +1,119 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/InventorySystem/inv_item_sales_list.js"></script>
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/StudentManagement/common.js"></script>
+
+<style>
+div.pagination {
+	padding: 3px;
+	margin: 3px;
+}
+
+div.pagination a {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #AAAADD;
+	
+	text-decoration: none; /* no underline */
+	color: #000099;
+}
+div.pagination a:hover, div.pagination a:active {
+	border: 1px solid #000099;
+
+	color: #000;
+}
+div.pagination span.current {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+		border: 1px solid #000099;
+		
+		font-weight: bold;
+		background-color: #000099;
+		color: #FFF;
+	}
+	div.pagination span.disabled {
+		padding: 2px 5px 2px 5px;
+		margin: 2px;
+		border: 1px solid #EEE;
+	
+		color: #DDD;
+	}
+	
+</style>
+
+<script language="javascript" type="text/javascript">
+function removeSpaces(string) {
+ return string.trim();
+}
+
+function formValidate(){
+
+ if (document.saleList.itemcode.value==''){
+		alert("Please enter item code");
+		return false;
+	}else if (document.saleList.customer_id.value==''){
+		alert("Please select customer");
+		return false;
+	else {
+	return true;
+	}
+}
+
+</script>
+        <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+
+  <tr>
+    <td width="310" style="color:#004080; font-size:16px; font-weight:bold">Item  Sales List </td>
+    <td width="890" style="color:#CC3300; font-size:16px; font-weight:bold"><?php echo getRequest('msg'); ?></td>
+  </tr>
+  <tr><td colspan="2" valign="top"><table width="100%" height="465" border="0" cellpadding="0" cellspacing="6" >
+      
+
+      <tr>
+
+        
+        <td  valign="top"><table width="100%" border="0" class="layoutBox">
+          <tr>
+            <td colspan="4" nowrap="nowrap" style="border-bottom:1px solid #999999"><form name="saleList" id="saleList" action="?app=inv_item_sales_list" method="post" onsubmit="return formValidate()();">
+			
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tr>
+                <td width="11%" align="center" valign="top"><strong>Customer Name  : </strong></td>
+                <td width="15%" valign="top"><?php echo $Customer; ?></td>
+                <td width="13%" align="right" valign="top"><strong>From : </strong></td>
+                <td width="11%" valign="top" nowrap="nowrap"><input name="from" type="text"  id="from" size="15" value="<?php echo $curdate;?>" readonly=""/>
+                  <img src="<?php echo IMAGE_DIR;?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onclick="gfPop.fPopCalendar(document.getElementById('from'));return false;" style="cursor:pointer;" title="calendar" /></td>
+                <td width="6%" align="right" valign="top"><strong>TO : </strong></td>
+                <td width="13%" valign="top" nowrap="nowrap"><input name="to" type="text"  id="to" size="15" value="<?php echo $curdate;?>" readonly=""/>
+					    <img src="<?php echo IMAGE_DIR;?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onclick="gfPop.fPopCalendar(document.getElementById('to'));return false;" style="cursor:pointer;" title="calendar" /></td>
+                <td width="31%" valign="top"><input name="submit2" type="submit" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" value="Find" /></td>
+              </tr>
+            </table>
+			
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+            </table>
+			</form></td>
+            </tr>
+           <tr>
+            <td width="402" nowrap="nowrap"><span style="font-family:Verdana; font-size:11px; font-weight:bold; color:#DD0000">
+      <?php if(getRequest('page')){echo 'Showing &nbsp;'.$res1.' - '.$res2.' of '.$total_pages;}else{ echo 'Showing &nbsp; 0 - 29 of '.$total_pages; } ?>
+    </span>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td colspan="3" align="right" nowrap="nowrap"><?php echo $pagination; ?></td>
+            </tr>
+
+          <tr>
+            <td colspan="4" nowrap="nowrap">
+			<div id="ItemTypeDiv"  class="layoutBox" style="overflow: auto; width:97%; height:400px;"><?php echo $ItemIssue ?></div></td>
+            </tr>
+			
+			<tr>
+            <td  nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td width="519" align="right" nowrap="nowrap" style="color:#009900; font-size:12px; font-family:Verdana"><strong>Total Amount : <?php echo number_format($total_amount); ?></strong></td>
+            <td width="131" align="right" nowrap="nowrap" style="color:#009900; font-size:12px; font-family:Verdana"><strong><?php echo number_format($paid_amount); ?></strong></td>
+			<td width="118" align="right" nowrap="nowrap">&nbsp;</td>
+			</tr>
+        </table>          </td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+<?php  dateIFrame(REL_EXT_DIR); ?>     

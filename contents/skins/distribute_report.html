@@ -1,0 +1,62 @@
+
+<script language="javascript">
+function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+</script>
+<table width="897" border="0" cellspacing="0" cellpadding="0" align="center" style="border:1px solid #CCCCCC">
+  <tr>
+    <td width="246"><input name="button" type="button" class="btnClass" onclick="printDiv('print_area')"  onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" value="Print" /></td>
+    <td width="649">&nbsp;</td>
+  </tr>
+</table>
+  <table width="900" align="center" id="print_area" bgcolor="#FFFFFF">
+
+  <tr>
+
+    <td colspan="2"><table width="100%" align="center" id="print_area" bgcolor="#FFFFFF">
+
+  <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:18px;color:#002953; font-style:oblique;"><img src="images/<?php echo getFromSession('complogo'); ?>" width="100" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;"><?php echo getFromSession('compaddress'); ?></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;"><?php echo getFromSession('compmobile'); ?></td>
+  </tr>
+ <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;"><?php echo getFromSession('compemail'); ?></td>
+  </tr>
+ <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;"><?php echo getFromSession('compweb'); ?></td>
+  </tr>
+ <tr>
+    <td colspan="2" align="center"><hr /></td>
+  </tr>
+</table></td>
+  </tr>
+
+  <tr>
+    <td colspan="2"  align="center" valign="top" style="font-weight:bold; 	font-size:11px;color:#002953;">Item Distribute Report &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	<?php if($rsfrom && $rsto) {?>From : <?php echo _date($rsfrom); ?> &nbsp;&nbsp;&nbsp;To : <?php echo _date($rsto); } else { echo 'Challan No : '.$challan_no; } ?> </td>
+  </tr>
+  <tr>
+
+    <td height="400" colspan="2" align="center" valign="top"><?php echo $ReportFetch; ?></td>
+  </tr>
+
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr height=22>
+    <td width="647" style="border-bottom:1px dotted #000066">Copyright &copy;  <?php echo date('Y'); ?><strong> UNIQUE </strong></td>
+    <td width="241" align="right" style="border-bottom:1px dotted #000066" nowrap="nowrap"><a href="http://www.sarkerit.com/">Powered By Sarker IT</a></td>
+  </tr>
+</table>
+<?php  dateIFrame(REL_EXT_DIR); ?>

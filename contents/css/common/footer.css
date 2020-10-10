@@ -1,0 +1,42 @@
+/*-----------------Footer CSS--------------------*/
+
+.footerStyle
+{
+	background-color:#004E9B;
+	width:100%;
+	height:1.8em;
+	padding-top:.4em;
+	color:#FFFFFF;
+	font-size:12px;
+	font-family:Verdana;
+	
+}
+.footerStyle a
+{
+	text-decoration:none;
+	color:#FFFFFF;
+	font-size:12px;
+	font-family:Verdana;
+	font-weight: bold;	
+	
+}
+.footerStyle a:hover
+{
+	text-decoration:underline;
+}
+
+#footer a
+{
+	text-decoration:none;
+}
+
+#footer a:hover
+{
+	text-decoration: underline;
+}
+.FooterEnd
+{
+background-image:url(/images/footer-bottom.gif);
+width:100%;
+height:1.4em;
+}

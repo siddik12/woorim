@@ -1,0 +1,46 @@
+
+<script language="JavaScript" src="<?=REL_CONTENT_DIR?>/js/StudentManagement/change_pass.js"></script>
+<link rel="stylesheet" href="<?=REL_CONTENT_DIR?>/css/StudentManagement/common.css" type="text/css">
+
+<table align="center" >
+  <tr>
+    <td>
+<table width="800" height="300" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#000000" class="radius3">
+  <tr>
+  <td valign="middle" align="center">
+   <fieldset style="height:200px; width:400px;-moz-border-radius: 8px; -webkit-border-radius: 8px; border:solid 2px #FFFFFF;">
+   <legend ><strong><font size="+2" color="#FFFFFF">Set Password</font></strong></legend>
+   <form id="pass_form" name="pass_form" action="index.php?app=forgot_passwd&cmd=changepassword" method="post" onSubmit="return validate_pass_frm();">
+  <table width="23%" border="0" align="center" cellpadding="2" cellspacing="3" bgcolor="#000000">
+  <tr> 
+      <td align="left" nowrap colspan="2" >&nbsp;</td>
+    </tr>
+    <tr> 
+      <td nowrap class="navlinks"> New Password:</td>
+      <td width="70%" align="left"><input name="new_password" id="new_password" type="password" 
+	  style="-moz-border-radius: 5px; -webkit-border-radius: 5px; border:2px solid; border-color:#00CCFF;" size="25"></td>
+    </tr>
+	<tr> 
+      <td nowrap class="navlinks"> Confirm New Password:</td>
+      <td width="70%" align="left"><input name="confirm_password" id="confirm_password" type="password" 
+	  style="-moz-border-radius: 5px; -webkit-border-radius: 5px; border:2px solid; border-color:#00CCFF;" size="25"></td>
+    </tr>
+    <tr> 
+    	<!--input type="hidden" name="cmd" value="add"-->
+      <td colspan="2"><div align="right">
+	  	<input type="hidden" name="employee_id" value="<?=$employee_id?>" />
+          <input type='submit' name='submit' id="submit" value="Ok" style="cursor:pointer;">
+        </div></td>
+    </tr>
+  </table>
+  <!--br><br><br><br><br><br><br><br><br><br><br><br><br><br><br-->
+ </form>
+   </fieldset>
+	</td>
+  </tr>
+</table>
+
+</td>
+  </tr>
+  
+</table>

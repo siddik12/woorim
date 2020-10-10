@@ -1,0 +1,135 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR;?>/js/InventorySystem/item_distribute.js"></script>
+
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR;?>/js/common.js"></script>
+
+<link rel="stylesheet" href="<?php echo REL_CONTENT_DIR;?>/css/common/common.css" type="text/css">
+
+<?php 
+$logintype=getFromSession('logintype');
+?>
+
+<style>
+
+div.pagination {
+
+	padding: 3px;
+
+	margin: 3px;
+
+}
+
+
+
+div.pagination a {
+
+	padding: 2px 5px 2px 5px;
+
+	margin: 2px;
+
+	border: 1px solid #AAAADD;
+
+	
+
+	text-decoration: none; /* no underline */
+
+	color: #000099;
+
+}
+
+div.pagination a:hover, div.pagination a:active {
+
+	border: 1px solid #000099;
+
+
+
+	color: #000;
+
+}
+
+div.pagination span.current {
+
+	padding: 2px 5px 2px 5px;
+
+	margin: 2px;
+
+		border: 1px solid #000099;
+
+		
+
+		font-weight: bold;
+
+		background-color: #000099;
+
+		color: #FFF;
+
+	}
+
+	div.pagination span.disabled {
+
+		padding: 2px 5px 2px 5px;
+
+		margin: 2px;
+
+		border: 1px solid #EEE;
+
+	
+
+		color: #DDD;
+
+	}
+
+	
+
+</style>
+
+
+
+<table style="width:1200px;" align="center" cellpadding="10" cellspacing="0" bgcolor="#FFFFFF">
+
+    <tr>
+
+    <td width="1" height="20">&nbsp;</td>
+
+    <td colspan="4" align="center"><span style="text-decoration:blink;">&nbsp;&nbsp;&nbsp;<?php echo getRequest('Dmsg');?><?php echo getRequest('EDmsg'); ?><?php echo getRequest('msg'); ?> </span></td>
+    </tr>
+
+  <tr>
+
+    <td height="23"></td>
+
+    <td width="118" nowrap="nowrap" >
+
+
+	<a class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"  
+
+	href="?app=item_distribute&cmd=ItemDistSkin" title="Add new item">Distribute</a></td>
+
+    <td width="154" align="center" nowrap="nowrap"><input type="text" id="searchq" name="searchq" value="Search" class="textBox" 
+
+			 onfocus="javascript:inputBoxLabelHide(this, 'Search');this.className='onFocus'" 
+
+			 onblur="javascript:inputBoxLabelShow(this, 'Search');this.className='onBlur'"
+
+		   onkeyup="javascript:searchData()" /></td>
+
+    <td align="center" nowrap="nowrap" style="font-family:Verdana; font-size:14px; font-weight:bold; color:#DD0000">Item Distribute List According to Branch</td>
+    <td width="481" align="right" nowrap="nowrap" ><span style="font-family:Verdana; font-size:11px; font-weight:bold; color:#DD0000">
+
+      <?php if(getRequest('page')){echo 'Showing records &nbsp;'.$res1.' - '.$res2.' of '.$total_pages;}else{ echo 'Showing records &nbsp; 0 - 29 of '.$total_pages; } ?>
+
+    </span>&nbsp;&nbsp;<?php echo $pagination; ?></td>
+  </tr>
+
+  <tr>
+
+    <td height="35"></td>
+
+    <td colspan="4"><table><tr><td>
+
+	<div id="html" style="overflow: auto; height:800px; width:1180px; ">
+
+    <?php echo $ItemInfo; ?></div></td></tr></table></td>
+  </tr>
+</table>
+
+</div>

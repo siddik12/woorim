@@ -1,0 +1,70 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/admin/fixed_asset.js"></script>
+
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/StudentManagement/common.js"></script>
+
+
+        <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+</tr>
+    <td width="834" >
+      <table width="850"  border="0" cellpadding="0" cellspacing="0" >
+
+        <tr>
+          <td></td>
+          <td>&nbsp;</td>
+          <td ></td>
+          <td style="color:#CC0066; font-weight:bold">&nbsp;</td>
+        </tr>
+        <tr>
+
+          <td width="14"></td>
+
+           <td width="140">
+
+		   <input type="text" id="searchq" name="searchq" value="Search more..." size="20" class="textBox" 
+			 onfocus="javascript:inputBoxLabelHide(this, 'Search more...');this.className='onFocus'" 
+			 onBlur="javascript:inputBoxLabelShow(this, 'Search more...');this.className='onBlur'"
+		   onKeyUp="javascript:ajaxCall('fixed_asset','ajaxSearchSupplier&searchq='+this.value,'SupplierInfoDiv');" /></td>
+
+          <td width="387" style="color:#004080; font-size:16px; font-weight:bold" align="center" >Fixed Assets Type </td>
+          <td width="309" style="color:#CC0066; font-weight:bold"><?php echo getRequest('Dmsg');?>  <?php echo $msg; ?></td>
+        </tr>
+      </table> </td>
+
+  </tr>
+
+  <tr>
+
+    <td><div id="SupplierInfoDiv"  class="layoutBox" style="overflow: auto; width:500px; height:300px;">
+
+    <?php echo $SalesmanInfoTab ?></div></td>
+  </tr>
+
+  <tr>
+    <td valign="bottom">&nbsp;</td>
+  </tr>
+  <tr>
+
+    <td valign="bottom">
+
+  <form id="salesman_form" name="salesman_form" method="post" action="?app=fixed_asset" onSubmit="return validate_form();">
+    <table width="200" border="0" cellpadding="5" cellspacing="6" class="layoutBox">
+      <tr>
+        <td nowrap="nowrap">Fixed Asset Type  :</td>
+        <td colspan="5"><input name="asset_name" id="asset_name" type="text" size="35" class="textBox" /></td>
+        </tr>
+      <tr>
+        <td><input type="hidden" name="fixed_asset_id" id="fixed_asset_id" />
+        <td><input type="hidden" name="mode" id="mode" value="add" /></td>
+        <td align="right"><input name="submit" type="submit" value="Save" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"/></td>
+        <td><input type="reset" name="reseat" value="Clear" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" /></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+  </form>  </td>
+  </tr>
+
+  <tr><td colspan="3">
+
+  </td></tr>
+</table>         

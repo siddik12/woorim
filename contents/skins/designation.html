@@ -1,0 +1,93 @@
+<script language="JavaScript" src="<?=REL_CONTENT_DIR?>/js/StudentManagement/designation.js"></script>
+<script language="JavaScript" src="<?=REL_CONTENT_DIR?>/js/common.js"></script>
+<style type="text/css">
+<!--
+.style6 {color: #FFCCCC}
+.style7 {
+	color: #000000;
+	font-weight: bold;
+}
+.style8 {color: #FFFFFF}
+-->
+</style>
+
+        <table width="515" align="center" class="tableStyleClass" cellpadding="0" cellspacing="0" >
+    <tr bgcolor="#666666" class="navlinks">
+      <td height="10" colspan="6" bgcolor="#999999"></td>
+    </tr>
+    <tr bgcolor="#666666" class="navlinks">
+    <td width="1" height="38" bgcolor="#999999">&nbsp;</td>
+    <td colspan="4" bgcolor="#999999"  >
+	<form id="form2" name="form2" method="post" action="index.php?app=designation">
+      <table width="847" height="36" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" class="radius2">
+        <tr>
+          <td width="112" class="navlinks"><div align="right">Search:</div></td>
+           <td width="364">
+		   <input type="text" id="searchq" name="searchq" value="Enter here" size="60"
+            onfocus="javascript:reqInput();" onblur="javascript:Idle();"
+            style="color:#999999;-moz-border-radius: 5px; -webkit-border-radius: 5px; border:2px solid; border-color:#00CCFF;"                   onkeyup="javascript:searchData()" /> </td>
+          <td width="371" style="color:#FFFFFF">Designation Information</td>
+        </tr>
+      </table>
+      </form>    </td>
+    <td width="1" bgcolor="#999999" height="1"></td>
+  </tr>
+  <tr bgcolor="#666666" class="navlinks">
+    <td height="23" bgcolor="#999999"><span class="style6"></span></td>
+    <td nowrap="nowrap" bgcolor="#666666" class="navlinks" >Id</td>
+    <td  align="center"  class="navlinks">Designation</td>
+    <td colspan=2 class="navlinks" align="center">Actions</td>
+    <td bgcolor="#999999">&nbsp;</td>
+  </tr>
+  <tr bgcolor="#666666">
+    <td height="35" bgcolor="#999999"><span class="style6"></span></td>
+    <td colspan="4" bgcolor="#FFFFFF"><div id="html" style="overflow: auto; width:845; height:190;">
+    <? echo $html ?></div></td>
+    <td bgcolor="#999999">&nbsp;</td>
+  </tr>
+  
+  <tr bgcolor="#666666">
+    <td bgcolor="#999999"><span class="style6"></span></td>
+    <td colspan="4" valign="bottom" bgcolor="#999999"><div id="entry">
+  <form id="form1" name="contact_form" method="post" action="index.php?app=designation" onsubmit="return validate_form();">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" class="radius2" >
+    <tr>
+      <td colspan="6">&nbsp;</td>
+      </tr>
+    <tr>
+      <td width="3%" class="navlinks">&nbsp;</td>
+      <td width="14%" nowrap="nowrap" class="navlinks">Designation</td>
+      <td colspan="3">
+        <label>
+          <input name="designation" type="text" id="designation" size="50"
+		  style="-moz-border-radius: 5px; -webkit-border-radius: 5px; border:2px solid; border-color:#00CCFF;" />
+          </label>    </td>
+    </tr>
+       <tr>
+      <td width="3%">&nbsp;</td>
+      <td width="14%"><input type="hidden" name="mode" id="mode" value="add">
+        <input name="desig_id" type="hidden" id="desig_id" /></td>
+      <td colspan="3">&nbsp;</td>
+      <td width="2%">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td width="5%" align="left">
+        <input type="submit" name="submit" value="Save" />      </td>
+      <td width="71%" align="left">
+        <input type="reset" name="Reset" value="Clear" />      </td>
+      <td width="5%" class="navlinks">&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+  </form>
+      </div></td>
+    <td bgcolor="#999999">&nbsp;</td>
+  </tr>
+  <tr><td colspan="6">
+  <table width="100%"><tr><td style=" color:#CC3300;"><span class="style7">Status </span>:<? echo $msg; ?></td>
+  <td></td></tr></table>
+  
+  </td></tr>
+</table>

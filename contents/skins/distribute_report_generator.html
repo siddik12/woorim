@@ -1,0 +1,78 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/InventorySystem/inv_report.js"></script>
+
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/StudentManagement/common.js"></script>
+
+       
+<table  style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+<tr ><td colspan="2"></tr>
+    <tr>
+      <td valign="top" style="color:#CC0066; font-weight:bold">&nbsp;</td>
+      <td width="517" valign="top" >&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2" valign="top" >
+	    <form id="supplier_form" name="supplier_form" method="post" action="?app=inv_report_generator_head&cmd=DistributeReport"
+	   onSubmit=" if(indvReport()){ return true;}else{ return false;}" target="_blank" >
+	      
+	      <table width="462" border="0" align="center" cellpadding="5" cellspacing="6" class="layoutBox" id="dailysales" >
+	        <tr>
+	          <td colspan="2" align="left"><div align="center"  class="btnClass" >Item Distribute Report</div>
+                <hr /><br /></td>
+            </tr>
+	        <!--<tr>
+	          <td nowrap="nowrap">Damage Type : </td>
+	          <td colspan="3" nowrap="nowrap"><select name="stock_out_type" id="stock_out_type" class="textBox" style="width:150px;">
+                <option value="">Select damage type</option>
+                <option value="1">Retail Sales</option>
+                <option value="2">Whole sales</option>
+              </select></td>
+            </tr>-->
+	        <tr>
+	          <td width="70" nowrap="nowrap">From date :</td>
+            <td nowrap="nowrap"><input name="slfrom2" type="text" class="textBox" id="slfrom2" size="15" /><img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('slfrom2'));return false;" style="cursor:pointer;" title="calendar" /></td>
+            </tr>
+	        <tr>
+	          <td valign="top" nowrap="nowrap">To  date: </td>
+	          <td nowrap="nowrap"><input name="slto2" type="text" class="textBox" id="slto2" size="15" /><img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('slto2'));return false;" style="cursor:pointer;" title="calendar" /></td>
+            </tr>
+			<tr>
+	          <td valign="top" nowrap="nowrap">Branch : </td>
+	          <td nowrap="nowrap"><?php echo $Branch; ?></td>
+            </tr>	        <tr>
+	          <td valign="top" nowrap="nowrap">Category : </td>
+	          <td nowrap="nowrap"><?php echo $ItmCategory4Model; ?></td>
+            </tr>
+	        
+	        <tr>
+	          <td valign="top" nowrap="nowrap">Model : </td>
+	          <td nowrap="nowrap"><div id="catModel" style="height:150px; overflow:auto; border:solid 1px #CCCCCC">
+		  <?php echo $SelectModel; ?>
+		  </div></td>
+            </tr>
+	        <tr>
+	          <td valign="top" nowrap="nowrap">&nbsp;</td>
+            <td nowrap="nowrap"><input name="slssubmit" type="submit" value="Show" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"/></td>
+            </tr>
+	        <tr>
+	          <td colspan="2" align="center" nowrap="nowrap"><label id="sls_name_lbl"></label></td>
+            </tr>
+          </table>
+      </form></td>
+    </tr>
+
+  <tr>
+
+    <td colspan="2">&nbsp;</td>
+  </tr>
+
+  <tr>
+
+    <td colspan="2"> </td>
+  </tr>
+
+  <tr><td colspan="4">
+
+  </td></tr>
+</table>
+                
+<?php  dateIFrame(REL_EXT_DIR); ?>

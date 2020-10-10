@@ -1,0 +1,187 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/common.js"></script>
+
+<link rel="stylesheet" href="<?php echo REL_CONTENT_DIR?>/css/common/common.css" type="text/css">
+
+<link rel="stylesheet" href="<?php echo REL_CONTENT_DIR?>/css/admin/validationEngine.jquery.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+
+<link rel="stylesheet" href="<?php echo REL_CONTENT_DIR?>/css/admin/applicant_signup.css" type="text/css">
+
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/applicant/applicant_signup.js"></script>
+
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/applicant/jquery-1.3.2.min.js" type="text/javascript"></script>
+
+
+
+<script type="text/javascript">
+
+var J = jQuery.noConflict();
+
+</script>
+
+
+
+<script language="JavaScript"  src="<?php echo REL_CONTENT_DIR?>/js/applicant/jquery.validationEngine.js"></script>
+
+<script language="javascript1.3">
+
+  J("[class^=validate]").validationEngine({
+
+  inlineValidation: false,
+
+  success :  false,
+
+  failure : function() { callFailFunction()  }
+
+  })
+
+</script>
+
+
+
+<form name="frmjobseeker_signup" method="post" action="?app=change_pass">
+
+     <!--div align="center"-->
+
+      <table style="width:1200px; background-color:#FDFDFD; border: #EEEEEE solid 1px;" border="0"   align="center" cellpadding="3" cellspacing="0" >
+
+        <tr>
+
+          <td valign="top">
+
+
+
+          <div align="right"><label style="color: rgb(0, 0, 153); size:9px; ">[</label>
+
+          <font color="#FF0000">* fields are compulsary.</font>
+
+          <label style="color: rgb(0, 0, 153); size:9px;" >]</label></div></td>
+
+        </tr>
+
+        <!--tr>
+
+          <td colspan="3">
+
+		  <font color="#FF0000"><div style="display:none" id="status_msg" class="message"><?php if($message) echo $message; ?></div></font>
+
+		  </td>
+
+        </tr-->
+
+        <tr>
+
+          <td >
+
+							<table width="57%" height="158" align="center"cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="border: #F2F9FF solid 1px;-moz-border-radius: 5px 5px 5px 5px;-webkit-border-radius: 5px 5px 5px 5px;">
+
+							<tr bgcolor="#F2F9FF" height="10" >
+
+          <td height="19" colspan="2"  style="color:#000099; size:10px; font-weight:bold;">Change PAssword</td>
+
+          <td width="42%" nowrap  class="allFieldName"><font  style=" color:#009933; font-size:12px; " >
+
+            <div  class="message"><?php echo $msg; ?></div></font></td>
+
+							</tr>
+
+							        
+
+        
+
+        <tr>
+
+          <td width="24%" style="border-right:1px solid #F2F9FF;padding:2px;border-bottom:1px solid #F2F9FF;">
+
+              <div class="allFieldName">
+
+                  Current Password <span class="style1">*</span></div>            </td>
+
+          <td colspan="2" style="padding:2px;border-bottom:1px solid #F2F9FF;" >
+
+		  <input type="password" name="current_password" id="current_password" size="38" class="validate[required]" ></td>
+
+        </tr>
+
+        <tr>
+
+          <td style="border-right:1px solid #F2F9FF;padding:2px;border-bottom:1px solid #F2F9FF;">
+
+                  <div class="allFieldName">New Password <span class="style1">*</span></div>            </td>
+
+          <td width="34%" class="allFieldName" style="padding:2px;border-bottom:1px solid #F2F9FF;">
+
+		  <input name="new_password" type="password" class="validate[required]" id="new_password"   onKeyUp="passwordStrength(this.value)"  size="38" maxlength="12" >		  </td>
+
+          <td class="allFieldName" style="padding:2px;border-bottom:1px solid #F2F9FF;"><div id="passwordDescription"></div><label id="passwordStrength" class="strength0"></label></td>
+
+        </tr>
+
+        <tr>
+
+          <td nowrap style="border-right:1px solid #F2F9FF;padding:2px;border-bottom:1px solid #F2F9FF;"><div class="allFieldName"> Confirm New Password <span class="style1">*</span></div></td>
+
+          <td colspan="2" class="allFieldName" style="padding:2px;border-bottom:1px solid #F2F9FF;">
+
+		  <input type="password" name="conf_password" id="conf_password"  size="38" class="validate[required,confirm[new_password],length[6,12]]"/></td>
+
+        </tr>
+
+		  </table>		  </td>
+
+        </tr>
+
+        <!--tr>
+
+          <td height="17" colspan="3">&nbsp;</td>
+
+        </tr-->
+
+        <td></td>
+
+        </tr>
+
+        <tr>
+
+          <td ></td>
+
+        <tr>
+
+          <td align="center"><input class="button" type="submit" name="submit" value="Submit"></td>
+
+        </tr>
+
+        <tr>
+
+          <td align="center">&nbsp;</td>
+
+        </tr>
+
+        <tr>
+
+          <td align="center">&nbsp;</td>
+
+        </tr>
+
+        <tr>
+
+          <td align="center">&nbsp;</td>
+
+        </tr>
+
+        <tr>
+
+          <td align="center">&nbsp;</td>
+
+        </tr>
+
+        <tr>
+
+          <td align="center">&nbsp;</td>
+
+        </tr>
+
+  </table>
+
+  <!--/div-->
+
+</form>

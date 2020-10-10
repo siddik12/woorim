@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="<?php echo REL_CONTENT_DIR;?>/css/common/common.css" type="text/css">
+
+</head>
+<body>
+<table  style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+
+		  <tr>
+		    <td colspan="6" valign="top" bgcolor="#F1F2F7"><table width="100%" height="531"  border="0" cellpadding="4" cellspacing="4" bgcolor="#F0F0F7">
+             
+          
+              <tr>
+                <td width="32%" height="163" align="center" valign="top" style="background-color:#EAEAEA;"></td>
+                <td width="39%" align="center" valign="middle"  style="background-color:#EAEAEA;"><form action="?app=userhome&cmd=IMEISearch" method="post">
+				<fieldset>
+				<legend><strong>Find IMEI (Received) </strong></legend>
+				<input name="item_size" type="text" class="textBox" id="item_size" maxlength="15"  size="15"/>
+				<script type="text/javascript">
+					document.getElementById('item_size').focus()
+					</script>
+				<input name="submit" type="submit" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'" value="Find"/>
+				<br></fieldset>
+				</form></td>
+                <td width="29%" align="center" bgcolor="#EAEAEA">&nbsp;</td>
+              </tr>
+              <tr>
+                <td style="background-color:#EAEAEA;" valign="top" align="center"></td>
+                <td valign="top"  style="background-color:#EAEAEA;">
+				<strong>IMEI  : </strong><?php echo $item_size; ?><br><br>
+				<strong>Brand  : </strong><?php echo  $main_item_category_name; ?><br><br>
+				<strong>Model  : </strong><?php echo  $sub_item_category_name; ?><br><br>
+				<strong>Cost Price  : </strong><?php echo  $cost_price; ?><br><br>
+				<strong>Retail price  : </strong><?php echo  $sales_price; ?><br><br>
+				<strong>Whole Sales Price  : </strong><?php echo  $whole_sales_price; ?><br><br>
+				<strong>Supplier  : </strong><?php echo  $company_name; ?><br><br>
+				<strong>Received Date  : </strong><?php echo  $receive_date; ?><br><br>
+				<strong>Challan  : </strong><?php echo  $challan_no; ?><br><br>
+				<strong>Quantity  : </strong><?php echo  $quantity; ?><br></td>
+                <td bgcolor="#EAEAEA" align="center"><a href="#" style="text-decoration:none"></a></td>
+              </tr>
+
+  </table></td></tr>
+		</table>

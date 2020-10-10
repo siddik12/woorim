@@ -1,0 +1,152 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR;?>/js/InventorySystem/other_supplier_acc.js"></script>
+
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR;?>/js/StudentManagement/common.js"></script>
+<script language="JavaScript" type="text/JavaScript">
+//go another
+function goSignUp(place)
+{
+document.location="index.php?app="+place;
+}
+
+function clearSelected(){
+    var elements = document.getElementById("bankid").options;
+
+    for(var i = 0; i < elements.length; i++){
+      elements[i].selected = false;
+    }
+  }
+
+</script>
+
+<style type="text/css">
+<!--
+.style1 {
+	font-size: 16px;
+	color: #004080;
+}
+-->
+</style>
+<style>
+div.pagination {
+	padding: 3px;
+	margin: 3px;
+}
+
+div.pagination a {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #AAAADD;
+	
+	text-decoration: none; /* no underline */
+	color: #000099;
+}
+div.pagination a:hover, div.pagination a:active {
+	border: 1px solid #000099;
+
+	color: #000;
+}
+div.pagination span.current {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+		border: 1px solid #000099;
+		
+		font-weight: bold;
+		background-color: #000099;
+		color: #FFF;
+	}
+	div.pagination span.disabled {
+		padding: 2px 5px 2px 5px;
+		margin: 2px;
+		border: 1px solid #EEE;
+	
+		color: #DDD;
+	}
+	
+</style>
+
+        <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+<tr><td colspan="3"></tr>
+    <tr>
+      <td >&nbsp;</td>
+      <td align="center" >&nbsp;</td>
+      <td >&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="180" ><input type="text" id="searchq" name="searchq" value="Search more..." size="20" class="textBox" 
+			 onfocus="javascript:inputBoxLabelHide(this, 'Search more...');this.className='onFocus'" 
+			 onblur="javascript:inputBoxLabelShow(this, 'Search more...');this.className='onBlur'"
+		   onkeyup="javascript:ajaxCall('other_supplier_acc','ajaxSearchData&searchq='+this.value,'chkInfo');" /></td>
+      <td width="295" align="center" nowrap="nowrap" ><span class="style1">Others Supplier Credit Amount Entry  </span></td>
+      <td width="725" ><span style="color:#CC0066; font-weight:bold"><?php echo getRequest('Dmsg');?><?php echo $msg; ?></span></td>
+    </tr>
+    <tr><td colspan="3" >
+      <table width="907"  border="0" cellpadding="0" cellspacing="0" >
+
+        <tr>
+
+          <td><span style="color:#004080; font-size:16px; font-weight:bold"><span style="font-family:Verdana; font-size:11px; font-weight:bold; color:#DD0000">
+             <?php if(getRequest('page')){echo 'Showing &nbsp;'.$res1.' - '.$res2.' of '.$total_pages;}else{ echo 'Showing &nbsp; 0 - 29 of '.$total_pages; } ?>
+          </span></span></td>
+
+          <td width="245" style="color:#004080; font-size:16px; font-weight:bold" align="center">&nbsp;</td>
+          <td width="470" align="right" style="color:#CC0066; font-weight:bold"><?php echo $pagination; ?></td>
+        </tr>
+      </table> </td>
+  </tr>
+
+  <tr>
+
+    <td colspan="3"><div id="chkInfo" class="layoutBox" style="overflow: auto; width:900px; height:350px;">
+
+    <?php echo $DataFetch; ?></div></td>
+  </tr>
+  <tr>
+
+    <td colspan="3" valign="bottom">
+		<form action="?app=other_supplier_acc&cmd=SavePayment" method="post" onsubmit="return validate_4Enterchk()">
+		<table width="898" border="0" cellpadding="5" cellspacing="6" class="layoutBox">
+      <tr>
+        <td height="39" align="right" nowrap="nowrap">Supplier : </td>
+        <td><?php echo $SuplierList; ?></td>
+        <td align="right" nowrap="nowrap">Credit Amount : </td>
+        <td width="103">
+		<label>
+		<input name="paid_amount" id="paid_amount" type="text" size="15" class="textBox" onfocus="this.className='onFocus'" onblur="this.className='onBlur'"/>
+		</label></td>
+        <td width="80" nowrap="nowrap">Pay Mode : </td>
+        <td width="319"><label>
+          <input name="pay_mode" id="pay_mode" type="radio" value="Cash" />
+          Cash</label>
+          <label>
+          <input name="pay_mode" id="pay_mode" type="radio" value="Bank" />
+          Bank</label>
+		  <label>
+          <input name="pay_mode" id="pay_mode" type="radio" value="bKash" />
+          bKash</label></td>
+      </tr>
+      <tr>
+        <td width="78" align="right" nowrap="nowrap">Particulars : </td>
+        <td colspan="3"><input name="particulars" id="particulars" type="text" size="45" class="textBox" onfocus="this.className='onFocus'" onblur="this.className='onBlur'"/></td>
+        <td nowrap="nowrap">Issue date  : </td>
+        <td nowrap="nowrap"><input name="transaction_date" id="transaction_date" type="text" size="10" class="textBox" onfocus="this.className='onFocus'" onblur="this.className='onBlur'"/>
+          <img src="<?php echo IMAGE_DIR;?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onclick="gfPop.fPopCalendar(document.getElementById('transaction_date'));return false;" style="cursor:pointer;" title="calendar" /></td>
+      </tr>
+      <tr>
+        <td><input type="hidden" name="other_acc_id" id="other_acc_id" size="2" /></td>
+        <td width="137" align="right" nowrap="nowrap">&nbsp;</td>
+        <td width="79" align="right"><input name="button2" type="submit" class="btnClass"  onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" value="Save"/></td>
+        <td colspan="3"><input name="button" type="submit" class="btnClass" id="button" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" value="Clear"/></td>
+        </tr>
+    </table>
+		
+		</form>
+
+      </td>
+  </tr>
+
+  <tr><td colspan="5">
+
+  </td></tr>
+</table>
+
+   <?php  dateIFrame(REL_EXT_DIR); ?>             

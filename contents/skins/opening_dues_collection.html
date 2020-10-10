@@ -1,0 +1,158 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR;?>/js/InventorySystem/opening_dues_collection.js"></script>
+
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR;?>/js/StudentManagement/common.js"></script>
+<script language="JavaScript" type="text/JavaScript">
+//go another
+function goSignUp(place)
+{
+document.location="index.php?app="+place;
+}
+
+//-->
+</script>
+
+<script language="JavaScript" type="text/JavaScript">
+
+function clearSelected(){
+    var elements = document.getElementById("bankid").options;
+
+    for(var i = 0; i < elements.length; i++){
+      elements[i].selected = false;
+    }
+  }
+
+</script>
+
+
+<style type="text/css">
+<!--
+.style1 {
+	font-size: 16px;
+	color: #004080;
+}
+-->
+</style>
+<style>
+div.pagination {
+	padding: 3px;
+	margin: 3px;
+}
+
+div.pagination a {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #AAAADD;
+	
+	text-decoration: none; /* no underline */
+	color: #000099;
+}
+div.pagination a:hover, div.pagination a:active {
+	border: 1px solid #000099;
+
+	color: #000;
+}
+div.pagination span.current {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+		border: 1px solid #000099;
+		
+		font-weight: bold;
+		background-color: #000099;
+		color: #FFF;
+	}
+	div.pagination span.disabled {
+		padding: 2px 5px 2px 5px;
+		margin: 2px;
+		border: 1px solid #EEE;
+	
+		color: #DDD;
+	}
+	
+</style>
+
+        <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+<tr><td colspan="3"></tr>
+    <tr>
+      <td >&nbsp;</td>
+      <td align="center" >&nbsp;</td>
+      <td >&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3" ><form action="?app=accounts_whole&cmd=InserOpeningDues" method="post" name="collection_entry" id="collection_entry" onsubmit="return validate_4BillEntry();">
+<table width="898" border="0" cellpadding="5" cellspacing="6" class="layoutBox">
+      <tr>
+        <td width="89" nowrap="nowrap"><strong>Customer :</strong></td>
+        <td colspan="3" nowrap="nowrap"><?php echo $SelectCustomer; ?></td>
+      </tr>
+      <tr>
+        <td nowrap="nowrap"><strong>Amount : </strong></td>
+        <td width="141" nowrap="nowrap"><input name="dr_amount" id="dr_amount" type="text" size="15" class="textBox" onfocus="this.className='onFocus'" onblur="this.className='onBlur'"/></td>
+        <td width="73" align="right">&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td nowrap="nowrap"><strong>Dues Date    : </strong></td>
+        <td nowrap="nowrap"><input name="paid_date" id="paid_date" type="text" size="15" class="textBox" onfocus="this.className='onFocus'" onblur="this.className='onBlur'"/>
+          <img src="<?php echo IMAGE_DIR;?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onclick="gfPop.fPopCalendar(document.getElementById('paid_date'));return false;" style="cursor:pointer;" title="calendar" /></td>
+        <td align="right">&nbsp;</td>
+        <td>&nbsp;</td>
+        </tr>
+      <tr>
+        <td><strong>Particulars : </strong></td>
+        <td nowrap="nowrap"><input name="particulars" type="text" id="particulars"  class="textBox" onfocus="this.className='onFocus'" onblur="this.className='onBlur'"/></td>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td><input type="hidden" name="whole_sales_accid" id="whole_sales_accid" size="2" />
+          <input type="hidden" name="mode" id="mode" value="add" /></td>
+        <td colspan="3" nowrap="nowrap"><input name="submit" type="submit" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" value="Save"/></td>
+        </tr>
+    </table>
+
+</form></td>
+      </tr>
+    <tr>
+      <td >&nbsp;</td>
+      <td align="center" >&nbsp;</td>
+      <td >&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="180" ><!--<input type="text" id="searchq" name="searchq" value="Search more..." size="20" class="textBox" 
+			 onfocus="javascript:inputBoxLabelHide(this, 'Search more...');this.className='onFocus'" 
+			 onblur="javascript:inputBoxLabelShow(this, 'Search more...');this.className='onBlur'"
+		   onkeyup="javascript:ajaxCall('accounts_whole','ajaxSearchCollection&searchq='+this.value,'collection');" />--></td>
+      <td width="295" align="center" ><span class="style1">Opening Dues</span></td>
+      <td width="725" ><span style="color:#CC0066; font-weight:bold"><?php echo getRequest('msg');?><?php echo $msg; ?></span></td>
+    </tr>
+    <tr><td colspan="3" >
+      <table width="907"  border="0" cellpadding="0" cellspacing="0" >
+
+        <tr>
+
+          <td><span style="color:#004080; font-size:16px; font-weight:bold"><span style="font-family:Verdana; font-size:11px; font-weight:bold; color:#DD0000">
+             <?php if(getRequest('page')){echo 'Showing &nbsp;'.$res1.' - '.$res2.' of '.$total_pages;}else{ echo 'Showing &nbsp; 0 - 29 of '.$total_pages; } ?>
+          </span></span></td>
+
+          <td width="245" style="color:#004080; font-size:16px; font-weight:bold" align="center">&nbsp;</td>
+          <td width="470" align="right" style="color:#CC0066; font-weight:bold"><?php echo $pagination; ?></td>
+        </tr>
+      </table> </td>
+  </tr>
+
+  <tr>
+
+    <td colspan="3"><div id="collection"  class="layoutBox" style="overflow: auto; width:900px; height:350px;">
+
+    <?php echo $Collection; ?></div></td>
+  </tr>
+  <tr>
+
+    <td colspan="3" valign="bottom">&nbsp; </td>
+  </tr>
+
+  <tr><td colspan="5">
+
+  </td></tr>
+</table>
+
+   <?php  dateIFrame(REL_EXT_DIR); ?>             

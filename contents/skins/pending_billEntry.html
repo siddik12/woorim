@@ -1,0 +1,92 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/InventorySystem/pending_bill.js"></script>
+
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/StudentManagement/common.js"></script>
+
+<script language="JavaScript" type="text/JavaScript">
+//go another
+function goSignUp(place)
+{
+document.location="index.php?app="+place;
+}
+
+//-->
+</script>
+
+        <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+</tr>
+    <td width="708" >
+      <table width="989"  border="0" cellpadding="0" cellspacing="0" >
+
+        <tr>
+          <td></td>
+          <td>&nbsp;</td>
+          <td style="color:#004080; font-size:16px; font-weight:bold" align="center">&nbsp;</td>
+          <td style="color:#CC0066; font-weight:bold">&nbsp;</td>
+        </tr>
+        <tr>
+
+          <td width="11"></td>
+
+           <td width="180">
+
+		   <input type="text" id="searchq" name="searchq" value="Search more..." size="30" class="textBox" 
+			 onfocus="javascript:inputBoxLabelHide(this, 'Search more...');this.className='onFocus'" 
+			 onBlur="javascript:inputBoxLabelShow(this, 'Search more...');this.className='onBlur'"
+		   onKeyUp="javascript:ajaxCall('inv_item','ajaxSearchItemType&searchq='+this.value,'chkInfo');" /></td>
+
+          <td width="488" style="color:#004080; font-size:16px; font-weight:bold" align="center">Pending Bill Entry</td>
+          <td width="310" style="color:#CC0066; font-weight:bold"><?php echo getRequest('Dmsg');?><?php echo getRequest('msg'); ?>          </td>
+        </tr>
+      </table> </td>
+
+  </tr>
+
+  <tr>
+
+    <td><div id="billInfo"  class="layoutBox" style="overflow: auto; width:1000px; height:350px;">
+
+    <?php echo $Bill ?></div></td>
+  </tr>
+
+  <tr>
+    <td valign="bottom">&nbsp;</td>
+  </tr>
+  <tr>
+
+    <td valign="bottom">
+
+
+    <table width="952" border="0" cellpadding="5" cellspacing="6" class="layoutBox">
+      <tr>
+        <td width="65" align="right" nowrap="nowrap">Bill Type  : </td>
+        <td align="right"><?php echo $billtype; ?></td>
+        <td align="right">Month : </td>
+        <td><?php echo $Monthtype; ?></td>
+        <td align="right" nowrap="nowrap">Amount : </td>
+        <td width="90" align="right"><input name="bill_amount" id="bill_amount" type="text" size="15" class="textBox" onfocus="this.className='onFocus'" onblur="this.className='onBlur'"/></td>
+        <td width="88" align="right" nowrap="nowrap">Submit date  : </td>
+        <td width="170" align="left" nowrap="nowrap"><input name="bill_isuu_date" id="bill_isuu_date" type="text" size="15" class="textBox" onfocus="this.className='onFocus'" onblur="this.className='onBlur'"/>
+          <img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20"
+		  onClick="gfPop.fPopCalendar(document.getElementById('bill_isuu_date'));return false;" style="cursor:pointer;" title="calendar" /></td>
+      </tr>
+      <tr>
+        <td colspan="8"><label id="typename"></label></td>
+        </tr>
+      <tr>
+        <td><input name="mode" type="hidden" id="mode" value="add" size="5"  /></td>
+        <td width="78" align="right" nowrap="nowrap">&nbsp;</td>
+        <td width="70" align="right" nowrap="nowrap">&nbsp;</td>
+        <td width="87" align="right" nowrap="nowrap">&nbsp;</td>
+        <td width="59" align="right"><input name="button2" type="button" class="btnClass" onclick="javascript:if(validate_4BillEntry()){ajaxCall4BillEntry();}" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" value="Save"/></td>
+        <td colspan="3"><input name="button" type="button" class="btnClass" id="button" onclick="goSignUp('inv_supplierinfo')" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" value="Clear"/>
+          <input type="hidden" name="pending_id2" id="pending_id2" /></td>
+        </tr>
+    </table>  </td>
+  </tr>
+
+  <tr><td colspan="3">
+
+  </td></tr>
+</table>
+
+   <?php  dateIFrame(REL_EXT_DIR); ?>             

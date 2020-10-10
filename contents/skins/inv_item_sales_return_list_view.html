@@ -1,0 +1,85 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/InventorySystem/inv_item_sales_return.js"></script>
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/StudentManagement/common.js"></script>
+
+
+<style>
+div.pagination {
+	padding: 3px;
+	margin: 3px;
+}
+
+div.pagination a {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #AAAADD;
+	
+	text-decoration: none; /* no underline */
+	color: #000099;
+}
+div.pagination a:hover, div.pagination a:active {
+	border: 1px solid #000099;
+
+	color: #000;
+}
+div.pagination span.current {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+		border: 1px solid #000099;
+		
+		font-weight: bold;
+		background-color: #000099;
+		color: #FFF;
+	}
+	div.pagination span.disabled {
+		padding: 2px 5px 2px 5px;
+		margin: 2px;
+		border: 1px solid #EEE;
+	
+		color: #DDD;
+	}
+	
+</style>
+
+<script language="javascript" type="text/javascript">
+function removeSpaces(string) {
+ return string.trim();
+}
+
+function formValidate(){
+
+ if (document.saleList.person_id.value=='' || document.saleList.customer_id.value=='' || document.saleList.sub_item_category_id.value==''){
+		alert("Please select all options");
+		return false;
+	}else {
+	return true;
+	}
+}
+
+</script>
+        <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+
+  <tr>
+    <td align="center" style="color:#FF3300; font-size:16px; font-weight:bold">Item  Sales Return Option </td>
+    </tr>
+  <tr><td width="718" valign="top"><table width="100%" height="465" border="0" cellpadding="0" cellspacing="6" >
+      
+
+      <tr>
+
+        
+        <td  valign="top"><table width="100%" border="0" class="layoutBox">
+           <tr>
+            <td width="402" nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td align="right" nowrap="nowrap">&nbsp;</td>
+            </tr>
+
+          <tr>
+            <td colspan="2" nowrap="nowrap">
+			<div id="ItemTypeDiv"  class="layoutBox" style="overflow: auto; width:97%; height:400px;"><?php echo $ItemIssue ?></div></td>
+            </tr>
+        </table>          </td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+<?php  dateIFrame(REL_EXT_DIR); ?> 

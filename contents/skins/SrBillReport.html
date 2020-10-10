@@ -1,0 +1,136 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR;?>/js/InventorySystem/inv_report.js"></script>
+
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR;?>/js/StudentManagement/common.js"></script>
+<link rel="stylesheet" href="<?php echo REL_CONTENT_DIR;?>/css/StudentManagement/common.css" type="text/css">
+
+
+      <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+<tr ><td colspan="3"></tr>
+    <tr>
+      <td valign="top" style="color:#CC0066; font-weight:bold">&nbsp;</td>
+      <td width="443"  valign="top" ></td>
+      <td width="485"  valign="top" >&nbsp;</td>
+    </tr>
+    <tr><td width="272" valign="top" ><table width="268" border="0" cellpadding="5" cellspacing="6" class="layoutBox">
+	<tr>
+        <td valign="top"><input name="button2" type="button" value="DSR Wise Full Transaction" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" onclick="showElement('mSRINd');hideElement('dSRInd');hideElement('dSRgrp');" style="width:230px;"/></td>
+      </tr>
+	  <tr>
+        <td valign="top"><input name="button2" type="button" value="Daily DSR Transaction(group)" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" onclick="showElement('dSRgrp');hideElement('dSRInd');hideElement('mSRINd');" style="width:230px;"/></td>
+      </tr>      
+ 	  <tr>
+        <td valign="top">
+			<a href="?app=SrBillReport&cmd=DSRCurrentDuesSkin">
+<input name="button1" type="button" value="Current Dues(DSR Wise)" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" style="width:230px;"/>
+        </a>
+		<!--<input name="button2" type="button" value="Current Dues(DSR Wise)" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" onclick="showElement('dSRInd');hideElement('mSRINd');hideElement('dSRgrp');" style="width:230px;"/>--></td>
+      </tr>
+     
+     </table></td>
+
+      <td align="right" valign="top" >
+	    <form name="rec" id="rec" method="post" action="?app=SrBillReport&cmd=FullTRansactionShow">
+	      <table width="86%" border="0" cellpadding="5" cellspacing="6" class="layoutBox" id="mSRINd" style="visibility:hidden">
+	        <tr>
+	          <td colspan="10" align="center" nowrap="nowrap"><div align="right"  class="btnClass" onclick="hideElement('mSRINd')">  DSR Wise Full Transaction &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X</div>
+                <hr /><br /></td>
+            </tr>
+	        <tr>
+	          <td width="27%" valign="top" nowrap="nowrap">Salesman : </td>
+            <td colspan="7" nowrap="nowrap"><?php echo $slsman; ?></td>
+            <td width="10%" valign="top" nowrap="nowrap">&nbsp;</td>
+            <td width="11%" nowrap="nowrap">&nbsp;</td>
+          </tr>
+	        <tr>
+	          <td valign="top" nowrap="nowrap">From Date : </td>
+	          <td colspan="7" nowrap="nowrap"><input name="from_full" type="text" class="textBox" id="from_full" size="15" />
+              <img src="<?php echo IMAGE_DIR;?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onclick="gfPop.fPopCalendar(document.getElementById('from_full'));return false;" style="cursor:pointer;" title="calendar" /></td>
+	          <td valign="top" nowrap="nowrap">&nbsp;</td>
+	          <td nowrap="nowrap">&nbsp;</td>
+            </tr>
+	        <tr>
+	          <td valign="top" nowrap="nowrap">To Date : </td>
+	          <td colspan="7" nowrap="nowrap"><input name="to_full" type="text" class="textBox" id="to_full" size="15" />
+              <img src="<?php echo IMAGE_DIR;?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onclick="gfPop.fPopCalendar(document.getElementById('to_full'));return false;" style="cursor:pointer;" title="calendar" /></td>
+	          <td valign="top" nowrap="nowrap">&nbsp;</td>
+	          <td nowrap="nowrap">&nbsp;</td>
+            </tr>
+	        <tr>
+	          <td valign="top" nowrap="nowrap">&nbsp;</td>
+	          <td colspan="7" nowrap="nowrap"><input name="slssubmit" type="submit" value="Show" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"/></td>
+	          <td valign="top" nowrap="nowrap">&nbsp;</td>
+	          <td nowrap="nowrap">&nbsp;</td>
+            </tr>
+	        <tr>
+	          <td colspan="10" align="center" nowrap="nowrap"><label id="sls_name_lbl"></label></td>
+            </tr>
+          </table>
+        </form>
+	  <form name="opn" id="opn" method="post" action="?app=SrBillReport&cmd=DSRCurrentDuesSkin" target="_blank"  >
+	      <table width="408" border="0" cellpadding="5" cellspacing="6" class="layoutBox" id="dSRInd" style="visibility:hidden">
+        <tr>
+          <td colspan="10" align="center" nowrap="nowrap"><div align="right"  class="btnClass" onclick="hideElement('dSRgrp')">DSR Wise Current Dues &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X</div>
+              <hr />
+            <br /></td>
+        </tr>
+        <tr>
+          <td width="76" nowrap="nowrap">Enter date :</td>
+          <td colspan="7" nowrap="nowrap"><input name="receive_datec" type="text" class="textBox" id="receive_datec" size="15" />
+              <img src="<?php echo IMAGE_DIR;?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onclick="gfPop.fPopCalendar(document.getElementById('receive_datec'));return false;" style="cursor:pointer;" title="calendar" /></td>
+          <td width="22" nowrap="nowrap">&nbsp;</td>
+          <td width="27" nowrap="nowrap">&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="10" align="center" nowrap="nowrap"><input name="submit" type="submit" value="Show" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"/></td>
+        </tr>
+        <!--tr>
+          <td nowrap="nowrap">Challan No :</td>
+          <td colspan="7"><input name="challan_no" id="challan_no" type="text" class="textBox"/></td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr-->
+      </table>
+      </form></td>
+      <td align="right" valign="top" ><form name="rec" id="rec" method="post" action="?app=SrBillReport&cmd=DailyTransactionGroup" target="_blank"  >
+	  <table width="408" border="0" cellpadding="5" cellspacing="6" class="layoutBox" id="dSRgrp" style="visibility:hidden">
+        <tr>
+          <td colspan="2" align="center" nowrap="nowrap"><div align="right"  class="btnClass" onclick="hideElement('dSRgrp')">Daily DSR Transaction(group)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X</div>
+              <hr />
+            <br /></td>
+        </tr>
+        <tr>
+          <td width="76" nowrap="nowrap">Enter  Date : </td>
+          <td nowrap="nowrap"><input name="receive_date" type="text" class="textBox" id="receive_date" size="15" />
+              <img src="<?php echo IMAGE_DIR;?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onclick="gfPop.fPopCalendar(document.getElementById('receive_date'));return false;" style="cursor:pointer;" title="calendar" /></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center" nowrap="nowrap"><input name="submit" type="submit" value="Show" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"/></td>
+        </tr>
+        <!--tr>
+          <td nowrap="nowrap">Challan No :</td>
+          <td colspan="7"><input name="challan_no" id="challan_no" type="text" class="textBox"/></td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr-->
+      </table>
+	  </form></td>
+    </tr>
+
+  <tr>
+
+    <td height="148" colspan="3">&nbsp;</td>
+  </tr>
+
+  <tr>
+
+    <td colspan="3"> </td>
+  </tr>
+
+  <tr><td height="2" colspan="5">
+
+  </td>
+  </tr>
+</table>
+
+                
+<?php  dateIFrame(REL_EXT_DIR); ?>

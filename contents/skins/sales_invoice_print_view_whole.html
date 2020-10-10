@@ -1,0 +1,97 @@
+ <script language="javascript">
+function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+</script>
+<!--<body onLoad="printDiv('print_area')">-->
+<body onLoad="printDiv('print_area')">
+<table width="700" align="center" id="print_area" bgcolor="#FFFFFF">
+
+  <tr>
+
+    <td colspan="2"><table width="100%" align="center" id="print_area" bgcolor="#FFFFFF">
+
+  <tr>
+    <td colspan="2" align="center" ><img src="images/<?php echo getFromSession('complogo'); ?>" width="100" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:14px;color:#002953; font-style:normal;">Shop 3017, Savar City Center, Bazar Bus Stand, Savar, Dhaka.</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:14px;color:#002953; font-style:normal;">0176228849</td>
+  </tr>
+ <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:14px;color:#002953; font-style:normal;">emarathossain@gmail.com</td>
+  </tr>
+<!-- <tr>
+   <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;"><?php echo getFromSession('compweb'); ?></td>
+ </tr>
+--> <tr>
+   <td colspan="2" align="center" style="font-weight:bolder;font-size:18px;color:#002953; font-style:oblique;">&nbsp;</td>
+ </tr>
+ <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:18px;color:#002953; font-style:oblique;"><div style="width:150px; border:solid 1px #003399">CASH MEMO</div></td>
+  </tr>
+ <tr>
+   <td colspan="2" align="center" style="font-weight:bolder;font-size:18px;color:#002953; font-style:oblique;">
+   <table width="650" border="0" cellspacing="5" cellpadding="5" style="border:solid 1px #333333">
+     <tr>
+       <td width="16%" nowrap="nowrap">Invoice  No. :</td>
+       <td width="42%"><?php echo  $invoice; ?></td>
+       <td width="42%">Date. : <?php echo _date($sales_date); ?></td>
+     </tr>
+     <tr>
+       <td nowrap="nowrap">SR Name: </td>
+       <td><span style="font-size:18px"><?php echo $person_name; ?></span></td>
+       <td>Customer : <?php echo $store_name; ?></td>
+     </tr>
+     <tr>
+       <td nowrap="nowrap"> Address : </td>
+       <td><?php echo $address; ?></td>
+       <td>Mobile : <?php echo $mobile; ?></td>
+     </tr>
+   </table></td>
+ </tr>
+ <tr>
+    <td colspan="2" align="center"><hr /></td>
+  </tr>
+</table></td>
+  </tr>
+
+  <tr>
+    <td colspan="2"  align="center" valign="top" style="font-weight:bold; 	font-size:11px;color:#002953;">&nbsp;</td>
+  </tr>
+  <tr>
+
+    <td height="300" colspan="2" align="center" valign="top"><?php echo $printView; ?></td>
+  </tr>
+
+  <tr>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp;&nbsp;In Words : ............................................................................................................. </td>
+  </tr>
+  <tr>
+    <td width="369">&nbsp;</td>
+    <td width="519">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Signature : ............................. </td>
+    <td align="right">Powered by : Sarkerit.com </td>
+  </tr>
+</table>
+</body>

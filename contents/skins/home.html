@@ -1,0 +1,170 @@
+<link rel="stylesheet" href="<?php echo REL_CONTENT_DIR;?>/css/common/common.css" type="text/css">
+
+</head>
+<body>
+<table  style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+
+		  <tr>
+		    <td colspan="6" valign="top" bgcolor="#F1F2F7"><table width="100%" height="552"  border="0" cellpadding="4" cellspacing="4" bgcolor="#F0F0F7">
+			  
+			<tr>
+                <td width="360" height="179" align="center" valign="middle" style="background-color:#EAEAEA;" ><span style="color:#000000; font-size:14px"><u>Today's Total Retail Sales</u></span></a>
+				
+				<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/chart.js"></script>
+				<style> canvas{	}</style>
+				<?php
+				
+				 $CurrDate = date('Y-m-d');
+				
+				 $dailysls = "SELECT
+	sum(item_qnt) as item_qnt,
+	sum(return_qnt) as return_qnt
+FROM
+	inv_item_sales
+	where sales_status='Not Pending' and sales_type='1' and sales_date='".$CurrDate."' ";
+				
+				$resdailysls = mysql_query($dailysls);
+		 		while($rowdailysls = mysql_fetch_array($resdailysls)){
+				$item_qntDaily=($rowdailysls['item_qnt']-$rowdailysls['return_qnt']);
+				}
+				
+				
+$sqlDailyDis="SELECT
+	sum(paid_amount) as paid_amount,
+	sum(ret_amount) as ret_amount,
+	sum(total_discount) as total_discount
+FROM
+	inv_item_sales_payment where sales_type='1' and sales_date='".$CurrDate."' ";
+	$resdailyDis = mysql_query($sqlDailyDis);
+		 		while($rowdailyDis = mysql_fetch_array($resdailyDis)){
+				$paid_amountDaily=$rowdailyDis['paid_amount'];
+				$ret_amountDaily=$rowdailyDis['ret_amount'];
+				$total_discountDaily=$rowdailyDis['total_discount'];
+				}
+				
+				$NetSalesDaily=($paid_amountDaily-$ret_amountDaily);
+				
+	?>
+<br>
+<img src="images/icons/z1.jpg"> Qnt.<?php echo $item_qntDaily; ?> &nbsp;<img src="images/icons/zm3.jpg"> Discount: <?php echo $total_discountDaily;?>&nbsp;<img src="images/icons/z3.jpg"> Net Sales: <?php echo $NetSalesDaily;?>
+
+<br>
+<canvas id="doughnut" height="110" width="110"></canvas>
+	<script>
+
+		var doughnutData = [
+				{
+					value: <?php echo $item_qntDaily;?>,
+					color:"#F38630"
+				},
+				{
+					value : <?php echo $total_discountDaily;?>,
+					color : "#4D5360"
+				},
+				{
+					value : <?php echo $NetSalesDaily;?>,
+					color : "#69D2E7"
+				}
+			
+			];
+
+	new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(doughnutData);
+	
+	</script>				</td>
+              <td width="389" height="179"  align="center" valign="middle" style="background-color:#EAEAEA;" ><a href="#" style="text-decoration:none"><img src="images/icons/due.png"><br>
+                    <span style="color:#000000; font-size:14px"><u>Today's Operating Cost on Cash</u></span></a><br><br>
+			  <?php echo number_format($OperatingCostDaily2,2); ?></td>
+                <td width="380" align="center" bgcolor="#EAEAEA" valign="top"><form id="supplier_form" name="supplier_form" method="post" action="?app=inv_report_generator&cmd=TotalSalesReportSkin" target="_blank" >
+	      
+	      <table width="83%" border="0" align="center" cellpadding="2" cellspacing="2" class="layoutBox" id="dailysales" >
+	        <tr>
+	          <td colspan="2" align="center" style="font-size:14px"><u><em>Products Wise Sales</em></u></td>
+              </tr>
+	        <tr>
+	          <td width="30%" height="38" nowrap="nowrap">From date :</td>
+            <td width="70%" nowrap="nowrap"><input name="fromTotal" type="text" class="textBox" id="fromTotal" size="10" value="<?php echo $curdate;?>" readonly=""/><img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('fromTotal'));return false;" style="cursor:pointer;" title="calendar" /></td>
+            </tr>
+	        <tr>
+	          <td height="39" nowrap="nowrap">To  date: <br /></td>
+	          <td nowrap="nowrap"><input name="toTotal" type="text" class="textBox" id="toTotal" size="10"  value="<?php echo $curdate;?>" readonly=""/>
+	            <img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('toTotal'));return false;" style="cursor:pointer;" title="calendar" /></td>
+	          </tr>
+	        <tr>
+	          <td valign="top" nowrap="nowrap">&nbsp;</td>
+	          <td nowrap="nowrap">&nbsp;</td>
+	          </tr>
+	        <tr>
+	          <td valign="top" nowrap="nowrap">&nbsp;</td>
+            <td nowrap="nowrap"><input name="slssubmit2" type="submit" value="Show" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/></td>
+            </tr>
+          </table>
+      </form></td>
+              </tr>			  
+			  
+			 
+              <tr>
+                <td height="182" style="background-color:#EAEAEA;"><form action="?app=userhome&cmd=IMEISearch" method="post">
+				<fieldset>
+				<legend><strong>Find Item (Received)</strong></legend>
+				<input name="item_size" type="text" class="textBox" id="item_size" maxlength="15"  size="15"/>
+				<input name="submit" type="submit" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'" value="Find"/>
+				</fieldset>
+				</form></td>
+                <td bgcolor="#EAEAEA"><form action="?app=userhome&cmd=IMEISearchSales" method="post" name="sales" id="sales">  
+				<fieldset> 
+				<legend><strong>Find Item (Sales)</strong></legend>
+				<input name="item_size2" type="text" class="textBox" id="item_size2" maxlength="15"  size="15"/>
+				<input name="submit" type="submit" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'" value="Find"/>
+				</fieldset>
+				</form></td>
+                <td bgcolor="#EAEAEA" align="center"><form name="rec" id="rec" method="post" action="?app=userhome&cmd=DailyCahReportSkin"  target="_blank">
+						  <table width="220" border="0" cellpadding="5" cellspacing="6" class="layoutBox" >
+							  <tr>
+							    <td colspan="2" align="center" nowrap="nowrap" style="font-size:14px"><u><em>Daily Cash Book </em></u></td>
+						    </tr>
+							  <tr>
+								<td nowrap="nowrap">From date :</td>
+								<td  nowrap="nowrap"><input name="slfrom2" type="text"  id="slfrom2" size="15" class="textBox" value="<?php echo $curdate;?>"/>
+									<img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('slfrom2'));return false;" style="cursor:pointer;" title="calendar" /></td>
+							</tr>
+							  <!--<tr>
+								<td nowrap="nowrap">To  date: </td>
+								<td nowrap="nowrap"><input name="disto2" type="text"  id="disto2" size="15" />
+								  <img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onclick="gfPop.fPopCalendar(document.getElementById('disto2'));return false;" style="cursor:pointer;" title="calendar" /></td>
+								</tr>-->
+							  <tr>
+							    <td colspan="2" align="center" nowrap="nowrap">&nbsp;</td>
+						    </tr>
+							  <tr>
+								<td colspan="2" align="center" nowrap="nowrap"><input name="submit" type="submit" value="Show" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/>&nbsp;&nbsp;<input  type="reset" name="submit22" value="Reset" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/></td>
+							  </tr>
+				  </table>
+		
+					</form></td>
+			  </tr>
+              
+
+          
+              <tr>
+                <td height="45" colspan="2" align="center" style="background-color:#EAEAEA; font-size:14px"><u><em><strong>Serial Wise Products Search</strong> </em></u><br><br><form name="sale" id="sale" action="?app=userhome" method="post" >
+			      <table width="50%" border="0" cellspacing="0" cellpadding="0">
+
+              <tr>
+                <td width="11%" nowrap="nowrap"><strong>Enter Product Serial  :</strong></td>
+                <td width="22%" align="center">
+				<input name="itemcode" type="text" class="textBox" id="itemcode"  size="24" onChange="this.value=removeSpaces(this.value);" autofocus="autofocus" style="color:#009900"/></td>
+                <td width="10%" align="center">
+	<input name="submit" type="submit" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'" value="Find" /></td>
+                <td width="57%"><span style="color:#CC0033; font-weight:bold"><?php echo getRequest('msg'); ?></span></td>
+              </tr>
+            </table>
+			</form></td>
+                <td rowspan="2" align="center" bgcolor="#EAEAEA"><a href="#" style="text-decoration:none"></a></td>
+              </tr>
+              <tr>
+                <td colspan="2" style="background-color:#EAEAEA;" valign="top" align="center"><?php echo $currentStockReport; ?></td>
+              </tr>
+
+  </table></td></tr>
+		</table>
+		<?php  dateIFrame(REL_EXT_DIR); ?>

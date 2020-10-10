@@ -1,0 +1,92 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR;?>/js/admin/income_save.js"></script>
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR;?>/js/common.js"></script>
+<style>
+
+.navlinks {
+	font-size: 11px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #003A75;
+}
+
+</style>
+
+<style>
+div.pagination {
+	padding: 3px;
+	margin: 3px;
+}
+
+div.pagination a {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #AAAADD;
+	
+	text-decoration: none; /* no underline */
+	color: #000099;
+}
+div.pagination a:hover, div.pagination a:active {
+	border: 1px solid #000099;
+
+	color: #000;
+}
+div.pagination span.current {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+		border: 1px solid #000099;
+		
+		font-weight: bold;
+		background-color: #000099;
+		color: #FFF;
+	}
+	div.pagination span.disabled {
+		padding: 2px 5px 2px 5px;
+		margin: 2px;
+		border: 1px solid #EEE;
+	
+		color: #DDD;
+	}
+	
+</style>
+<table border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="width:1200px;">
+  <tr>
+    <td colspan="3" align="right" style="font-family:Verdana; color:#004080; font-weight:bold; font-size:13px"></td>
+  </tr>
+  <tr>
+	<td width="484" height="28" align="left"  style="font-family:Verdana; color:#004080; font-weight:bold; font-size:13px; border-bottom:solid 1px #003366;">Income Entry&nbsp;&nbsp;<span style=" color:#CC3300;"><?php echo getRequest('msg'); ?><?php echo $msg; ?></span>      </td>  
+    <td width="283" align="right"  style="border-bottom:solid 1px #003366;"><span style="font-family:Verdana; font-size:11px; font-weight:bold; color:#DD0000">
+      <?php if(getRequest('page')){echo 'Showing records &nbsp;'.$res1.' - '.$res2.' of '.$total_pages;}else{ echo 'Showing records &nbsp; 0 - 29 of '.$total_pages; } ?>
+    </span>&nbsp;&nbsp;</td>
+    <td width="433" align="right"  style="border-bottom:solid 1px #003366;"><?php echo $pagination; ?></td>
+  </tr>
+  <tr>
+    <td colspan="3"><div style="height:300px; width:870px; overflow:auto; border:solid 1px #97CBFF;"><?php echo $income; ?></div></td>
+  </tr>
+  <tr>
+    <td colspan="3">  <form id="form1" name="contact_form" method="post" action="index.php?app=finance&cmd=Income" onsubmit="return validate_form();">
+  <table width="71%" height="94" border="0" cellpadding="3" cellspacing="3" style="border:1px solid #003366;">
+       <tr>
+      <td width="15%" height="34" nowrap="nowrap"><span class="navlinks">&nbsp;Income Account  : </span></td>
+      <td width="17%"><?php echo $Inco; ?></td>
+      <td width="7%" nowrap="nowrap"><span class="navlinks">&nbsp;&nbsp;CR : </span></td>
+      <td width="13%" nowrap="nowrap"><input name="cr" type="text" id="cr" style="-moz-border-radius: 5px; -webkit-border-radius: 5px; border:2px solid; border-color:#00CCFF;" onkeypress="return isNumberKey(event)" size="12" /> (Tk.)</td>
+      <td width="9%" align="center" nowrap="nowrap"><span class="navlinks">Date : </span></td>
+      <td width="39%"><input name="expdate" type="text" id="expdate" readonly="" style="-moz-border-radius: 5px; -webkit-border-radius: 5px; border:2px solid; border-color:#00CCFF;" size="10" />
+        <img src="<?php echo IMAGE_DIR;?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onclick="gfPop.fPopCalendar(document.getElementById('expdate'));return false;" style="cursor:pointer;" title="calendar" /><span class="navlinks">&nbsp;</span>&nbsp;</td>
+      </tr>
+       <tr>
+         <td height="26" nowrap="nowrap"><span class="navlinks">&nbsp;Particulars : </span></td>
+         <td><input name="particulars" type="text" id="particulars" style="-moz-border-radius: 5px; -webkit-border-radius: 5px; border:2px solid; border-color:#00CCFF;" /></td>
+         <td nowrap="nowrap">&nbsp;</td>
+         <td colspan="2"><input type="submit" name="submit" value="Save" class="btnClass" onfocus="this.className='onFocus'" onblur="this.className='onBlur'"/>
+           <input type="reset" name="Reset" value="Clear" class="btnClass" onfocus="this.className='onFocus'" onblur="this.className='onBlur'" onclick="clearValue();" />
+           <input type="hidden" name="mode" id="mode" value="add" />
+           <input name="dlygl_id" type="hidden" id="dlygl_id" /></td>
+         <td>&nbsp;</td>
+       </tr>
+  </table>
+  </form></td>
+  </tr>
+</table>
+</fieldset>
+<?php dateIFrame(REL_EXT_DIR); ?>

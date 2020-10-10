@@ -1,0 +1,88 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR;?>/js/admin/institute.js"></script>
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR;?>/js/common.js"></script>
+<style>
+.navlinks {
+	font-size: 11px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #003A75;
+}
+
+</style>
+
+<table border="0" align="center" style="width:1200px;" bgcolor="#FFFFFF">
+  <tr>
+    <td align="left" style="font-family:Verdana; color:#004080; font-weight:bold; font-size:13px">&nbsp;</td>
+  </tr>
+  <tr>
+	<td align="left" style="font-family:Verdana; color:#004080; font-weight:bold; font-size:13px">Shop Information  Create Form
+	  <hr style="color:#004080"/></td>  
+  </tr>
+  <tr>
+	<td align="right" style=" color:#CC3300;"><?php echo $msg; ?></td>  </tr>
+  <tr>
+    <td><input type="text" id="searchq" name="searchq" value="Enter here" size="60"
+            onfocus="javascript:reqInput();" onblur="javascript:Idle();"
+            style="color:#999999;-moz-border-radius: 5px; -webkit-border-radius: 5px; border:2px solid; border-color:#00CCFF;"  
+			onkeyup="javascript:searchData()" /></td>
+  </tr>
+  <tr>
+    <td><div id="html" style="overflow:auto; width:100%; height:200px;">
+    <?php echo $html; ?></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>  <form id="form1" name="contact_form" method="post" action="index.php?app=institute" onsubmit="return validate_form();">
+  <table width="82%" border="0" cellpadding="0" cellspacing="0"  class="radius2" >
+    <tr>
+      <td colspan="2" nowrap="nowrap" class="navlinks">&nbsp;Shop Name  : </td>
+      <td>
+        <label>
+          <input name="company_name" type="text" id="company_name" size="30"
+		  style="-moz-border-radius: 5px; -webkit-border-radius: 5px; border:2px solid; border-color:#00CCFF;" />
+          </label>    </td>
+      <td nowrap="nowrap" class="navlinks">Branch : </td>
+      <td><?php echo $SelectBranch; ?></td>
+    </tr>
+       <tr>
+         <td height="36" colspan="2"><span class="navlinks">&nbsp;Email : </span></td>
+         <td><input name="email" type="text" id="email" size="30"
+		  style="-moz-border-radius: 5px; -webkit-border-radius: 5px; border:2px solid; border-color:#00CCFF;" /></td>
+         <td nowrap="nowrap"><span class="navlinks">&nbsp;Phone No:</span></td>
+         <td nowrap="nowrap"><input name="mobile" type="text" id="mobile" size="30"
+		  style="-moz-border-radius: 5px; -webkit-border-radius: 5px; border:2px solid; border-color:#00CCFF;" /> &nbsp;* Please use comma(,) if phone no more than one</td>
+         <td>&nbsp;</td>
+       </tr>
+       <tr>
+         <td height="36" colspan="2"><span class="navlinks">Address : </span></td>
+         <td><textarea name="address" cols="25" id="address" style="-moz-border-radius: 5px; -webkit-border-radius: 5px; border:2px solid; border-color:#00CCFF;"></textarea></td>
+         <td nowrap="nowrap"><span class="navlinks">Web Address :</span></td>
+         <td><input name="web" type="text" id="web" size="30"
+		  style="-moz-border-radius: 5px; -webkit-border-radius: 5px; border:2px solid; border-color:#00CCFF;" /></td>
+         <td>&nbsp;</td>
+       </tr>
+       <tr>
+      <td height="36" colspan="2"><input type="hidden" name="mode" id="mode" value="add"></td>
+      <td colspan="3"><input type="submit" name="submit" value="Save" class="btnClass" onfocus="this.className='onFocus'" onblur="this.className='onBlur'"/>
+        <input type="reset" name="Reset" value="Clear" class="btnClass" onfocus="this.className='onFocus'" onblur="this.className='onBlur'"/>
+        <input name="company_id" type="hidden" id="company_id" /></td>
+      <td width="0%">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="4%">&nbsp;</td>
+      <td width="11%">&nbsp;</td>
+      <td width="24%" align="left">&nbsp;</td>
+      <td width="11%" align="left">&nbsp;</td>
+      <td width="50%" class="navlinks">&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+  </form></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</fieldset>

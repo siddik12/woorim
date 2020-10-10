@@ -1,0 +1,69 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/InventorySystem/inv_report_branch.js"></script>
+
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/StudentManagement/common.js"></script>
+<script language="javascript">
+function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+</script>
+
+
+<table width="800" border="0" cellspacing="0" cellpadding="0" align="center" style="border:1px solid #CCCCCC">
+  <tr>
+    <td width="421" style="color:#009933; font-weight:bold">&nbsp;</td>
+    <td width="377">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2" style="color:#009933; font-size:18px; font-weight:bold; border-bottom:1px solid #666666" align="center"> Current Stock Report </td>
+  </tr>
+  <tr>
+    <td colspan="2"><form id="form1" name="form1" method="post" action="?app=inv_report_generator&cmd=currentStockReport" target="_blank">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td align="right" nowrap="nowrap">&nbsp;</td>
+          <td>&nbsp;</td>
+          </tr>
+        <tr>
+          <td align="right" nowrap="nowrap"><strong>Category</strong> : </td>
+          <td><?php echo $ItmCategory4Model; ?></td>
+          </tr>
+        <tr>
+          <td align="right" nowrap="nowrap">&nbsp;</td>
+          <td>&nbsp;</td>
+          </tr>
+        <tr>
+          <td align="right" valign="top" nowrap="nowrap"><strong>Model</strong> : </td>
+          <td><div id="catModel" style="height:300px; width:350px; overflow:auto; border:solid 1px #CCCCCC">
+		  <?php echo $SelectModel; ?>
+		  </div></td>
+          </tr>
+        <tr>
+          <td align="right" nowrap="nowrap">&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td width="21%" align="right" nowrap="nowrap">&nbsp;</td>
+          <td width="79%"><input name="submit" type="submit" value="Show" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"/></td>
+          </tr>
+        <tr>
+          <td align="right" nowrap="nowrap">&nbsp;</td>
+          <td>&nbsp;</td>
+          </tr>
+      </table>
+        </form>  </td>
+  </tr>
+</table>
+
+
+  <table width="800"  align="center" id="print_area" bgcolor="#FFFFFF">
+  <tr>
+    <td width="888">&nbsp;</td>
+  </tr>
+</table>

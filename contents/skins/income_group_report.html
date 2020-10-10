@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="<?php echo REL_CONTENT_DIR?>/css/common/common.css" type="text/css">
+<script language="javascript">
+function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+</script>
+<div align="center"><input type="button" onclick="printDiv('print_area')" value="Print" class="btnClass"  onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" /></div>
+<div id="fldset" >
+  <table align="center" bgcolor="#FFFFFF" id="print_area" style="width:955px;">
+  <tr>
+
+    <td colspan="3" align="center"><div><img src="images/logo.png" /></div> <h4 style="color:#000000;">School & College</h4>
+	<div style="font-weight:bold; font-size:12px;color:#0066FF; font-style:normal;">  According to Income Accounts	</div>
+     <div style=" font-size:11px;color:#0066FF; font-style:normal;"> Date: <?php echo _date($slfromingr).' To '._date($sltoingr).', Branch : '.$branch_name;  ?> </div>
+    <hr /></td>
+  </tr>
+
+  <tr>
+    <td colspan="3"  align="center" valign="top" style="font-weight:bold; 	font-size:11px;color:#002953;">&nbsp;</td></tr>
+  <tr>
+
+    <td colspan="3" align="center" valign="top"><?php echo $IncGrupReportFetch; ?></td>
+  </tr>
+
+  <tr><td colspan="3">&nbsp;</td></tr>
+  <tr height=22><td width="152" nowrap="nowrap" style="border-bottom:1px dotted #000066">&copy;  <?php echo date('Y'); ?> School & College Management System</td>
+    <td width="246" align="center" nowrap="nowrap" style="border-bottom:1px dotted #000066"><span style="font-weight:bold; 	font-size:11px;color:#002953;"> Date : <?php echo date("F j, Y, g:i a"); ?></span></td>
+    <td width="236" align="right" style="border-bottom:1px dotted #000066" nowrap="NOWRAP">Powered by Software of Lily IT(SoLit)</td>
+  </tr>
+</table>
+</div>              

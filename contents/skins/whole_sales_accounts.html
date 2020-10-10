@@ -1,0 +1,128 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR;?>/js/InventorySystem/check_issue.js"></script>
+
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR;?>/js/StudentManagement/common.js"></script>
+<script language="JavaScript" type="text/JavaScript">
+//go another
+function goSignUp(place)
+{
+document.location="index.php?app="+place;
+}
+
+//-->
+</script><style type="text/css">
+<!--
+.style1 {
+	font-size: 16px;
+	color: #004080;
+}
+-->
+</style>
+<style>
+div.pagination {
+	padding: 3px;
+	margin: 3px;
+}
+
+div.pagination a {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #AAAADD;
+	
+	text-decoration: none; /* no underline */
+	color: #000099;
+}
+div.pagination a:hover, div.pagination a:active {
+	border: 1px solid #000099;
+
+	color: #000;
+}
+div.pagination span.current {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+		border: 1px solid #000099;
+		
+		font-weight: bold;
+		background-color: #000099;
+		color: #FFF;
+	}
+	div.pagination span.disabled {
+		padding: 2px 5px 2px 5px;
+		margin: 2px;
+		border: 1px solid #EEE;
+	
+		color: #DDD;
+	}
+	
+</style>
+
+        <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+<tr><td colspan="3"></tr>
+    <tr>
+      <td >&nbsp;</td>
+      <td align="center" >&nbsp;</td>
+      <td >&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="180" ><input type="text" id="searchq" name="searchq" value="Search more..." size="20" class="textBox" 
+			 onfocus="javascript:inputBoxLabelHide(this, 'Search more...');this.className='onFocus'" 
+			 onblur="javascript:inputBoxLabelShow(this, 'Search more...');this.className='onBlur'"
+		   onkeyup="javascript:ajaxCall('inv_item','ajaxSearchItemType&searchq='+this.value,'chkInfo');" /></td>
+      <td width="295" align="center" ><span class="style1">Whole Sales Dues Received Form </span></td>
+      <td width="725" ><span style="color:#CC0066; font-weight:bold"><?php echo getRequest('Dmsg');?><?php echo $msg; ?></span></td>
+    </tr>
+    <tr><td colspan="3" >
+      <table width="907"  border="0" cellpadding="0" cellspacing="0" >
+
+        <tr>
+
+          <td><span style="color:#004080; font-size:16px; font-weight:bold"><span style="font-family:Verdana; font-size:11px; font-weight:bold; color:#DD0000">
+             <?php if(getRequest('page')){echo 'Showing &nbsp;'.$res1.' - '.$res2.' of '.$total_pages;}else{ echo 'Showing &nbsp; 0 - 29 of '.$total_pages; } ?>
+          </span></span></td>
+
+          <td width="245" style="color:#004080; font-size:16px; font-weight:bold" align="center">&nbsp;</td>
+          <td width="470" align="right" style="color:#CC0066; font-weight:bold"><?php echo $pagination; ?></td>
+        </tr>
+      </table> </td>
+  </tr>
+
+  <tr>
+
+    <td colspan="3"><div id="chkInfo"  class="layoutBox" style="overflow: auto; width:900px; height:350px;">
+
+    <?php echo $WholeSalesInfoTab; ?></div></td>
+  </tr>
+  <tr>
+
+    <td colspan="3" valign="bottom">
+
+<form id="form1" name="form1" method="post" action="">
+    <table width="898" border="0" cellpadding="5" cellspacing="6" class="layoutBox">
+      <tr>
+        <td width="84" align="right" nowrap="nowrap">Particulars : </td>
+        <td width="144"><input name="particulars" type="text" class="textBox" id="particulars" onfocus="this.className='onFocus'" onblur="this.className='onBlur'"/></td>
+        <td align="right" nowrap="nowrap">Received Amount : </td>
+        <td width="495"><input name="cr" id="cr" type="text" size="15" class="textBox" onfocus="this.className='onFocus'" onblur="this.className='onBlur'"/></td>
+        </tr>
+      <tr>
+        <td nowrap="nowrap">Received date  : </td>
+        <td nowrap="nowrap"><input name="receive_date" id="receive_date" type="text" size="15" class="textBox" onfocus="this.className='onFocus'" onblur="this.className='onBlur'"/>
+          <img src="<?php echo IMAGE_DIR;?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onclick="gfPop.fPopCalendar(document.getElementById('receive_date'));return false;" style="cursor:pointer;" title="calendar" /></td>
+        <td align="right">Customer : </td>
+        <td><?php echo $SuplierList; ?></td>
+      </tr>
+      <tr>
+        <td><input type="hidden" name="glid" id="glid" size="2" />
+          <input type="hidden" name="mode" id="mode" value="add" /></td>
+        <td  align="right" nowrap="nowrap"><input name="submit" id="submit" type="submit" value="Save" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" /></td>
+        <td width="105"> <input type="reset" name="Reset" value="Reset" /></td>
+        <td>&nbsp;</td>
+        </tr>
+    </table> </form> </td>
+  </tr>
+
+  <tr><td colspan="5">
+
+  </td></tr>
+</table>
+
+   <?php  dateIFrame(REL_EXT_DIR); ?>             

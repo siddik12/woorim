@@ -1,0 +1,97 @@
+<script language="JavaScript" src="<?=REL_CONTENT_DIR?>/js/common.js"></script>
+<script language="JavaScript" src="<?=REL_CONTENT_DIR?>/js/StudentManagement/department.js"></script>
+<style type="text/css">
+<!--
+.style6 {color: #FFCCCC}
+.style8 {color: #FFFFFF}
+-->
+</style>
+
+<table align="center" class="tableStyleClassDept" cellpadding="0" cellspacing="0" >
+    <tr bgcolor="#666666" class="navlinks">
+      <td height="10" colspan="7" bgcolor="#999999"></td>
+    </tr>
+    <tr bgcolor="#666666" class="navlinks">
+    <td width="4" height="38" bgcolor="#999999">&nbsp;</td>
+    <td colspan="5" bgcolor="#999999"  >
+	<form id="form2" name="form2" method="post" action="index.php?app=department">
+      <table width="764" height="36" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" class="radius2">
+        <tr>
+          <td width="180"  nowrap="nowrap" class="navlinks">Search:</td>
+           <td width="52" align="left" ></td>
+          <td width="333" align="left" style="color:#FFFFFF">Department Information</td>
+        </tr>
+      </table>
+      </form>    </td>
+    <td width="4" bgcolor="#999999" height="1"></td>
+  </tr>
+  <tr bgcolor="#666666" class="navlinks">
+    <td height="23" bgcolor="#999999"><span class="style6"></span></td>
+    <td width="142" nowrap="nowrap" bgcolor="#666666" class="navlinks" >Department Id</td>
+    <td width="270"  align="center"  class="navlinks">Department Name</td>
+    <td width="250" align="center" class="navlinks">Faculty Name </td>
+    <td colspan=2 class="navlinks" align="center">Actions</td>
+    <td bgcolor="#999999">&nbsp;</td>
+  </tr>
+  <tr bgcolor="#666666">
+    <td height="35" bgcolor="#999999"><span class="style6"></span></td>
+    <td colspan="5" bgcolor="#FFFFFF"><div id="html" style="overflow: auto; width:100%; height:190;">
+    <? echo $html ?></div></td>
+    <td bgcolor="#999999">&nbsp;</td>
+  </tr>
+  
+  <tr bgcolor="#666666">
+    <td bgcolor="#999999"><span class="style6"></span></td>
+    <td colspan="5" valign="bottom" bgcolor="#999999"><div id="entry">
+  <form id="form1" name="contact_form" method="post" action="index.php?app=department" onsubmit="return validate_form();">
+    <table width="100%" border="0" cellpadding="2" cellspacing="2" bgcolor="#000000" class="radius2" >
+      <tr>
+        <td colspan="8">&nbsp;</td>
+      </tr>
+      <tr>
+        <td width="1%" class="navlinks">&nbsp;</td>
+        <td width="17%" nowrap="nowrap" class="navlinks">&nbsp;</td>
+        <td width="21%" nowrap="nowrap" class="navlinks">&nbsp;</td>
+        <td width="8%" nowrap="nowrap" class="navlinks" align="center">&nbsp;</td>
+        <td colspan="3">&nbsp;</td>
+        </tr>
+      <tr>
+        <td class="navlinks">&nbsp;</td>
+        <td nowrap="nowrap" class="navlinks">Department Name: </td>
+        <td colspan="5" nowrap="nowrap" class="navlinks">
+		<input name="department_name" type="text" id="department_name" size="80" 
+		style="-moz-border-radius: 5px; -webkit-border-radius: 5px; border:2px solid; border-color:#00CCFF;"/></td>
+        <td width="1%">&nbsp;</td>
+      </tr>
+      <tr>
+        <td width="1%">&nbsp;</td>
+        <td colspan="2"><input type="hidden" name="mode" id="mode" value="add" /></td>
+        <td>&nbsp;</td>
+        <td colspan="3"><span class="navlinks">
+          <input name="department_id" type="hidden" id="department_id" 
+		style=" -moz-border-radius: 5px; -webkit-border-radius: 5px; border:2px solid; border-color:#00CCFF;" />
+        </span></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td></td>
+        <td align="right" ><label><span class="navlinks">
+        <input type="submit" name="submit"  value="Save"  />
+        </span></label></td>
+        <td class="navlinks"><input type="reset" name="Submit2" value="Clear"  /></td>
+        <td width="7%" class="navlinks">&nbsp;</td>
+        <td width="40%" class="navlinks"><label></label></td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+  </form>
+      </div></td>
+    <td bgcolor="#999999">&nbsp;</td>
+  </tr>
+  <tr onclick="javascript:populateFaculty('addd')"><td colspan="7">
+  <table width="100%"><tr><td style="color:#CC0000;">Status :<? echo $msg; ?></td>
+  <td></td></tr></table>
+  
+  </td></tr>
+</table>

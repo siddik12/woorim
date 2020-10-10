@@ -1,0 +1,55 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/InventorySystem/inv_report.js"></script>
+
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/StudentManagement/common.js"></script>
+
+
+       <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+<tr ><td colspan="2"></tr>
+    <tr>
+      <td valign="top"></td>
+      <td width="517" valign="top" >&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2" valign="top" >
+	    <form id="supplier_form" name="supplier_form" method="post" action="?app=inv_report_generator&cmd=WholeSalesReport"
+	   onSubmit=" if(indvReport()){ return true;}else{ return false;}" target="_blank" >
+	      
+	      <table width="200" border="0" align="center" cellpadding="5" cellspacing="6" class="layoutBox" id="dailysales" >
+	        <tr>
+	          <td colspan="4" align="left"><div align="center"  class="btnClass" >Whole Sales  Report</div>
+                <hr /><br /></td>
+            </tr>
+	        <tr>
+	          <td nowrap="nowrap">From date :</td>
+            <td nowrap="nowrap"><input name="slfrom2" type="text" class="textBox" id="slfrom2" size="15" /><img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('slfrom2'));return false;" style="cursor:pointer;" title="calendar" /></td>
+            <td colspan="-5" nowrap="nowrap">To  date: <br /></td>
+            <td nowrap="nowrap"><input name="slto2" type="text" class="textBox" id="slto2" size="15" /><img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('slto2'));return false;" style="cursor:pointer;" title="calendar" /></td>
+          </tr>
+	        <tr>
+	          <td valign="top" nowrap="nowrap">Item Category : </td>
+            <td colspan="2" nowrap="nowrap"><?php echo $catList; ?></td>
+            <td nowrap="nowrap"><input name="slssubmit" type="submit" value="Show" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"/></td>
+          </tr>
+	        <tr>
+	          <td colspan="4" align="center" nowrap="nowrap"><label id="sls_name_lbl"></label></td>
+            </tr>
+          </table>
+      </form></td>
+      </tr>
+
+  <tr>
+
+    <td colspan="2">&nbsp;</td>
+  </tr>
+
+  <tr>
+
+    <td colspan="2"> </td>
+  </tr>
+
+  <tr><td colspan="4">
+
+  </td></tr>
+</table>
+                
+<?php  dateIFrame(REL_EXT_DIR); ?>

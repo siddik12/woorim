@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="<?php echo REL_CONTENT_DIR;?>/css/common/common.css" type="text/css">
+
+</head>
+<body>
+<table  style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+
+		  <tr>
+		    <td colspan="6" valign="top" bgcolor="#F1F2F7"><table width="100%" height="435"  border="0" cellpadding="4" cellspacing="4" bgcolor="#F0F0F7">
+              <tr>
+                <td width="183" align="center" valign="middle" >&nbsp;</td>
+                <td width="300" height="93" align="center" valign="middle" >&nbsp;</td>
+                <td width="82" align="center">&nbsp;</td>
+                <td width="324" align="center">&nbsp;</td>
+                <td align="center" >&nbsp;</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle">&nbsp;</td>
+                <td height="179" align="center" valign="middle" style="border:1px solid #999999">
+				<a href="?app=group_dashboard"><span class="label label-success" style="font-size:14px">Income Report</span></a>
+				<form name="rec" id="rec" method="post" action="?app=group_dashboard&cmd=ReceivedSalesReport"  target="_blank">
+	  <table width="263" border="0" cellpadding="5" cellspacing="6" id="receivestok">
+        <tr>
+          <td colspan="9" align="center"><br /></td>
+        </tr>
+        <tr>
+          <td width="79" nowrap="nowrap">From date :</td>
+          <td colspan="7" nowrap="nowrap"><input name="rsfrom" type="text" class="textBox" id="rsfrom" size="10" /></td>
+          <td width="151" nowrap="nowrap"><img src="<?php echo IMAGE_DIR;?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('rsfrom'));return false;" style="cursor:pointer;" title="calendar" /><br /></td>
+          </tr>
+        <tr>
+          <td nowrap="nowrap">To  date: </td>
+          <td colspan="7" nowrap="nowrap"><input name="rsto" type="text" class="textBox" id="rsto" size="10" /></td>
+          <td nowrap="nowrap"><img src="<?php echo IMAGE_DIR; ?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('rsto'));return false;" style="cursor:pointer;" title="calendar" /></td>
+          </tr>
+        <tr>
+          <td colspan="9" align="center" nowrap="nowrap">
+		  <input name="submit2" type="submit" value="Show" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/></td>
+        </tr>
+      </table>
+	  </form></td>
+                <td align="center">&nbsp;</td>
+                <td align="center"style="border:1px solid #999999" ><a href="?app=group_dashboard"><span class="label label-info" style="font-size:14px">Summary Report</span></a>
+				<form name="rec" id="rec" method="post" action="?app=summary_report"  target="_blank">
+	  <table width="263" border="0" cellpadding="5" cellspacing="6" id="receivestok">
+        <tr>
+          <td colspan="9" align="center"><br /></td>
+        </tr>
+        <tr>
+          <td width="79" nowrap="nowrap">Enter  Date: </td>
+          <td colspan="7" nowrap="nowrap"><input name="smto" type="text" class="textBox" id="smto" size="10" /></td>
+          <td width="151" nowrap="nowrap"><img src="<?php echo IMAGE_DIR; ?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('smto'));return false;" style="cursor:pointer;" title="calendar" /></td>
+          </tr>
+        <tr>
+          <td colspan="9" align="center" nowrap="nowrap">
+		  <input name="submit2" type="submit" value="Show" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/></td>
+        </tr>
+      </table>
+	  </form> </td>
+                <td width="247" align="center" ><a href="#" style="text-decoration:none"></a></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle">&nbsp;</td>
+                <td height="107" align="center" valign="middle" >&nbsp;</td>
+                <td align="center" >&nbsp;</td>
+                <td align="center" >&nbsp;</td>
+                <td align="center" >&nbsp;</td>
+              </tr>
+
+  </table></td></tr>
+		</table>
+		<?php  dateIFrame(REL_EXT_DIR); ?>

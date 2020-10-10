@@ -1,0 +1,72 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/admin/branch.js"></script>
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/common.js"></script>
+<style>
+.navlinks {
+	font-size: 11px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #003A75;
+}
+
+</style>
+
+<table align="center" class="tableStyleClassDept" cellpadding="0" cellspacing="0" border="0" style="width:1200px;" >
+  <tr  class="navlinks">
+    <td width="4" height="23" >&nbsp;</td>
+    <td nowrap="nowrap"  class="navlinks" >Branch Name</td>
+    <td width="250" align="center" class="navlinks"><span style="color:#CC0000;">Status :<? echo $msg; ?></span></td>
+    <td class="navlinks" align="center">&nbsp;</td>
+    <td width="4" >&nbsp;</td>
+  </tr>
+  <tr >
+    <td height="35" ><span class="style6"></span></td>
+    <td colspan="3" bgcolor="#FFFFFF"><div id="html" style="overflow: auto; width:100%; height:300;">
+    <?php echo $html; ?></div></td>
+    <td >&nbsp;</td>
+  </tr>
+  
+  <tr >
+    <td ><span class="style6"></span></td>
+    <td colspan="3" valign="bottom" ><div id="entry">
+  <form id="form1" name="contact_form" method="post" action="index.php?app=branch" onSubmit="return validate_form();">
+    <table width="100%" border="0" cellpadding="2" cellspacing="2" bgcolor="#FFFFFF" class="radius2" >
+<tr>
+  <td width="9%" nowrap="nowrap" class="navlinks"><input type="hidden" name="mode" id="mode" value="add" />
+    <input type="hidden" name="branch_id" id="branch_id"  /></td>
+  <td colspan="3"  nowrap="nowrap" class="navlinks">&nbsp;</td>
+</tr>
+<tr>
+        <td nowrap="nowrap" class="navlinks">Branch Name: </td>
+        <td width="28%"  nowrap="nowrap" class="navlinks">
+		<input name="branch_name" type="text" id="branch_name" size="40" 
+		style="-moz-border-radius: 5px; -webkit-border-radius: 5px; border:2px solid; border-color:#00CCFF;"/>		</td>
+        <td width="11%"  nowrap="nowrap" class="navlinks">Shop/Head Office : </td>
+        <td width="52%"  nowrap="nowrap" class="navlinks">
+		<select name="stat" id="stat" style="width:150px;">
+		<option value="Shop">Shop</option>
+		<option value="Head Office">Head Office</option>
+		</select></td>
+</tr>
+
+      <tr>
+        <td>&nbsp;</td>
+        <td colspan="3" >&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+
+        <td colspan="3" ><label><span class="navlinks">
+        <input type="submit" name="submit"  value="Save"  />
+        </span></label><input type="reset" name="Submit2" value="Clear"  /></td>
+      </tr>
+    </table>
+  </form>
+      </div></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr onClick="javascript:populateFaculty('addd')"><td colspan="5">
+  <table width="100%"><tr><td style="color:#CC0000;">&nbsp;</td>
+  <td></td></tr></table>
+  
+  </td></tr>
+</table>

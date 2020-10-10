@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="<?php echo REL_CONTENT_DIR?>/css/common/common.css" type="text/css">
+<script language="javascript">
+function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+</script>
+<div align="center"><input type="button" onclick="printDiv('print_area')" value="Print" class="btnClass"  onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" /></div>
+<div id="fldset" >
+  <table style="width:955px;" align="center" id="print_area" bgcolor="#FFFFFF">
+  <tr>
+
+    <td colspan="2" align="center"><table width="100%" align="center" id="print_area" bgcolor="#FFFFFF">
+
+  <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:18px;color:#002953; font-style:oblique;"><img src="images/<?php echo getFromSession('complogo'); ?>" width="100" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;"><?php echo getFromSession('compaddress'); ?></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;"><?php echo getFromSession('compmobile'); ?></td>
+  </tr>
+ <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;"><?php echo getFromSession('compemail'); ?></td>
+  </tr>
+ <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;"><?php echo getFromSession('compweb'); ?></td>
+  </tr>
+ <tr>
+    <td colspan="2" align="center"><hr /></td>
+  </tr>
+</table></td>
+  </tr>
+  <tr>
+    <td width="651" align="center" valign="top"><div style="font-weight:bold; font-size:12px;color:#0066FF; font-style:normal;"> bKash Tramnsaction Balance Sheet Report </div></td>
+    <td width="288" align="center" valign="top"><div style=" font-size:11px;color:#0066FF; font-style:normal;"> Date: <?php echo _date($slfrombw).' To '._date($sltobw);  ?> </div></td>
+  </tr>
+  <tr>
+
+    <td colspan="2" align="center" valign="top"><?php echo $bKashBalanceReport; ?></td>
+  </tr>
+
+  <tr><td colspan="2">&nbsp;</td></tr>
+</table>
+</div>              

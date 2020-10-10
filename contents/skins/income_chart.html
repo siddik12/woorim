@@ -1,0 +1,60 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/admin/income.js"></script>
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/common.js"></script>
+<style>
+.navlinks {
+	font-size: 11px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #003A75;
+}
+
+</style>
+
+
+<table border="0" align="center" style="width:1200px;" bgcolor="#FFFFFF">
+  <tr>
+    <td align="left" style="font-family:Verdana; color:#004080; font-weight:bold; font-size:13px">&nbsp;</td>
+  </tr>
+  <tr>
+	<td align="left"  style="font-family:Verdana; color:#004080; font-weight:bold; font-size:13px">Income Chart  Form
+      <hr style="color:#004080"/></td>  
+  </tr>
+  <tr>
+	<td align="right" style=" color:#CC3300;"><?php echo $msg; ?></td>  </tr>
+  <tr>
+    <td><div style="height:250px; width:870px; overflow:auto"><?php echo $IncomeCht; ?></div></td>
+  </tr>
+  <tr>
+    <td>  <form id="form1" name="contact_form" method="post" action="index.php?app=finance&cmd=IncomeCht" onsubmit="return validate_form();">
+  <table width="100%" height="80" border="0" cellpadding="0" cellspacing="0"  class="radius2" >
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      </tr>
+    
+       <tr>
+      <td width="10%" nowrap="nowrap"><span class="navlinks">&nbsp;Income Title  : </span></td>
+      <td><input name="account_name" type="text" id="account_name"
+		  style="-moz-border-radius: 5px; -webkit-border-radius: 5px; border:2px solid; border-color:#00CCFF;" size="35" /></td>
+      </tr>
+    <tr>
+      <td><input type="hidden" name="mode" id="mode" value="add" /><input name="chart_id" type="hidden" id="chart_id" />
+	  <input type="hidden" name="type" id="type" value="income" /></td>
+      <td width="90%" align="left">
+        <input type="submit" name="submit" value="Save" class="btnClass" onfocus="this.className='onFocus'" onblur="this.className='onBlur'"/>
+        <input type="reset" name="Reset" value="Clear" class="btnClass" onfocus="this.className='onFocus'" onblur="this.className='onBlur'" /></td>
+      </tr>
+  </table>
+  </form></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</fieldset>

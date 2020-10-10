@@ -1,0 +1,60 @@
+<style>
+.txt{
+font-family:Verdana;
+font-size:11px;
+font-weight:bold;
+color:#004080;
+}
+</style>
+
+<script language="javascript">
+function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+</script>
+
+<table style="width:955px;" border="0" align="center" bgcolor="#FFFFFF">
+  <tr >
+    <td align="center" style="font-size:11px; font-family:Verdana; color:#FFFFFF; font-weight:bold">Teacher Personal Information </td>
+  </tr>
+  <tr>
+    <td height="375" align="center"><table width="42%" height="236" border="0" cellpadding="0" cellspacing="0" id="print_area">
+      <tr>
+        <td height="31" bgcolor="#7087A3" colspan="2" style="font-size:11px; font-family:Verdana; color:#FFFFFF; font-weight:bold">Employee  Information </td>
+        </tr>
+      <tr>
+        <td height="82" align="left" valign="top" nowrap="nowrap" class="txt"><br /><div style="border:#CCCCCC 1px solid; width:70px; height:70px;">
+		<img src="images/<?php echo $photo; ?>" height="70" width="70" /></div></td>
+        <td align="left" valign="middle" nowrap="nowrap" ><span style="color:#999999; font-size:16px;"><b><?php echo $person_name; ?></b><br />
+            Employee Id  :<?php echo $employee_id; ?><br />
+            Branch : <?php echo $branch_name; ?></span></td>
+        </tr>
+      <tr bgcolor="#EFF2FD">
+        <td width="26%" height="28" align="left" nowrap="nowrap" class="txt">Employee Type    </td>
+        <td width="74%" nowrap="NOWRAP">: <?php echo $emptype; ?></td>
+        </tr>
+      <tr>
+        <td height="31" align="left" nowrap="nowrap" class="txt">Designation </td>
+        <td nowrap="NOWRAP">: <?php echo $designation; ?></td>
+        </tr>
+      <tr bgcolor="#EFF2FD">
+        <td height="33" align="left" nowrap="nowrap" class="txt">Department</td>
+        <td nowrap="NOWRAP">: <?php echo $department_name; ?></td>
+        </tr>
+      <tr>
+        <td align="left" nowrap="nowrap" class="txt">Joine </td>
+        <td nowrap="NOWRAP">: <?php echo $actual_join_date; ?></td>
+        </tr>
+    </table>	</td>
+  </tr>
+  <tr>
+    <td height="42" align="center" valign="top"><input type="button" onclick="printDiv('print_area')" value="Print" class="btnClass"  onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" /></td>
+  </tr>
+</table>

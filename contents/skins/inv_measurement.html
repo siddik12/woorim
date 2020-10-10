@@ -1,0 +1,77 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/InventorySystem/inv_measurement.js"></script>
+
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/StudentManagement/common.js"></script>
+
+
+<table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+</tr>
+    <td width="834" >
+      <table  border="0" cellpadding="0" cellspacing="0" >
+
+        <tr>
+          <td></td>
+          <td>&nbsp;</td>
+          <td ></td>
+          <td style="color:#CC0066; font-weight:bold">&nbsp;</td>
+        </tr>
+        <tr>
+
+          <td width="11"></td>
+
+           <td width="361">
+
+		   <input type="text" id="searchq" name="searchq" value="Search more..." size="20" class="textBox" 
+			 onfocus="javascript:inputBoxLabelHide(this, 'Search more...');this.className='onFocus'" 
+			 onBlur="javascript:inputBoxLabelShow(this, 'Search more...');this.className='onBlur'"
+		   onKeyUp="javascript:ajaxCall('inv_supplierinfo','ajaxSearchMeasurement&searchq='+this.value,'MeasurementInfoDiv');" /></td>
+
+          <td width="42" ></td>
+          <td width="235" style="color:#CC0066; font-weight:bold"><?php echo getRequest('Dmsg');?>
+          <?php echo $msg; ?></td>
+        </tr>
+      </table> </td>
+
+  </tr>
+
+  <tr>
+
+    <td><div id="MeasurementInfoDiv"  class="layoutBox" style="overflow: auto; width:400px; height:150px;">
+
+    <?php echo $MeasurementUnitFetch ?></div></td>
+  </tr>
+
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+
+    <td>
+
+
+    <table width="404" border="0" cellpadding="5" cellspacing="6" class="layoutBox">
+      <tr>
+        <td width="43">Unit:</td>
+        <td colspan="5"><input name="measurementunit" id="measurementunit" type="text" class="textBox" /></td>
+        </tr>
+      <tr>
+        <td>Name:</td>
+        <td colspan="5"><input name="measurementname" id="measurementname" type="text" class="textBox"/></td>
+        </tr>
+      <tr>
+        <td><!--input type="hidden" name="createdby" id="createdby" />
+          <input type="hidden" name="createddate" id="createddate" /--></td>
+        <td width="71" align="right"><!--input type="hidden" name="mode" id="mode" value="add" /-->
+          <input id="save" type="button" value="Save" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" 
+		  onclick="javascript:if(validate_form()){ajax4AddMeasurement(); clearInputValue(); }"/></td>
+        <td width="79"><input type="reset" name="reseat" value="Clear" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" /></td>
+        <td width="83">&nbsp;</td>
+        <td width="12">&nbsp;</td>
+        <td width="14">&nbsp;</td>
+      </tr>
+    </table>  </td>
+  </tr>
+
+  <tr><td colspan="3">
+
+  </td></tr>
+</table> 

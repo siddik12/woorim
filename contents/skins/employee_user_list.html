@@ -1,0 +1,55 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/applicant/employee.js"></script>
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/common.js"></script>
+<link rel="stylesheet" href="<?php echo REL_CONTENT_DIR?>/css/common/common.css" type="text/css">
+
+<style>
+div.pagination {
+	padding: 3px;
+	margin: 3px;
+}
+
+div.pagination a {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #AAAADD;
+	
+	text-decoration: none; /* no underline */
+	color: #000099;
+}
+div.pagination a:hover, div.pagination a:active {
+	border: 1px solid #000099;
+
+	color: #000;
+}
+div.pagination span.current {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+		border: 1px solid #000099;
+		
+		font-weight: bold;
+		background-color: #000099;
+		color: #FFF;
+	}
+	div.pagination span.disabled {
+		padding: 2px 5px 2px 5px;
+		margin: 2px;
+		border: 1px solid #EEE;
+	
+		color: #DDD;
+	}
+	
+</style>
+
+<table style="width:1200px;" align="center" cellpadding="10" cellspacing="0" bgcolor="#FFFFFF">
+    <tr>
+    <td width="1" height="20">&nbsp;</td>
+    <td width="1147" align="center"><span style="text-decoration:blink;"><?php echo getRequest('msg'); ?> </span></td>
+  </tr>
+  <tr>
+    <td height="35"></td>
+    <td><table align="center"><tr><td>
+	<div id="html" style="overflow: auto; height:800px; width:600px;">
+    <?php echo $UserListFetch; ?></div></td></tr></table></td>
+  </tr>
+</table>
+</div>

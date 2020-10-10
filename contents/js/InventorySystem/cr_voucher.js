@@ -1,0 +1,76 @@
+var mode = 'add';
+
+function validate_4EnterCR()
+{
+	valid = true;
+     if ( document.getElementById('particulars').value == "" )
+        {
+		        alert ( "Enter Cr. Particular" );
+				particulars.focus();
+                valid = false;
+        }
+     else if ( document.getElementById('cr').value == "" )
+        {
+		        alert ( "Enter amount" );
+				cr.focus();
+                valid = false;
+        }
+		else if ( document.getElementById('receive_date').value == "" )
+        {
+		        alert ( "Select Receive Date" );
+				receive_date.focus();
+                valid = false;
+        }
+        else{
+
+        return valid;
+		}
+}
+
+//ajax add edit delete Batch Info---------------------------------------------------------------
+function ajaxCall4EnterCR(id){
+	//alert(mode);
+	if(mode == 'add'){
+	var particulars = document.getElementById('particulars').value;	
+	var cr = document.getElementById('cr').value;	
+	var receive_date = document.getElementById('receive_date').value;	
+	var cmd = "ajaxInsertCrVoucher&particulars="+particulars+"&cr="+cr+"&receive_date="+receive_date;
+	document.getElementById('particulars').value='';
+	document.getElementById('cr').value='';
+	document.getElementById('receive_date').value='';
+
+	}
+	if (mode == "edit"){
+	var glid = document.getElementById('glid').value;
+	var particulars = document.getElementById('particulars').value;
+	var cr = document.getElementById('cr').value;	
+	var receive_date = document.getElementById('receive_date').value;	
+	var cmd = "ajaxEditCheck&glid="+glid+"&particulars="+particulars+"&cr="+cr+"&receive_date="+receive_date;
+	document.getElementById('glid').value='';
+	document.getElementById('particulars').value='';
+	document.getElementById('cr').value='';
+	document.getElementById('receive_date').value='';
+	}
+	mode = 'add';
+	//alert(cmd);
+	ajaxCall('inv_supplierinfo',cmd,'crVoucher');
+
+}
+
+function ajaxCall4EditCR(glid, particulars, cr, receive_date){
+	document.getElementById('glid').value = glid;
+	document.getElementById('particulars').value = particulars;
+	document.getElementById('cr').value = cr;	
+	document.getElementById('receive_date').value = receive_date;	
+	mode = 'edit';
+	document.getElementById('mode').value=mode
+}
+/*function ajaxCall4DeleteItemType(id){
+	alert(id);
+	mode = 'del';
+	ajaxCall4ItemTypeAddEdit(id);
+}
+*/function confirmDelete()
+{
+    return confirm("Are you sure you wish to delete this entry?");
+}

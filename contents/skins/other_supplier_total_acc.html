@@ -1,0 +1,127 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR;?>/js/common.js"></script>
+
+
+
+
+<style>
+
+div.pagination {
+
+	padding: 3px;
+
+	margin: 3px;
+
+}
+
+
+
+div.pagination a {
+
+	padding: 2px 5px 2px 5px;
+
+	margin: 2px;
+
+	border: 1px solid #AAAADD;
+
+	
+
+	text-decoration: none; /* no underline */
+
+	color: #000099;
+
+}
+
+div.pagination a:hover, div.pagination a:active {
+
+	border: 1px solid #000099;
+
+
+
+	color: #000;
+
+}
+
+div.pagination span.current {
+
+	padding: 2px 5px 2px 5px;
+
+	margin: 2px;
+
+		border: 1px solid #000099;
+
+		
+
+		font-weight: bold;
+
+		background-color: #000099;
+
+		color: #FFF;
+
+	}
+
+	div.pagination span.disabled {
+
+		padding: 2px 5px 2px 5px;
+
+		margin: 2px;
+
+		border: 1px solid #EEE;
+
+	
+
+		color: #DDD;
+
+	}
+
+	
+
+</style>
+
+
+
+<table style="width:1000px;" align="center" cellpadding="10" cellspacing="0" bgcolor="#FFFFFF">
+
+    <tr>
+
+    <td width="1" height="20">&nbsp;</td>
+
+    <td colspan="3" align="center">&nbsp;</td>
+    </tr>
+
+  <tr>
+
+    <td height="23"></td>
+
+    <td width="177" nowrap="nowrap" style="font-family:Verdana; font-size:14px; font-weight:bold; color:#DD0000" >Other Supplier's Transactions</td>
+
+    <td colspan="2" align="right" nowrap="nowrap"style="font-family:Verdana; font-size:14px; font-weight:bold; color:#FF6600"> * Please click on supplier name for details view</td>
+  </tr>
+  <tr>
+    <td height="23"></td>
+    <td nowrap="nowrap" >
+	  <input type="text" id="searchq" name="searchq" value="Search" class="textBox" 
+
+			 onfocus="javascript:inputBoxLabelHide(this, 'Search');this.className='onFocus'" 
+
+			 onblur="javascript:inputBoxLabelShow(this, 'Search');this.className='onBlur'"
+
+		   onkeyup="javascript:searchData()" /></td>
+    <td width="353" align="center" nowrap="nowrap">&nbsp;</td>
+    <td width="587" align="right" nowrap="nowrap"><span style="font-family:Verdana; font-size:11px; font-weight:bold; color:#DD0000">
+      <?php if(getRequest('page')){echo 'Showing records &nbsp;'.$res1.' - '.$res2.' of '.$total_pages;}else{ echo 'Showing records &nbsp; 0 - 29 of '.$total_pages; } ?>
+    </span>&nbsp;&nbsp;<?php echo $pagination; ?></td>
+  </tr>
+
+  <tr>
+
+    <td height="35"></td>
+
+    <td colspan="3" align="left">
+
+	<div id="html" style="overflow: auto; height:450px; width:1000px; border:solid 1px #CCCCCC ">
+
+    <?php echo $ViewTransListFetch; ?></div></td>
+  </tr>
+</table>
+
+</div>

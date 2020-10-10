@@ -1,0 +1,73 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/InventorySystem/inv_item_cate_sub.js"></script>
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/StudentManagement/common.js"></script>
+
+
+        <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+</tr>
+    <tr>
+      <td align="center" ><form id="form1" name="form1" method="post" action="?app=userhome&cmd=ajaxItemReportSkin">
+        <table width="37%" border="0">
+          <tr>
+            <td width="20%" nowrap="nowrap"><span style="font-size:16px">Category : </span></td>
+            <td width="34%"><?php echo $SelectMainCat2; ?></td>
+            <td width="46%"><label>
+              <input type="submit" name="Submit" value="Show Report" class="btnClass" />
+            </label></td>
+          </tr>
+        </table>
+      </form></td>
+    </tr>
+    <td width="834" >
+      <table width="1118"  border="0" cellpadding="0" cellspacing="0" >
+
+        <tr>
+
+          <td>
+
+	       <input type="text" id="searchq" name="searchq" value="Search" size="20" class="textBox" 
+			 onfocus="javascript:inputBoxLabelHide(this, 'Search');this.className='onFocus'" 
+			 onBlur="javascript:inputBoxLabelShow(this, 'Search');this.className='onBlur'"
+		   onKeyUp="javascript:ajaxCall('inv_item_cat_sub','ajaxSearchCategory&searchq='+this.value,'CategoryDiv');" /></td>
+
+          <td width="302" style="color:#004080; font-size:16px; font-weight:bold" align="center" >Item Category Sub </td>
+          <td width="652" style="color:#CC0066; font-weight:bold"><?php echo getRequest('Dmsg');?>
+          <?php echo $msg; ?></td>
+        </tr>
+      </table> </td>
+
+  </tr>
+
+  <tr>
+
+    <td><div id="CategoryDiv"  class="layoutBox" style="overflow: auto; width:700px; height:200px;">
+
+    <?php echo $Category; ?></div></td>
+  </tr>
+
+  <tr>
+
+    <td valign="bottom">
+
+
+    <table width="586" border="0" cellpadding="5" cellspacing="6" class="layoutBox">
+      <tr>
+        <td width="185" nowrap="nowrap"> Item   Name :</td>
+        <td width="363"><input name="sub_item_category_name" type="text" class="textBox" id="sub_item_category_name"  size="60" /></td>
+        </tr>
+      <tr>
+        <td nowrap="nowrap"> Item Category : </td>
+        <td><?php echo $SelectMainCat; ?></td>
+        </tr>
+      <tr>
+        <td nowrap="nowrap"><input type="hidden" name="sub_item_category_id" id="sub_item_category_id" />
+          <input type="hidden" name="mode" id="mode" value="add" /></td>
+        <td><input name="button2" type="button" class="btnClass" onclick="javascript:if(validate_4Category()){ajaxCall4CategoryAddEdit();}" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" value="Save"/>
+          <input name="button" type="button" class="btnClass" id="button" onclick="clearValueInputField(Array('sub_item_category_id','sub_item_category_name','createdby','createddate'))" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" value="Clear"/></td>
+        </tr>
+    </table>  </td>
+  </tr>
+
+  <tr><td colspan="3">
+
+  </td></tr>
+</table>

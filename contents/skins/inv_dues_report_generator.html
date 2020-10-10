@@ -1,0 +1,82 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/InventorySystem/inv_report_branch.js"></script>
+
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/StudentManagement/common.js"></script>
+
+
+       <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+<tr ><td colspan="2"></tr>
+    <tr>
+      <td width="539" valign="top"></td>
+      <td valign="top" >&nbsp;</td>
+    </tr>
+    <tr>
+      <td valign="top"><form id="supplier_form" name="supplier_form" method="post" action="?app=inv_report_generator&cmd=SRWiseDuesReportSkin" target="_blank" >
+	      
+	      <table width="322" border="0" align="center" cellpadding="5" cellspacing="6" class="layoutBox" id="dailysales" >
+	        <tr>
+	          <td colspan="4" align="left"><div align="center"  class="btnClass" >S R Wise  Dues  </div>
+                <hr /><br /></td>
+            </tr>
+	        <tr>
+	          <td width="76" nowrap="nowrap">S R Name  : </td>
+	          <td colspan="3" nowrap="nowrap"><?php echo $SelectSalesMan; ?></td>
+            </tr>
+	        <tr>
+	          <td valign="top" nowrap="nowrap">&nbsp;</td>
+            <td colspan="2" nowrap="nowrap"><input name="slssubmit4" type="submit" value="Show" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"/></td>
+            <td width="23" nowrap="nowrap">&nbsp;</td>
+          </tr>
+	        <tr>
+	          <td colspan="4" align="center" nowrap="nowrap"></td>
+            </tr>
+          </table>
+      </form></td>
+      <td width="661" valign="top" ><!--<form id="supplier_form" name="supplier_form" method="post" action="?app=inv_report_generator&cmd=ShopWiseSalesReportSkin" target="_blank" >
+	      
+	      <table width="380" border="0" align="center" cellpadding="5" cellspacing="6" class="layoutBox" id="dailysales" >
+	        <tr>
+	          <td colspan="4" align="left"><div align="center"  class="btnClass" >Shop Wise Dues </div>
+                <hr /><br /></td>
+            </tr>
+	        <tr>
+	          <td nowrap="nowrap">SR Name : </td>
+	          <td colspan="3" nowrap="nowrap"><?php echo $SRname; ?></td>
+            </tr>
+	        <tr>
+	          <td valign="top" nowrap="nowrap">Customer   : </td>
+	          <td colspan="3" nowrap="nowrap">
+			  <div id="Shop3" style="height:150px; overflow:auto; border:solid 1px #CCCCCC">
+				  <?php echo $WholeSaller; ?>				  </div></td>
+            </tr>
+	        <tr>
+	          <td valign="top" nowrap="nowrap">&nbsp;</td>
+            <td colspan="2" nowrap="nowrap"><input name="slssubmit" type="submit" value="Show" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"/></td>
+            <td nowrap="nowrap">&nbsp;</td>
+          </tr>
+	        <tr>
+	          <td colspan="4" align="center" nowrap="nowrap"><label id="sls_name_lbl"></label></td>
+            </tr>
+          </table>
+      </form>-->	  	  </td>
+    </tr>
+    
+    <tr>
+      <td colspan="2" valign="top" >	    </td>
+      </tr>
+
+  <tr>
+
+    <td colspan="2">&nbsp;</td>
+  </tr>
+
+  <tr>
+
+    <td colspan="2"> </td>
+  </tr>
+
+  <tr><td colspan="4">
+
+  </td></tr>
+</table>
+                
+<?php  dateIFrame(REL_EXT_DIR); ?>

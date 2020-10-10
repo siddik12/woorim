@@ -1,0 +1,73 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/InventorySystem/invest_profit.js"></script>
+
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/StudentManagement/common.js"></script>
+
+
+        <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+</tr>
+    <td width="834" >
+      <table width="100%"  border="0" cellpadding="0" cellspacing="0" >
+        <tr>
+          <td></td>
+          <td style="color:#004080; font-size:16px; font-weight:bold" align="center" >&nbsp;</td>
+          <td style="color:#CC0066; font-weight:bold">&nbsp;</td>
+        </tr>
+        <tr>
+
+          <td width="187">
+
+	       <input type="text" id="searchq" name="searchq" value="Search" size="20" class="textBox" 
+			 onfocus="javascript:inputBoxLabelHide(this, 'Search');this.className='onFocus'" 
+			 onBlur="javascript:inputBoxLabelShow(this, 'Search');this.className='onBlur'"
+		   onKeyUp="javascript:ajaxCall('inv_supplierinfo','ajaxSearchSupplier&searchq='+this.value,'SupplierInfoDiv');" /></td>
+
+          <td width="704" style="color:#004080; font-size:16px; font-weight:bold" >Profit on Investment</td>
+          <td width="309" style="color:#CC0066; font-weight:bold"><?php echo getRequest('Dmsg');?>  <?php echo $msg; ?></td>
+        </tr>
+      </table> </td>
+
+  </tr>
+
+  <tr>
+
+    <td><div id="SupplierInfoDiv"  class="layoutBox" style="overflow: auto; width:1100px; height:300px;">
+
+    <?php echo $SupplierInfoFetch; ?></div></td>
+  </tr>
+  <tr>
+
+    <td valign="bottom">
+
+  <form id="supplier_form" name="supplier_form" method="post" action="?app=invest_profit" onSubmit="return validate_form();">
+    <table width="940" border="0" cellpadding="5" cellspacing="6" class="layoutBox">
+      <tr>
+        <td width="164">Share Holder  :</td>
+        <td width="144"><?php echo $SelectShareHolder; ?></td>
+        <td width="80">Shop : </td>
+        <td width="192"><?php echo $SelectBranch; ?></td>
+        <td width="28">Date:</td>
+        <td width="60"><input type="text" name="invdate" id="invdate" size="10" class="textBox"></td>
+        <td width="154"><img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" width="20" height="20" 
+			onclick="gfPop.fPopCalendar(document.supplier_form.elements['invdate']);return false;" title="calendar" /></td>
+      </tr>
+      <tr>
+        <td nowrap="nowrap">Profit Amount   :</td>
+        <td><input name="profit" id="profit" type="text" class="textBox"/></td>
+        <td nowrap="nowrap">Brand Name  : </td>
+        <td colspan="4"><?php echo $ItmCategory; ?></td>
+        </tr>
+      <tr>
+        <td nowrap="nowrap"><input type="hidden" name="invest_id" id="invest_id" />
+          <input type="hidden" name="mode" id="mode" value="add" /></td>
+        <td colspan="6"><input name="submit" type="submit" value="Save" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"/>
+          <input type="reset" name="reseat" value="Clear" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" /></td>
+        </tr>
+    </table>
+  </form>  </td>
+  </tr>
+
+  <tr><td colspan="3">
+
+  </td></tr>
+</table>         
+<?php dateIFrame(REL_EXT_DIR); ?>

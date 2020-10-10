@@ -1,0 +1,75 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/InventorySystem/customer_info_whole.js"></script>
+
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/StudentManagement/common.js"></script>
+
+
+        <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+</tr>
+    <td width="834" >
+      <table width="100%"  border="0" cellpadding="0" cellspacing="0" >
+        <tr>
+          <td></td>
+          <td style="color:#004080; font-size:16px; font-weight:bold" align="center" >&nbsp;</td>
+          <td style="color:#CC0066; font-weight:bold">&nbsp;</td>
+        </tr>
+        <tr>
+
+          <td width="187">
+
+	       <input type="text" id="searchq" name="searchq" value="Search" size="20" class="textBox" 
+			 onfocus="javascript:inputBoxLabelHide(this, 'Search');this.className='onFocus'" 
+			 onBlur="javascript:inputBoxLabelShow(this, 'Search');this.className='onBlur'"
+		   onKeyUp="javascript:ajaxCall('customer_info_whole','ajaxSearchCustomer&searchq='+this.value,'CustomerInfoDiv');" /></td>
+
+          <td width="704" style="color:#004080; font-size:16px; font-weight:bold" >Customer's Information</td>
+          <td width="309" style="color:#CC0066; font-weight:bold"><?php echo getRequest('Dmsg');?>  <?php echo $msg; ?></td>
+        </tr>
+      </table> </td>
+
+  </tr>
+
+  <tr>
+
+    <td><div id="CustomerInfoDiv"  class="layoutBox" style="overflow: auto; width:1000px; height:500px;">
+
+    <?php echo $CustomerInfoFetch; ?></div></td>
+  </tr>
+  <tr>
+
+    <td valign="bottom">
+
+  <form id="customer_form2" name="customer_form2" method="post" action="?app=customer_info_whole" onSubmit="return validate_form();">
+    <table width="613" border="0" cellpadding="5" cellspacing="6" class="layoutBox">
+      <tr>
+        <td>Shop Name : </td>
+        <td><input name="store_name" type="text" class="textBox" id="store_name" /></td>
+        <td nowrap="nowrap">Customer Name :</td>
+        <td><input name="name" type="text" class="textBox" id="name" /></td>
+      </tr>
+      <tr>
+        <td>Mobile : </td>
+        <td><input name="mobile" id="mobile" type="text" class="textBox" /></td>
+        <td nowrap="nowrap">District : </td>
+        <td><?php echo $SelectDistrict; ?></td>
+        </tr>
+      <tr>
+        <td nowrap="nowrap">Address  :</td>
+        <td colspan="2"><textarea name="address" class="textBox" id="address"></textarea></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td nowrap="nowrap"><input type="hidden" name="customer_id" id="customer_id" />
+          <input type="hidden" name="mode" id="mode" value="add" /></td>
+        <td>
+		  <input name="submit" type="submit" value="Save" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"/>
+          <input type="reset" name="reseat" value="Clear" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" /></td>
+        <td><input name="email" id="email" type="hidden" class="textBox" value="email" /></td>
+        <td><input name="upzila" type="hidden" class="textBox" id="upzila"  value="thana"/>
+          <input name="viber" id="viber" type="hidden" class="textBox" value="0" /></td>
+      </tr>
+    </table>
+  </form>  </td>
+  </tr>
+
+  <tr><td colspan="3">&nbsp;</td></tr>
+</table>         

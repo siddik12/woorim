@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="<?php echo REL_CONTENT_DIR?>/css/StudentManagement/common.css" type="text/css">
+<script language="javascript">
+function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+</script>
+<table width="900" align="center" id="print_area" bgcolor="#FFFFFF">
+  <tr>
+
+    <td colspan="2"><table width="100%" align="center" id="print_area" bgcolor="#FFFFFF">
+
+  <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:18px;color:#002953; font-style:oblique;"><img src="images/icon.png" width="60" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;font-family:Verdana"><?php echo getFromSession('compaddress'); ?></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;font-family:Verdana"><?php echo getFromSession('compmobile'); ?></td>
+  </tr>
+ <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;font-family:Verdana"><?php echo getFromSession('compemail'); ?></td>
+  </tr>
+ <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;font-family:Verdana"><?php echo getFromSession('compweb'); ?></td>
+  </tr>
+ <tr>
+    <td colspan="2" align="center"><hr /></td>
+  </tr>
+</table></td>
+  </tr>
+
+  <tr>
+    <td  align="center" valign="top" style="font-weight:bold; 	font-size:14px;color:#002953;font-family:Verdana">
+	<a href="?app=inv_report_generator&cmd=ajaxShopWiseSalesReportSkin&slfrom2=<?php echo $slfrom2; ?>&slto2=<?php echo $slto2; ?>&customer_id=<?php echo $customer_id; ?>" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'">Print View</a></td>
+    <td  align="center" valign="top" style="font-weight:bold; 	font-size:14px;color:#002953;font-family:Verdana">Customer Name : <?php echo $name; ?> </td>
+  </tr>
+  <tr>
+    <td width="449"  align="center" valign="top" style="font-weight:bold; 	font-size:11px;color:#002953;font-family:Verdana">Daily Cash Book </td>
+    <td width="439"  align="center" valign="top" style="font-weight:bold; 	font-size:11px;color:#002953;font-family:Verdana">From : <?php echo _date($slfrom2); ?> &nbsp;&nbsp;&nbsp;To : <?php echo _date($slto2); ?></td>
+  </tr>
+  <tr>
+
+    <td colspan="2"  align="center" valign="top"><?php echo $ShopWiseSalesReport; ?></td>
+  </tr>
+
+  <tr><td colspan="2">&nbsp;</td></tr>
+</table>

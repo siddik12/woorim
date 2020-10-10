@@ -1,0 +1,65 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/applicant/banking.js"></script>
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/common.js"></script>
+
+<style>
+div.pagination {
+	padding: 3px;
+	margin: 3px;
+}
+
+div.pagination a {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #AAAADD;
+	
+	text-decoration: none; /* no underline */
+	color: #000099;
+}
+div.pagination a:hover, div.pagination a:active {
+	border: 1px solid #000099;
+
+	color: #000;
+}
+div.pagination span.current {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+		border: 1px solid #000099;
+		
+		font-weight: bold;
+		background-color: #000099;
+		color: #FFF;
+	}
+	div.pagination span.disabled {
+		padding: 2px 5px 2px 5px;
+		margin: 2px;
+		border: 1px solid #EEE;
+	
+		color: #DDD;
+	}
+	
+</style>
+
+<table style="width:1200px;" align="center" cellpadding="10" cellspacing="0" bgcolor="#FFFFFF">
+    <tr>
+    <td width="1" height="20">&nbsp;</td>
+    <td colspan="3" align="center"><span style="text-decoration:blink;">&nbsp;&nbsp;&nbsp;<?php echo getRequest('Dmsg');?><?php echo getRequest('EDmsg'); ?><?php echo getRequest('msg'); ?> </span></td>
+  </tr>
+  <tr>
+    <td height="23"></td>
+    <td width="161" nowrap="nowrap" >
+	<a class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" 
+	href="?app=banking&cmd=save" title="Add new Client">Add New Bank </a></td>
+    <td width="158" align="left"><input type="text" id="searchq" name="searchq" value="Search" class="textBox" 
+			 onfocus="javascript:inputBoxLabelHide(this, 'Search');this.className='onFocus'" 
+			 onblur="javascript:inputBoxLabelShow(this, 'Search');this.className='onBlur'"
+		   onkeyup="javascript:searchData()" />    </td>
+    <td width="829" align="right" nowrap="nowrap"></td>
+  </tr>
+  <tr>
+    <td height="35"></td>
+    <td colspan="3"><table><tr><td>
+	<div id="html" style="overflow: auto; height:800px; width:1180px; ">
+    <?php echo $BankNameFetch; ?></div></td></tr></table></td>
+  </tr>
+</table>
+</div>

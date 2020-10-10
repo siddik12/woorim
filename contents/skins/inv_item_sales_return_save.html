@@ -1,0 +1,152 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/InventorySystem/stock_out.js"></script>
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/StudentManagement/common.js"></script>
+
+<style>
+div.pagination {
+	padding: 3px;
+	margin: 3px;
+}
+
+div.pagination a {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #AAAADD;
+	
+	text-decoration: none; /* no underline */
+	color: #000099;
+}
+div.pagination a:hover, div.pagination a:active {
+	border: 1px solid #000099;
+
+	color: #000;
+}
+div.pagination span.current {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+		border: 1px solid #000099;
+		
+		font-weight: bold;
+		background-color: #000099;
+		color: #FFF;
+	}
+	div.pagination span.disabled {
+		padding: 2px 5px 2px 5px;
+		margin: 2px;
+		border: 1px solid #EEE;
+	
+		color: #DDD;
+	}
+	
+</style>
+<script language="javascript" type="text/javascript">
+function removeSpaces(string) {
+ return string.trim();
+}
+
+function formValidate(){
+
+ if (document.complfrm.itemcode.value==''){
+		alert("Please enter item code");
+		return false;
+	}else if (document.complfrm.sales_date.value==''){
+		alert("Please Enter Sales Date");
+		return false;
+	}else if(document.complfrm.quantity.value==''){
+		alert("Please Enter Return Quantity");
+		return false;
+	}
+	else {
+	return true;
+	}
+}
+
+</script>
+
+
+        <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+  <tr>
+    <td align="center" style="color:#004080; font-size:16px; font-weight:bold; color:#FF3300">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center" style="color:#004080; font-size:16px; font-weight:bold; color:#FF3300"> Sales Return Option </td>
+    </tr>
+  <tr><td width="718" valign="top"><table width="700" height="361" border="0" align="center" cellpadding="0" cellspacing="6" >
+      
+
+      <tr>
+
+        
+        <td  valign="top"><table width="100%" height="351" border="0" class="layoutBox">
+          <tr>
+            <td width="677" nowrap="nowrap">
+			<form name="complfrm" id="complfrm" action="?app=inv_item_sales_return&cmd=SalesReturnSave" method="post" onsubmit="return formValidate()">
+			<table width="100%" height="375" border="0" cellpadding="0" cellspacing="0">
+
+              <tr>
+                <td nowrap="nowrap" style="color:#CC3300"><?php echo getRequest('msg'); ?></td>
+                <td nowrap="nowrap" style="color:#CC3300">&nbsp;</td>
+                </tr>
+              <tr>
+                <td height="23" nowrap="nowrap">&nbsp;</td>
+                <td>&nbsp;</td>
+                </tr>
+              <tr>
+                <td height="23" nowrap="nowrap"><strong>Customer :</strong></td>
+                <td><?php echo $company_name; ?></td>
+                </tr>
+              <tr>
+                <td nowrap="nowrap"><strong>Model : </strong></td>
+                <td><?php echo $sub_item_category_name; ?></td>
+                </tr>
+              <tr>
+                <td nowrap="nowrap"><strong>Sales Price : </strong></td>
+                <td><?php echo $salesprice; ?></td>
+                </tr>
+              <tr>
+                <td nowrap="nowrap"><strong>Sales Quantity :</strong></td>
+                <td><?php echo $item_qnt-$return_qnt; ?></td>
+                </tr>
+              <tr>
+                <td nowrap="nowrap"><strong>Total Discount : </strong></td>
+                <td><?php echo $totaldiscount; ?></td>
+                </tr>
+              <tr>
+                <td nowrap="nowrap"><strong>Sales Amount : </strong></td>
+                <td><?php echo $NetAmount-$return_amount; ?></td>
+                </tr>
+              <tr>
+                <td width="25%" nowrap="nowrap"><strong>Return Quantity  :</strong></td>
+                <td width="75%"><input name="quantity" type="text" class="textBox" id="quantity"  size="12"/></td>
+                </tr>
+			  
+              <tr>
+                <td nowrap="nowrap"><input type="text" name="salesprice" id="salesprice"  size="5" value="<?php echo $salesprice; ?>"/>
+                  <input type="hidden" name="customer_id2" id="customer_id2" size="5"  value="<?php echo $customer_id; ?>"/>
+                  <input type="hidden" name="total_amount" id="total_amount" size="5"  value="<?php echo $NetAmount-$return_amount; ?>"/>
+                  <input type="hidden" name="invoice" id="invoice" size="5"  value="<?php echo $invoice; ?>"/>
+                  <input type="hidden" name="soldQnt" id="soldQnt" size="5"  value="<?php echo $item_qnt-$return_qnt; ?>"/></td>
+                <td align="center">&nbsp;</td>
+                </tr>
+              <tr>
+                <td nowrap="nowrap">
+				<input type="text" name="sale_pay_id"  id="sale_pay_id" size="5"  value="<?php echo $sale_pay_id; ?>"/>
+				<input type="text" name="sales_id"  id="sales_id" size="5"  value="<?php echo getRequest('sales_id'); ?>"/>
+				<input type="text" name="customer_id"  id="customer_id" size="5"  value="<?php echo $customer_id; ?>"/>
+				<input type="hidden" name="sub_item_category_id"  id="sub_item_category_id" size="5"  value="<?php echo $sub_item_category_id; ?>"/>				</td>
+                <td><input name="submit" type="submit" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" value="Save" /></td>
+                </tr>
+            </table>
+			</form></td>
+            </tr>
+        </table>          </td>
+        </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top">&nbsp;</td>
+  </tr>
+</table>
+<?php  dateIFrame(REL_EXT_DIR); ?>

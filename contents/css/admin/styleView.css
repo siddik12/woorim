@@ -1,0 +1,371 @@
+.VUSTopMenuNormal{
+	font-family:verdana;
+	font-size:10px;
+	color:#627ff2;
+	font-weight:bold;
+	text-decoration:none;
+}
+.VUSTopMenuNormal:hover{
+	color:#ff0000;
+}
+.VUSTopMenuDivider{
+	font-family:Arial;
+	font-size:10px;
+	color:#627ff2;
+	margin-left:27px;
+	margin-right:27px;
+}
+.VUSTopMenuDivider2{
+	font-family:Arial;
+	font-size:10px;
+	color:#627ff2;
+	margin-left:7px;
+	margin-right:7px;
+}
+.VUSTopMenuSelected{
+	font-family:verdana;
+	font-size:10px;
+	color:#fd7700;
+	font-weight:bold;
+	text-decoration:none;
+}
+.VUStabNormal{
+	font-family:arial;
+	font-size:12px;
+	color:#5671bd;
+	font-weight:bold;
+	border-bottom:1px solid #8496d7;
+	background-color:#f2f2f5;
+}
+.VUStabSelected{
+	font-family:arial;
+	font-size:12px;
+	color:#fd7700;
+	font-weight:bold;
+	border-left:1px solid #8496d7; 
+	border-right:1px solid #8496d7;
+	border-top:1px solid #8496d7;
+	background-color:#f6f9f5;
+
+}
+.VUStabLinkNormal{
+	font-family:arial;
+	font-size:12px;
+	color:#5671bd;
+	font-weight:bold;
+	text-decoration:none;
+}
+.VUStabLinkSelected{
+	font-family:arial;
+	font-size:12px;
+	color:#fd7700;
+	font-weight:bold;
+	text-decoration:none;
+}
+.VUStabDisabled{
+	font-family:arial;
+	font-size:12px;
+	color:#9ba2b7;
+	font-weight:bold;
+	border-bottom:1px solid #8496d7;
+	background-color:#f2f2f5;
+}
+.VUSGrayTxt{
+	font-family:arial;
+	font-size:12px;
+	color:#b7b7b7;
+	font-weight:bold;
+	border-bottom:1px solid #8496d7;
+	background-color:#f2f2f5;
+}
+.VUSFormTitle{
+	font-family:Verdana;
+	font-size:14px;
+	color:#268209;
+	font-weight:bold;
+	/*border-bottom:1px solid #bec8ea;*/
+	/*background-color:#f2f2f5;*/
+}
+.VUSLebels{
+	font-family:verdana;
+	font-size:12px;
+	color:#2d428d;
+	padding-right:7px;
+	padding-left:7px;
+}
+.VUSValues{
+	font-family:verdana;
+	font-size:11px;
+	color:#7f7c7c;
+	padding-left:7px;
+}
+.VUSValues2{
+	font-family:verdana;
+	font-size:12px;
+	color:#000000;
+	padding-right:7px;
+	padding-left:7px;
+}
+/*USED ONLY IN MASTERVIEW (STEP02 AND STEP03 SECTIONS)*/
+.VUSValues3{
+	font-family:verdana;
+	font-size:10px;
+	font-weight:bold;
+	color:#2d428d;
+	padding-right:7px;
+	padding-left:7px;
+}
+/*USED ONLY IN MASTERVIEW (STEP02 AND STEP03 SECTIONS)*/
+.VUSValues4{
+	font-family:verdana;
+	font-size:10px;
+	color:#000000;
+	padding-right:7px;
+	padding-left:7px;
+}
+.VUSAgentList{
+	font-family:verdana;
+	font-size:12px;
+	color:#000000;
+	padding-right:7px;
+	padding-left:7px;
+	line-height:1.5;
+}
+.VUSAgentResult{
+	font-family:arial;
+	font-size:10px;
+	color:#000000;
+}
+.VUSWelcomeTxt{
+	font-family:verdana;
+	font-size:11px;
+	color:#000000;
+	text-align:justify;
+}
+.VUSValign{
+	vertical-align:middle;
+}
+/*
+.VUSPanelNavNormal{
+	font-family:verdana;
+	font-size:11px;
+	color:#fd7700;
+	text-decoration:none;
+	padding-left:7px;
+}
+*/
+.VUSPanelNavNormal:hover{
+	color:#ff0000;
+}
+.VUSPanelNavSelected{
+	font-family:verdana;
+	font-size:11px;
+	color:#fd7700;
+	text-decoration:none;
+	font-weight:bold;
+	padding-left:7px;
+}
+.VUStextBox{
+	border:1px solid #cfcccc;
+	vertical-align:middle;
+	height:20px;
+}
+.VUStextarea{
+	border:1px solid #cfcccc;
+	vertical-align:middle;
+	font-family:Arial;
+	font-size:11px;
+}
+.VUSdropdownlist{
+	border:1px solid #cfcccc;
+	vertical-align:middle;
+	font-family:Arial;
+	font-size:12px;
+	width:250px;
+}
+.VUSdropdownlist2{
+	border:1px solid #cfcccc;
+	vertical-align:middle;
+	font-family:Arial;
+	font-size:12px;
+	width:350px;
+}
+.VUSListBox{
+	border:1px solid #cfcccc;
+	vertical-align:middle;
+	font-family:Arial;
+	font-size:11px;
+	width:200px;
+}
+.VUStextarea2{
+	border:1px solid #cfcccc;
+	vertical-align:middle;
+	font-family:Arial;
+	font-size:12px;
+}
+.VUSButton{
+ background-color:#aaacbc;
+ font-family:verdana;
+ font-size:12px;
+ color:#2d428d;
+ font-weight:bold;
+ border:1px solid #FFFFFF;
+ 
+ 
+ 	border: 1px solid;
+	border-top-color:#c4c5d0;
+	border-left-color:#c4c5d0;
+	border-right-color:#90919a;
+	border-bottom-color:#90919a;
+
+	width: 90px;
+	height:20px;
+	cursor:hand;
+}
+.VUSButton2{
+ background-color:#DADCE1;
+ font-family:verdana;
+ font-size:11px;
+ color:#333333;
+ border:1px solid #FFFFFF;
+ 
+ 
+ 	border: 1px solid;
+	border-top-color:#C3D9C3;
+	border-left-color:#C3D9C3;
+	border-right-color:#FAFFFA;
+	border-bottom-color:#FAFFFA;
+
+	width: 70px;
+	height:20px;
+	cursor:hand;
+}
+.VUSButton3{
+ background-color:#CBCCD1;
+ font-family:verdana;
+ font-size:11px;
+ color:#333333;
+ border:1px solid #FFFFFF;
+ 
+ 
+ 	border: 1px solid;
+	border-top-color:#A1A2A6;
+	border-left-color:#A1A2A6;
+	border-right-color:#D9DBE0;
+	border-bottom-color:#D9DBE0;
+
+	height:20px;
+	cursor:hand;
+}
+.VUSButton4{
+ background-color:#aaacbc;
+ font-family:verdana;
+ font-size:12px;
+ color:#2d428d;
+ font-weight:bold;
+ border:1px solid #FFFFFF;
+ 
+ 
+ 	border: 1px solid;
+	border-top-color:#c4c5d0;
+	border-left-color:#c4c5d0;
+	border-right-color:#90919a;
+	border-bottom-color:#90919a;
+
+
+	height:20px;
+	cursor:hand;
+}
+.VUSSpecialInstructionStar{
+	font-family:verdana;
+	font-size:15px;
+	color:#3C5B47;
+}
+.VUSSpecialInstructionText{
+	font-family:verdana;
+	font-size:11px;
+	color:#3C5B47;
+	padding-right:7px;
+	padding-left:7px;
+}
+.VUSRequired{
+	font-family:verdana;
+	font-size:15px;
+	color:#ff2828;
+}
+.VUSInstruction{
+	font-family:arial;
+	font-size:11px;
+	color:#3552b7;
+}
+
+.VUSInstruction2{
+	font-family:arial;
+	font-size:11px;
+	color:#7585bf; 
+}
+.VUSPageBorder{
+	border-left:1px solid #c3c1c1;
+	border-right:1px solid #c3c1c1;
+	border-bottom:1px solid #c3c1c1;
+	background-color:#FFFFFF;
+}
+.VUSCopyright{
+ font-family:verdana;
+ font-size:11px;
+ color:#94a7d4;
+ padding-bottom:15px;
+
+}
+
+/*##################*/
+
+#VUSmenu td a
+	{
+		 
+		COLOR: #fd7700;
+		background-image:url(../images/btn_bg_n.gif);
+		background-repeat:repeat-y;
+		vertical-align:middle;
+		padding-left:7px;
+		text-decoration:none;
+		DISPLAY: block;
+		HEIGHT:28PX;
+		FONT-SIZE: 11px;
+		FONT-FAMILY: verdana; 
+}
+
+#VUSmenu td a:hover {
+	COLOR: #000000;
+	BACKGROUND:#CED2D3 no-repeat;
+	background-image:url(../images/btn_bg_s.gif);
+	background-repeat:repeat-y;
+}
+#VUSmenu td a.selected {
+	FONT-WEIGHT: bold; 
+	background-image:url(../images/btn_bg_s.gif);
+	background-repeat:repeat-y;
+}
+
+#VUSmenu td a:visited 
+	{
+		 
+		COLOR: #fd7700;
+		/*background-image:url(../images/btn_bg_n.gif);*/
+		background-image:../images/btn_bg_s.gif;
+		background-repeat:repeat-y;
+		vertical-align:middle;
+		padding-left:7px;
+		text-decoration:none;
+		DISPLAY: block;
+		HEIGHT:28PX;
+		FONT-SIZE: 11px;
+		FONT-FAMILY: verdana; 
+}
+.cursorTp{
+               cursor:hand;
+             }
+form{ margin:0px; padding:0px;}
+/*##########################*/
+
+

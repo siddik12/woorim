@@ -1,0 +1,231 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/InventorySystem/inv_report_branch.js"></script>
+
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/StudentManagement/common.js"></script>
+
+
+        <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+<tr ><td colspan="3"></tr>
+    <tr>
+      <td valign="top" style="color:#CC0066; font-weight:bold">&nbsp;</td>
+      <td valign="top" ></td>
+      <td valign="top" >&nbsp;</td>
+    </tr>
+    <tr><td width="204" valign="top" ><table width="203" border="0" cellpadding="5" cellspacing="6" class="layoutBox">
+<tr>
+        <td width="162" valign="top"><input name="button1" type="button" value="View receive stock" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" onclick="showElement('receivestok');hideElement('monthlysales');hideElement('dailysales')" style="width:160px;"/></td>
+      </tr>
+	  <tr>
+        <td valign="top">
+	<!--<a href="?app=inv_report_generator&cmd=currentStockReportSkin">
+<input name="button2" type="button" value="View current stock" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" style="width:160px;"/>-->
+	<a href="?app=inv_report_generator&cmd=currentStockReport">
+<input name="button2" type="button" value="View current stock" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" style="width:160px;"/>
+        </a></td>
+        </tr>
+		<tr>
+        <td valign="top"><input name="button3" type="button" value="Date Wise Stock" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" onclick="showElement('datewisestock');hideElement('receivestok');hideElement('monthlysales')" style="width:160px;"/></td>
+      </tr>
+	  <!--<tr>
+        <td valign="top"><input name="button4" type="button" value="View daily sales" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" onclick="showElement('dailysales');hideElement('receivestok');hideElement('monthlysales')" style="width:160px;"/></td>
+      </tr>-->      
+		<!--<tr>
+        <td valign="top"><input name="button5" type="button" value="View  monthly sales" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" onclick="showElement('monthlysales');hideElement('receivestok');hideElement('dailysales')" style="width:160px;"/></td>
+      </tr>-->      
+      
+      <tr>
+        <td valign="top"><a href="?app=inv_report_generator&cmd=MovedStockReportskin"><input name="button6" type="button" value="View Sales" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" style="width:160px;"/></a></td>
+      </tr>
+	  	  <tr>
+        <td valign="top"><a href="?app=inv_report_generator&cmd=SRWiseDuesReportSkin">
+          <input name="button7" type="button" value="Dues Report" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" style="width:160px;"/>
+        </a></td>
+      </tr>
+	  <tr>
+	    <td valign="top"><a href="?app=inv_report_generator_head&cmd=IncomeStateSkin">
+		<input name="button10" type="button" value="Income Statement" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" style="width:160px;text-align:left"/></a></td>
+	    </tr>
+
+	  <!--<tr>
+        <td valign="top"><a href="?app=inv_report_generator&cmd=DamageStockReportskin"><input name="button7" type="button" value="Return To Head Office" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" style="width:160px;"/></a></td>
+      </tr>
+	  
+	  <tr>
+        <td valign="top"><a href="?app=inv_report_generator&cmd=WoleSalesReportskin"><input name="button7" type="button" value="Whole Sales Report" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" style="width:160px;"/></a></td>
+      </tr>
+	  <tr>
+        <td valign="top"><a href="?app=inv_report_generator&cmd=SummaryReportSkinAziz"><input name="button7" type="button" value="Summary Report" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" style="width:160px;"/></a></td>
+      </tr>
+	 
+	  <tr>
+        <td valign="top"><a href="?app=inv_report_generator&cmd=SummaryReportSkin"><input name="button7" type="button" value="Summary Report" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" style="width:160px;"/></a></td>
+      </tr>-->
+	
+	  
+    </table></td>
+
+      <td width="492" valign="top" >
+	  <form id="supplier_form" name="supplier_form" method="post" action="?app=inv_report_generator&cmd=DailySalesReport"
+	   onSubmit=" if(indvReport()){ return true;}else{ return false;}"  target="_blank">
+
+	  <table width="200" border="0" cellpadding="5" cellspacing="6" class="layoutBox" id="dailysales" style="visibility:hidden">
+        <tr>
+          <td colspan="10" align="center"><div align="right"  class="btnClass" onclick="hideElement('dailysales')">Daily Sales Report &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X</div>
+            <hr /><br /></td>
+          </tr>
+        <tr>
+          <td align="right" nowrap="nowrap">Sales Date :</td>
+          <td colspan="7" nowrap="nowrap"><input name="slfrom" type="text" class="textBox" id="slfrom" size="20" /><img src="<?php echo IMAGE_DIR; ?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('slfrom'));return false;" style="cursor:pointer;" title="calendar" /></td>
+          <td nowrap="nowrap">&nbsp;</td>
+          <td nowrap="nowrap">&nbsp;</td>
+        </tr>
+        <tr>
+          <td valign="top" nowrap="nowrap">Salesman : </td>
+          <td colspan="7" nowrap="nowrap"><input name="person_id" type="text" class="textBox" id="person_id" onfocus="this.className='onFocus'" onblur="this.className='onBlur'" size="20" readonly="readonly"/><label  class="btnClass" id="button" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" 
+		onclick="javascript:loadSalsManId('slsManLookUp')">+</label>
+		<div id="slsManLookUp" class="dialogBox" style=" visibility:hidden; max-height:230px; width:190px">
+          <table  border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td ></td>
+              <td><input type="text" id="search" name="search" value="Search" size="22" class="textBox" 
+			 onfocus="javascript:inputBoxLabelHide(this, 'Search');this.className='onFocus'" 
+			 onblur="javascript:inputBoxLabelShow(this, 'Search');this.className='onBlur'"
+onkeyup="javascript:ajaxCall('inv_report_generator','ajaxSpecializationLoad&ele_id=job_specialization_id&ele_lbl_id=speci_name_lbl&search='+this.value,'SpeciList');" /></td>
+              <td></td>
+              <td></td>
+              <td align="center"><span class="btnClass" onclick="hideElement('slsManLookUp')">X</span></td>
+            </tr>
+          </table>
+          <div style="overflow:auto;height:200px; border:1px solid #024964;">
+            <div id="SlsList"><?php  echo $SalseManList; ?></div>
+          </div>
+        </div></td>
+          <td valign="top" nowrap="nowrap">&nbsp;</td>
+          <td nowrap="nowrap">&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="10" align="center" nowrap="nowrap"><label id="sls_name_lbl"></label></td>
+          </tr>
+        <tr>
+          <td colspan="10" align="center" nowrap="nowrap"><input name="slssubmit2" type="submit" value="Show" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"/></td>
+        </tr>
+      </table>
+	  </form>
+	  	  	  <form id="supplier_form" name="supplier_form" method="post" action="?app=inv_report_generator&cmd=MonthlySalesReport" >
+
+	  <table width="200" border="0" align="center" cellpadding="5" cellspacing="6" class="layoutBox" id="monthlysales" style="visibility:hidden">
+	        <tr>
+	          <td colspan="4" align="center"><div align="right"  class="btnClass" onclick="hideElement('monthlysales')">Monthly Sales  Report&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X</div>
+                <hr /><br /></td>
+            </tr>
+			<tr>
+        </tr>
+			
+	        <tr>
+	          <td nowrap="nowrap">Salesman :</td>
+	          <td nowrap="nowrap"><?php echo $salesman; ?></td>
+              <td nowrap="nowrap"> Category : </td>
+              <td nowrap="nowrap"><?php echo $catList; ?></td>
+	        </tr>
+	        <tr>
+	          <td nowrap="nowrap">From date :</td>
+            <td nowrap="nowrap"><input name="Monthslfrom2" type="text" class="textBox" id="Monthslfrom2" size="15" /><img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('Monthslfrom2'));return false;" style="cursor:pointer;" title="calendar" /></td>
+            <td colspan="-5" nowrap="nowrap">To  date: <br /></td>
+            <td nowrap="nowrap"><input name="Montslto2" type="text" class="textBox" id="Montslto2" size="15" /><img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('Montslto2'));return false;" style="cursor:pointer;" title="calendar" /></td>
+          </tr>
+	        <tr>
+	          <td valign="top" nowrap="nowrap">&nbsp;</td>
+            <td colspan="2" nowrap="nowrap"><input name="slssubmit" type="submit" value="Show" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"/></td>
+            <td nowrap="nowrap">&nbsp;</td>
+          </tr>
+	        <tr>
+	          <td colspan="4" align="center" nowrap="nowrap"><label id="sls_name_lbl"></label></td>
+            </tr>
+          </table>
+	  	  	  </form></td>
+      <td width="517" valign="top" >
+	  <table width="425" border="0" cellpadding="5" cellspacing="6" class="layoutBox" id="receivestok" style="visibility:hidden">
+        <tr>
+          <td width="259" align="center" nowrap="nowrap"> 
+		  <form name="rec" id="rec" method="post" action="?app=inv_report_generator&cmd=ReceivedStockReport"  target="_blank">
+		  <table width="425" border="0" cellpadding="5" cellspacing="6" class="layoutBox" >
+        <tr>
+          <td colspan="4" align="center"><div align="right"  class="btnClass" onClick="hideElement('receivestok')"> Receive Stock&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X</div>
+              <hr />           </td>
+        </tr>
+        <tr>
+          <td width="79" nowrap="nowrap">From date :</td>
+          <td nowrap="nowrap"><input name="rsfrom" type="text" class="textBox" id="rsfrom" size="10" />
+              <img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('rsfrom'));return false;" style="cursor:pointer;" title="calendar" /></td>
+          <td width="87" colspan="-5" align="right" nowrap="nowrap">To  date: <br /></td>
+          <td width="93" nowrap="nowrap"><input name="rsto" type="text" class="textBox" id="rsto" size="10" />
+            <img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('rsto'));return false;" style="cursor:pointer;" title="calendar" /></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap">Category :</td>
+          <td colspan="3" nowrap="nowrap"><?php echo $ItmCategory4Model; ?></td>
+          </tr>
+        <tr>
+          <td nowrap="nowrap" valign="top">Model : </td>
+          <td colspan="3" nowrap="nowrap">
+		  <div id="catModel" style="height:150px; overflow:auto; border:solid 1px #CCCCCC">
+		  <?php echo $SelectModel; ?>		  </div></td>
+        </tr>
+        <tr>
+          <td colspan="4" align="center" nowrap="nowrap"><input name="submit2" type="submit" value="Show" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/></td>
+        </tr>
+        <!--<tr>
+          <td nowrap="nowrap" >Challan No :</td>
+          <td colspan="7"><input name="challan_no" type="text" class="textBox" id="challan_no" size="15"/></td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>-->
+      </table>
+		  </form>		  </td>
+        </tr>
+      </table>
+	  <form name="rec" id="rec" method="post" action="?app=inv_report_generator&cmd=dateWiseStockReportSkin" target="_blank"  >
+	  <table width="442" border="0" cellpadding="5" cellspacing="6" class="layoutBox" id="datewisestock" style="visibility:hidden">
+        <tr>
+          <td colspan="10" align="center"><div align="right"  class="btnClass" onclick="hideElement('datewisestock')">Date Wise  Stock&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X</div>
+              <hr />
+            <br /></td>
+        </tr>
+        <tr>
+          <td width="76" nowrap="nowrap">Enter date :</td>
+          <td colspan="7" nowrap="nowrap"><input name="isfrom" type="text" class="textBox" id="isfrom" size="15" />
+              <img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onclick="gfPop.fPopCalendar(document.getElementById('isfrom'));return false;" style="cursor:pointer;" title="calendar" /></td>
+          <td width="22" nowrap="nowrap">&nbsp;</td>
+          <td width="27" nowrap="nowrap">&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="10" align="center" nowrap="nowrap"><input name="submit" type="submit" value="Show" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"/></td>
+        </tr>
+        <!--tr>
+          <td nowrap="nowrap">Challan No :</td>
+          <td colspan="7"><input name="challan_no" id="challan_no" type="text" class="textBox"/></td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr-->
+      </table>
+	  </form>
+	  
+	  </td>
+    </tr>
+
+  <tr>
+
+    <td colspan="3">&nbsp;</td>
+  </tr>
+
+  <tr>
+
+    <td colspan="3"> </td>
+  </tr>
+
+  <tr><td colspan="5">
+
+  </td></tr>
+</table>
+
+                
+<?php  dateIFrame(REL_EXT_DIR); ?>

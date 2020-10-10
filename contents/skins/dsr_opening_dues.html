@@ -1,0 +1,82 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR;?>/js/InventorySystem/Dsr_opening_due.js"></script>
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR;?>/js/StudentManagement/common.js"></script>
+
+<script language="JavaScript" type="text/JavaScript">
+//go another
+function goSignUp(place)
+{
+document.location="?app="+place;
+//alert(url);
+}
+</script>
+
+
+        <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+</tr>
+    <tr>
+      <td style="color:#004080; font-size:16px; font-weight:bold" align="center">&nbsp;</td></td>
+    </tr>
+    <td width="708" >
+      <table width="697"   border="0" cellpadding="0" cellspacing="0" >
+
+        <tr>
+
+          <td width="8"></td>
+
+           <td width="188">
+
+	      <input type="text" id="searchq" name="searchq" value="Search more..." size="30" class="textBox" 
+			 onfocus="javascript:inputBoxLabelHide(this, 'Search more...');this.className='onFocus'" 
+			 onBlur="javascript:inputBoxLabelShow(this, 'Search more...');this.className='onBlur'"
+		   onKeyUp="javascript:ajaxCall('dsr_collection','ajaxSearchOpDues&searchq='+this.value,'OpDueInfo');" /></td>
+
+          <td width="284" align="center" ><span style="color:#004080; font-size:16px; font-weight:bold">DSR Opening Dues Entry</span></td>
+          <td width="217" style="color:#CC0066; font-weight:bold"><?php echo getRequest('Dmsg');?><?php echo getRequest('msg'); ?>          </td>
+        </tr>
+      </table> </td>
+
+  </tr>
+
+  <tr>
+
+    <td><div id="OpDueInfo"  class="layoutBox" style="overflow: auto; width:590px; height:250px;">
+
+    <?php echo $OpeningDues; ?></div></td>
+  </tr>
+
+  <tr>
+    <td valign="bottom">&nbsp;</td>
+  </tr>
+  <tr>
+
+    <td valign="bottom">
+
+
+    <table width="754" border="0" cellpadding="5" cellspacing="6" class="layoutBox">
+      <tr>
+        <td width="92" align="right" nowrap="nowrap">DSR Name   : </td>
+        <td width="97"><?php echo $SR; ?></td>
+        <td width="123" align="right" nowrap="nowrap">Opening Dues   : </td>
+        <td width="90" align="right"><input name="opening_dues" id="opening_dues" type="text" size="15" class="textBox" value="0.00" 
+		    onfocus="javascript:inputBoxLabelHide(this, '0.00');this.className='onFocus'" 
+			 onblur="javascript:inputBoxLabelShow(this, '0.00');this.className='onBlur'"/></td>
+        <td width="102" align="right" nowrap="nowrap">Received date  : </td>
+        <td width="148" align="left" nowrap="nowrap"><input name="receive_date" id="receive_date" type="text" size="15" class="textBox" onfocus="this.className='onFocus'" onblur="this.className='onBlur'"/>
+          <img src="<?php echo IMAGE_DIR;?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20"
+		  onClick="gfPop.fPopCalendar(document.getElementById('receive_date'));return false;" style="cursor:pointer;" title="calendar" /></td>
+      </tr>
+      <tr>
+        <td><input name="mode" type="hidden" id="mode" value="add" size="5"  /></td>
+        <td  align="right" nowrap="nowrap">&nbsp;</td>
+        <td  align="right"><input name="button2" type="button" class="btnClass" onclick="javascript:if(validate_4BillEntry()){ajaxCall4DSROpDueEntry();}" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" value="Save"/></td>
+        <td colspan="3"><input name="button" type="button" class="btnClass" id="button" onclick="goSignUp('?app=dsr_collection&cmd=OpeningDuesEntrySkin')" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" value="Clear"/>
+          <input type="hidden" name="accid" id="accid" /></td>
+        </tr>
+    </table>  </td>
+  </tr>
+
+  <tr><td colspan="3">
+
+  </td></tr>
+</table>
+   <?php  dateIFrame(REL_EXT_DIR); ?>             

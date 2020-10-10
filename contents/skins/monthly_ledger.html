@@ -1,0 +1,88 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/InventorySystem/inv_report.js"></script>
+
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/StudentManagement/common.js"></script>
+
+
+<table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+<tr ><td colspan="3"></tr>
+    <tr>
+      <td width="204"></td>
+      <td width="492" valign="top" ></td>
+      <td width="517" valign="top" >&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3" valign="top" >
+	    <form id="supplier_form" name="supplier_form" method="post" action="?app=inv_supplierinfo&cmd=ajaxGLreportShow"
+	   onSubmit=" if(indvReport()){ return true;}else{ return false;}" target="_blank">
+	      
+	      <table width="200" border="0" align="center" cellpadding="5" cellspacing="6" class="layoutBox" id="salesstok">
+	        <tr>
+	          <td colspan="10" align="center"><div align="right"  class="btnClass">Monthly General Ledger &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X</div>
+                <hr /><br /></td>
+            </tr>
+	        <tr>
+	          <td nowrap="nowrap">From date :</td>
+            <td colspan="7" nowrap="nowrap"><input name="fromdt" type="text" class="textBox" id="fromdt" size="15" /><img src="<?=IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('fromdt'));return false;" style="cursor:pointer;" title="calendar" /></td>
+            <td nowrap="nowrap">To  date: <br /></td>
+            <td nowrap="nowrap"><input name="todt" type="text" class="textBox" id="todt" size="15" /><img src="<?=IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('todt'));return false;" style="cursor:pointer;" title="calendar" /></td>
+          </tr>
+	        <tr>
+	          <td valign="top" nowrap="nowrap">&nbsp;</td>
+            <td colspan="7" nowrap="nowrap"></td>
+            <td valign="top" nowrap="nowrap">
+              <input name="submit" type="submit" value="Show" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"/></td>
+            <td nowrap="nowrap">&nbsp;</td>
+          </tr>
+          </table>
+	      </form></td>
+    </tr>
+
+
+  <tr><td colspan="5">
+
+  </td></tr>
+</table>
+
+<!--table width="455" class="layoutBox">
+<tr ><td colspan="3"></tr>
+    <tr>
+      <td width="204" valign="top" nowrap="nowrap" style="color:#CC0066; font-weight:bold">Login As : <?php echo getFromSession('company_name');?></td>
+      <td width="492" valign="top" ></td>
+      <td valign="top" >&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2" valign="top" >
+	    <form id="supplier_form" name="supplier_form" method="post" action="?app=inv_supplierinfo&cmd=GLreportShow4PDF"
+	   onSubmit=" if(indvReport()){ return true;}else{ return false;}" target="_blank">
+	      
+	      <table width="200" border="0" cellpadding="5" cellspacing="6" class="layoutBox" id="salesstok">
+	        <tr>
+	          <td colspan="10" align="center"><div align="right"  class="btnClass">General Ledger PDF report&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X</div>
+              <hr /><br /></td>
+            </tr>
+	        <tr>
+	          <td nowrap="nowrap">From date :</td>
+            <td colspan="7" nowrap="nowrap"><input name="fromdt" type="text" class="textBox" id="fromdt" size="15" /><img src="<?=IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('fromdt'));return false;" style="cursor:pointer;" title="calendar" /></td>
+            <td nowrap="nowrap">To  date: <br /></td>
+            <td nowrap="nowrap"><input name="todt" type="text" class="textBox" id="todt" size="15" /><img src="<?=IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('todt'));return false;" style="cursor:pointer;" title="calendar" /></td>
+          </tr>
+	        <tr>
+	          <td valign="top" nowrap="nowrap">&nbsp;</td>
+            <td colspan="7" nowrap="nowrap"></td>
+            <td valign="top" nowrap="nowrap">
+              <input name="submit" type="submit" value="Show" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"/></td>
+            <td nowrap="nowrap">&nbsp;</td>
+          </tr>
+          </table>
+	      </form></td>
+      <td width="517" valign="top" >&nbsp;</td>
+    </tr>
+
+
+  <tr><td colspan="5">
+
+  </td></tr>
+</table-->
+
+                
+<?php  dateIFrame(REL_EXT_DIR); ?>

@@ -1,0 +1,44 @@
+.header_bg{
+	background-image:url(../images/header_bg.gif);
+	background-repeat:repeat-x;
+}
+.logo_bg{
+	background-image:url(../images/logo_bg.gif);
+	background-repeat:no-repeat;
+	background-position:left;
+}
+
+.VUSTopMenuBangla a{
+	display:block;
+	float:left;
+	font-family:verdana;
+	font-size:10px;
+	color:#FFFFFF;
+	font-weight:bold;
+	text-decoration:none;
+	padding-left:30px;
+	padding-right:30px;
+	border-right:1px solid #ffffff;
+
+}
+.VUSTopMenuBangla a:hover{
+	color:#baebff;
+}
+
+.VUSTopMenuBangla .selected{
+	display:block;
+	float:left;
+	font-family:verdana;
+	font-size:10px;
+	color:#c6ff00;
+	font-weight:bold;
+	text-decoration:none;
+	padding-left:30px;
+	padding-right:30px;
+	border-right:1px solid #ffffff;
+
+}
+.VUSTopMenuBangla .selected:hover{
+	color:#c6ff00;
+}
+

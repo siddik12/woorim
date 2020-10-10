@@ -1,0 +1,125 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR;?>/js/InventorySystem/challan_entry.js"></script>
+
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR;?>/js/StudentManagement/common.js"></script>
+<script language="JavaScript" type="text/JavaScript">
+//go another
+function goSignUp(place)
+{
+document.location="index.php?app="+place;
+}
+
+//-->
+</script>
+<style>
+div.pagination {
+	padding: 3px;
+	margin: 3px;
+}
+
+div.pagination a {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #AAAADD;
+	
+	text-decoration: none; /* no underline */
+	color: #000099;
+}
+div.pagination a:hover, div.pagination a:active {
+	border: 1px solid #000099;
+
+	color: #000;
+}
+div.pagination span.current {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+		border: 1px solid #000099;
+		
+		font-weight: bold;
+		background-color: #000099;
+		color: #FFF;
+	}
+	div.pagination span.disabled {
+		padding: 2px 5px 2px 5px;
+		margin: 2px;
+		border: 1px solid #EEE;
+	
+		color: #DDD;
+	}
+	
+</style>
+
+<script language="javascript" type="text/javascript">
+function removeSpaces(string) {
+ return string.trim();
+}
+</script>
+ <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+</tr>
+    <td width="708" >
+      <table width="900"  border="0" cellpadding="0" cellspacing="0" >
+
+        <tr>
+          <td width="190">&nbsp;</td>
+          <td colspan="2" align="center" style="color:#004080; font-size:16px; font-weight:bold"><span style="color:#CC0066; font-weight:bold"><?php echo getRequest('Dmsg');?><?php echo $msg; ?></span></td>
+          <td style="color:#CC0066; font-weight:bold">&nbsp;</td>
+        </tr>
+        <tr>
+
+          <td>
+
+	       <input type="text" id="searchq" name="searchq" value="Search more..." size="20" class="textBox" 
+			 onfocus="javascript:inputBoxLabelHide(this, 'Search more...');this.className='onFocus'" 
+			 onBlur="javascript:inputBoxLabelShow(this, 'Search more...');this.className='onBlur'"
+		   onKeyUp="javascript:ajaxCall('inv_item','ajaxSearchItemType&searchq='+this.value,'chkInfo');" /></td>
+
+          <td width="133" nowrap="nowrap" style="color:#004080; font-size:16px; font-weight:bold">Challan Entry Skin </td> 
+          <td width="232" align="right" nowrap="nowrap" style="color:#004080; font-size:16px; font-weight:bold"><span style="font-family:Verdana; font-size:11px; font-weight:bold; color:#DD0000">
+            <?php if(getRequest('page')){echo 'Showing &nbsp;'.$res1.' - '.$res2.' of '.$total_pages;}else{ echo 'Showing &nbsp; 0 - 29 of '.$total_pages; } ?>
+          </span></td>
+          <td width="345" align="right" style="color:#CC0066; font-weight:bold"><?php echo $pagination; ?></td>
+        </tr>
+      </table> </td>
+
+  </tr>
+
+  <tr>
+
+    <td><div id="challanInfo"  class="layoutBox" style="overflow: auto; width:900px; height:350px;">
+
+    <?php echo $Challan; ?></div></td>
+  </tr>
+
+  <tr>
+
+    <td valign="bottom">
+
+
+    <table width="752" border="0" cellpadding="5" cellspacing="6" class="layoutBox">
+      <tr>
+        <td width="81" align="right" nowrap="nowrap">Challan No  : </td>
+        <td colspan="3"><input name="challan_no" type="text" class="textBox" id="challan_no"  onblur="this.value=removeSpaces(this.value);" size="40"/></td>
+        <td width="97" align="right" nowrap="nowrap">&nbsp;</td>
+        <td width="149" nowrap="nowrap">&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td align="right" nowrap="nowrap">&nbsp;</td>
+        <td align="right">&nbsp;</td>
+        <td colspan="3">&nbsp;</td>
+      </tr>
+      <tr>
+        <td><input type="hidden" name="glid" id="glid" size="2" />
+          <input type="hidden" name="mode" id="mode" value="add" /></td>
+        <td width="152" align="right" nowrap="nowrap">&nbsp;</td>
+        <td width="60" align="right"><input name="button2" type="button" class="btnClass" onclick="javascript:if(validate_4Enterchk()){ajaxCall4EnterCheck();}" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" value="Save"/></td>
+        <td colspan="3"><a href="?app=accounts&cmd=ChallanEnterSkin" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" style="text-decoration:none"> Clear</a></td>
+        </tr>
+    </table>  </td>
+  </tr>
+
+  <tr><td colspan="3">
+
+  </td></tr>
+</table>
+
+   <?php  dateIFrame(REL_EXT_DIR); ?>             

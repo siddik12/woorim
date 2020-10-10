@@ -1,0 +1,143 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/InventorySystem/inv_item_info.js"></script>
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/InventorySystem/check_item.js"></script>
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/StudentManagement/common.js"></script>
+<style>
+div.pagination {
+	padding: 3px;
+	margin: 3px;
+}
+
+div.pagination a {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #AAAADD;
+	
+	text-decoration: none; /* no underline */
+	color: #000099;
+}
+div.pagination a:hover, div.pagination a:active {
+	border: 1px solid #000099;
+
+	color: #000;
+}
+div.pagination span.current {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+		border: 1px solid #000099;
+		
+		font-weight: bold;
+		background-color: #000099;
+		color: #FFF;
+	}
+	div.pagination span.disabled {
+		padding: 2px 5px 2px 5px;
+		margin: 2px;
+		border: 1px solid #EEE;
+	
+		color: #DDD;
+	}
+	
+</style>
+
+
+        <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+</tr>
+    <td>
+      <table width="100%"  border="0" cellpadding="0" cellspacing="0" >
+
+        <tr>
+          <td colspan="2"><span style="color:#004080; font-size:16px; font-weight:bold">Add Item Information </span></td>
+          <td><div  id="uidmsg" class="message"></div></td>
+        </tr>
+        <tr>
+          <td colspan="3"><table width="76%" border="0" cellpadding="5" cellspacing="6" class="layoutBox">
+      <tr>
+        <td width="71" height="36" nowrap="nowrap">Item Name : </td>
+        <td><input name="item_name" id="item_name" type="text" size="30" class="textBox" autocomplete="on" onfocus="this.className='onFocus'" onblur="this.className='onBlur'"/></td>
+        <td nowrap="nowrap">Item Code : </td><!--<input name="item_code" id="item_code" type="text" size="30" class="textBox" onBlur="getUserId()" />-->
+        <td width="198" ><input name="item_code" id="item_code" type="text" size="30" class="textBox" onBlur="getUserId()" /></td>
+        <td width="84" nowrap="nowrap" >Quantity : </td>
+        <td width="298" ><input name="quantity" id="quantity" type="text" size="30" class="textBox" /></td>
+        </tr>
+      <tr>
+        <td nowrap="nowrap">Cost Price : </td>
+        <td><input name="cost_price" id="cost_price" type="text" size="30" class="textBox" onfocus="this.className='onFocus'" onblur="this.className='onBlur'" /></td>
+        <td nowrap="nowrap">Retail Sales Price : </td>
+        <td><input name="sales_price" id="sales_price" type="text" size="30" class="textBox" onfocus="this.className='onFocus'" onblur="this.className='onBlur'"/></td>
+        <td nowrap="nowrap">Whole Sales Price :</td>
+        <td><input name="whole_sales_price" id="whole_sales_price" type="text" size="30" class="textBox" onfocus="this.className='onFocus'" onblur="this.className='onBlur'"/></td>
+      </tr>
+      <tr>
+        <td nowrap="nowrap">Item Category :</td>
+        <td><?php echo $catList; ?></td>
+        <td nowrap="nowrap">Challan No. </td>
+        <td><input name="challan_no" id="challan_no" type="text" size="30" class="textBox" onfocus="this.className='onFocus'" onblur="this.className='onBlur'"/></td>
+        <td>Receive Date : </td>
+        <td><input name="receive_date" type="text" class="textBox" id="receive_date" onfocus="this.className='onFocus'" onblur="this.className='onBlur'" size="26"/>
+          <img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onclick="gfPop.fPopCalendar(document.getElementById('receive_date'));return false;" style="cursor:pointer;" title="calendar" /></td>
+      </tr>
+      <tr>
+        <td nowrap="nowrap">Supplier : </td>
+        <td><?php echo $SuplierList; ?></td>
+        <td nowrap="nowrap">Item Size :</td><!--<input name="item_size" type="text" class="textBox" id="item_size"  
+		onfocus="javascript:inputBoxLabelHide(this, 'N/A');this.className='onFocus'" 
+		onblur="javascript:inputBoxLabelShow(this, 'N/A');this.className='onBlur'" value="N/A"  size="30"/>-->
+        <td><input name="item_size" type="text" class="textBox" id="item_size"  size="30"/></td>
+        <td>Branch : </td>
+        <td><?php echo $branch_dropdown; ?></td>
+      </tr>
+      <tr>
+        <td nowrap="nowrap">Description : </td>
+        <td colspan="5"><input name="description" type="text" class="textBox" id="description"  onfocus="javascript:inputBoxLabelHide(this, 'N/A');this.className='onFocus'" onblur="javascript:inputBoxLabelShow(this, 'N/A');this.className='onBlur'" value="N/A"  size="130"/></td>
+        </tr>
+      <tr>
+        <td><input name="item_id" type="hidden" id="item_id" size="5" />
+          <!--input type="hidden" name="createdby" id="createdby" />
+          <input type="hidden" name="createddate" id="createddate" /-->
+          <input type="hidden" name="mode" id="mode" value="add" /></td>
+        <td width="180" align="right" nowrap="nowrap"><input name="button2" type="button" class="btnClass" onclick="javascript:if(validate_4ItemType()){ajaxCall4ItemTypeAddEdit();}" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" value="Save"/></td>
+        <td width="63"><input name="button" type="button" class="btnClass" id="button" onclick="clearValueInputField(Array('item_id','sub_item_category_id','cost_price','sales_price','supplier_ID','item_code','challan_no','receive_date'))" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" value="Clear"/></td>
+        <td colspan="3"><span style='color:#FF0000; font-weight:bold'><?php echo getRequest('msg'); ?></span></td>
+        </tr>
+    </table></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="right"><span style="font-family:Verdana; font-size:11px; font-weight:bold; color:#DD0000">
+      <?php if(getRequest('page')){echo 'Showing &nbsp;'.$res1.' - '.$res2.' of '.$total_pages;}else{ echo 'Showing &nbsp; 0 - 29 of '.$total_pages; } ?>
+    </span>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td align="left" ><?php echo $pagination; ?></td>
+        </tr>
+        <tr>
+
+          <td width="149">
+
+          <input type="text" id="searchq" name="searchq" value="Search more..." size="20" class="textBox" 
+			 onfocus="javascript:inputBoxLabelHide(this, 'Search more...');this.className='onFocus'" 
+			 onBlur="javascript:inputBoxLabelShow(this, 'Search more...');this.className='onBlur'"
+		   onKeyUp="javascript:ajaxCall('inv_item_info','ajaxSearchItemInfo&searchq='+this.value,'ItemTypeDiv');" /></td>
+
+          <td width="234" align="center" nowrap="nowrap" style="color:#004080; font-size:16px; font-weight:bold">Item Information List </td>
+          <td width="817" align="center" ><?php echo getRequest('Dmsg');?> <?php echo $msg; ?></td>
+        </tr>
+      </table> </td>
+
+  </tr>
+
+  <tr>
+
+    <td><div id="ItemTypeDiv"  class="layoutBox" style="overflow: auto; width:1160px; height:350px;">
+
+    <?php echo $ItemInfo; ?></div></td>
+
+  </tr>
+
+  <tr>
+
+    <td valign="bottom">&nbsp;</td>
+  </tr>
+
+  <tr><td colspan="3">
+
+  </td></tr>
+</table>   
+<?php  dateIFrame(REL_EXT_DIR); ?>

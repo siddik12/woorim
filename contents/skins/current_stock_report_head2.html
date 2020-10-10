@@ -1,0 +1,66 @@
+<script language="javascript">
+function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+</script>
+
+
+<table width="800" border="0" cellspacing="0" cellpadding="0" align="center" style="border:1px solid #CCCCCC">
+  <tr>
+    <td width="421" style="color:#009933; font-weight:bold"><?php echo getRequest('msg'); ?>
+    <input name="button" type="button" class="btnClass" onclick="printDiv('print_area')"  onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" value="Print" /></td>
+    <td width="377">&nbsp;</td>
+  </tr>
+</table>
+
+
+  <table width="800"  align="center" id="print_area" bgcolor="#FFFFFF">
+  <tr>
+
+    <td colspan="2"><table width="100%" align="center" id="print_area" bgcolor="#FFFFFF">
+
+  <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:18px;color:#002953; font-style:oblique;"><img src="images/<?php echo getFromSession('complogo'); ?>" width="100" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;"><?php echo getFromSession('compcompany_name'); ?></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;"><?php echo getFromSession('compaddress'); ?></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;"><?php echo getFromSession('compmobile'); ?></td>
+  </tr>
+ <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;"><?php echo getFromSession('compemail'); ?></td>
+  </tr>
+ <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;"><?php echo getFromSession('compweb'); ?></td>
+  </tr>
+<!--  <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:14px;color:#002953; font-style:oblique;"><?php echo 'Branch : '.$branch_name; ?></td>
+  </tr>
+--> <tr>
+    <td colspan="2" align="center"><hr /></td>
+  </tr>
+</table></td>
+  </tr>
+
+  <tr>
+    <td width="399"  align="center" valign="top" style="font-weight:bold; 	font-size:11px;color:#002953;">Branch Wise  Current Stock</td>
+    <td width="389"  align="center" valign="top" style="font-weight:bold; 	font-size:11px;color:#002953;">Generated Date : <?php echo date("F j, Y, g:i a"); ?></td>
+  </tr>
+  <tr>
+
+    <td colspan="2" align="center" valign="top"><?php echo $currentStockReport; ?></td>
+  </tr>
+
+  <tr><td colspan="2">&nbsp;</td></tr>
+</table>

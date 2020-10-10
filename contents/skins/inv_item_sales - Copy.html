@@ -1,0 +1,192 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/InventorySystem/inv_item_sales.js"></script>
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/StudentManagement/common.js"></script>
+
+<style>
+div.pagination {
+	padding: 3px;
+	margin: 3px;
+}
+
+div.pagination a {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #AAAADD;
+	
+	text-decoration: none; /* no underline */
+	color: #000099;
+}
+div.pagination a:hover, div.pagination a:active {
+	border: 1px solid #000099;
+
+	color: #000;
+}
+div.pagination span.current {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+		border: 1px solid #000099;
+		
+		font-weight: bold;
+		background-color: #000099;
+		color: #FFF;
+	}
+	div.pagination span.disabled {
+		padding: 2px 5px 2px 5px;
+		margin: 2px;
+		border: 1px solid #EEE;
+	
+		color: #DDD;
+	}
+	
+</style>
+
+<script language="javascript" type="text/javascript">
+function removeSpaces(string) {
+ return string.trim();
+}
+</script>
+
+        <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+
+  <tr>
+    <td align="center" style="color:#FF3300; font-size:16px; font-weight:bold">Item Retail Sales Register </td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr><td width="718" valign="top"><table width="700" height="465" border="0" cellpadding="0" cellspacing="6" >
+      
+
+      <tr>
+
+        
+        <td  valign="top"><table width="100%" border="0" class="layoutBox">
+          <tr>
+            <td colspan="4" nowrap="nowrap">
+			<form name="sale" id="sale" action="?app=inv_item_sales_emi&cmd=SaveItemSales" method="post" onsubmit="return validate_4ItemIssue()">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <!--<tr>
+                <td width="11%" rowspan="2" valign="top" nowrap="nowrap"><strong>Category  :</strong></td>
+                <td width="22%" valign="top"><?php echo $ItmCategory4Model; ?></td>
+                <td width="10%" rowspan="2" align="center" valign="top"><strong>Model : </strong></td>
+                <td width="28%" rowspan="2" valign="top"><div id="catModel" style="height:150px; overflow:auto; border:solid 1px #CCCCCC">
+		  <?php echo $SelectModel; ?>
+		  </div></td>
+                <td width="29%" rowspan="2" valign="top"><input name="submit2" type="submit" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" value="Find" /></td>
+              </tr>-->
+              <tr>
+                <td align="center" valign="middle"><span style="color:#CC0033; font-weight:bold"><?php echo getRequest('msg'); ?></span></td>
+              </tr>
+              <tr>
+                <td width="10%" valign="top" nowrap="nowrap"><strong>Enter IME  :</strong></td>
+                <td width="24%" valign="middle"><input name="item_size" type="text" class="textBox" id="item_size"  size="24" onchange="this.value=removeSpaces(this.value);"/>
+				<!--<input name="item_size2" type="text" class="textBox" id="item_size2" maxlength="15"  size="15"/>-->
+				<script type="text/javascript">
+					document.getElementById('item_size').focus()
+					</script></td>
+                <td width="57%" align="center" valign="top"><span style="color:#CC0033; font-weight:bold"><?php echo getRequest('msg'); ?></span></td>
+                <td width="4%" valign="top">&nbsp;</td>
+                <td width="5%" valign="top"><input name="submit2" type="submit" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" value="Find" /></td>
+              </tr>
+            </table>
+			</form></td>
+            </tr>
+           <tr>
+            <td width="160" colspan="2" nowrap="nowrap">&nbsp;</td>
+            <td width="631" colspan="3" align="left" nowrap="nowrap"><!--<div  id="uidmsg" class="message"></div>--></td>
+            </tr>
+
+          <tr>
+            <td colspan="4" nowrap="nowrap">
+			<div id="ItemTypeDiv"  class="layoutBox" style="overflow: auto; width:700px; height:300px;"><?php echo $ItemIssue ?></div></td>
+            </tr>
+          <tr>
+            <td width="97" nowrap="nowrap">&nbsp;</td>
+            <td colspan="3" nowrap="nowrap">&nbsp;</td>
+          </tr>
+        </table>          </td>
+        </tr>
+    </table></td><td width="482" valign="top">
+	<form action="?app=inv_item_sales_emi&cmd=ComplateSales" method="post"  id="complfrm" name="complfrm" onsubmit="return check();">
+	<table width="275" border="0" cellspacing="5" class="layoutBox">
+      <tr>
+        <td colspan="2"><label style="color:#FF0000"><strong>Select  Customer </strong>
+          <label  class="btnClass" id="button" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" 
+		onclick="javascript:loadSalsManId('slsManLookUp')">+</label></label><hr /></td>
+        </tr>
+      <tr>
+        <td nowrap="nowrap"> Customer Name: 
+          <label></label></td>
+        <td><label>
+          <label style="color:#009900" id="sls_name_lbl"></label>
+        </label></td>
+      </tr>
+      <tr>
+        <td><input name="customer_id" type="hidden" id="customer_id" size="6" /></td>
+        <td><div id="slsManLookUp" class="dialogBox" style=" visibility:hidden;  width:190px">
+          <table  border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+              <td align="center"><span class="btnClass" onclick="hideElement('slsManLookUp')">X</span></td>
+			  <td align="right"><a href="?app=customer_info" target="_blank" onclick="hideElement('slsManLookUp')"><span class="btnClass">Add Customer</span></a></td>
+            </tr>
+          </table>
+          <div >
+            <div id="SlsList" style="overflow:auto;height:300px;"><?php  echo $SalseManList; ?></div>
+          </div>
+        </div></td>
+      </tr>
+      <tr>
+        <td colspan="2"><hr /></td>
+        </tr>
+      <tr>
+        <td width="76" nowrap="nowrap"> Total Amount : </td>
+        <td width="180"><input name="amount" type="text" id="amount" size="15" value="<?php echo $total_amount; ?>" />
+		<input name="total_discount" type="hidden" id="total_discount" size="7" value="<?php echo $discount; ?>" /></td>
+      </tr><!--<tr>
+        <td>Discount : </td>
+        <td><input name="total_discount" type="text" id="total_discount" size="15" /></td>
+      </tr>-->
+      <tr>
+        <td>Total Discount : </td>
+        <td><input name="totaldiscount" type="text" id="totaldiscount" size="15" placeholder="0.00" onchange="DiscountChng()"/></td>
+      </tr>
+      <tr>
+        <td>Total Payable: </td>
+        <td><input name="total_amount" type="text" id="total_amount" size="15" value="<?php echo $total_amount; ?>" /></td>
+      </tr>
+      <tr>
+        <td>Pay Type : </td>
+        <td>
+		<select name="pay_type" id="pay_type" style="width:110px;">
+		<option value="Cash">Cash</option>
+		<option value="Bank">Bank</option>
+		<option value="bKash">bKash</option>
+		</select></td>
+      </tr>
+      <tr>
+        <td>Paid Amount : </td>
+        <td><input name="paid_amount" type="text" id="paid_amount" size="15" value="<?php echo $total_amount; ?>" /></td>
+      </tr>
+      <tr>
+        <td valign="top">Sales Date: </td>
+        <td nowrap="nowrap"><input type="text" name="sales_date" id="sales_date" value="<?php echo $curdate; ?>" 
+			onfocus="javascript:inputBoxLabelHide(this, '<?php echo $curdate; ?>');" 
+			 onblur="javascript:inputBoxLabelShow(this, '<?php echo $curdate; ?>');"  size="11"/>
+            <img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" width="20" height="20" 
+			onclick="gfPop.fPopCalendar(document.complfrm.elements['sales_date']);return false;" title="calendar" /></td>
+      </tr>
+      <tr>
+        <td valign="top"><strong>Salesman : </strong></td>
+        <td nowrap="nowrap"><?php echo $SelectSalesMan; ?></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="?app=inv_item_sales&cmd=CancelSalesItem" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'">Cancel Sale</a></td>
+        <td><input name="submit" type="submit" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" value="Complete Sale" onclick="DiscountChng()"/></td>
+      </tr>
+    </table>
+	</form></td>
+  </tr>
+</table>
+<?php dateIFrame(REL_EXT_DIR); ?>

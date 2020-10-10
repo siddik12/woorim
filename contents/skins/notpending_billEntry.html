@@ -1,0 +1,50 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/InventorySystem/pending_bill.js"></script>
+
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/StudentManagement/common.js"></script>
+
+        <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+</tr>
+    <td width="708" >
+      <table width="985"  border="0" cellpadding="0" cellspacing="0" >
+
+        <tr>
+          <td></td>
+          <td>&nbsp;</td>
+          <td style="color:#004080; font-size:16px; font-weight:bold" align="center">&nbsp;</td>
+          <td style="color:#CC0066; font-weight:bold">&nbsp;</td>
+        </tr>
+        <tr>
+
+          <td width="11"></td>
+
+           <td width="183">
+
+		   <input type="text" id="searchq" name="searchq" value="Search more..." size="30" class="textBox" 
+			 onfocus="javascript:inputBoxLabelHide(this, 'Search more...');this.className='onFocus'" 
+			 onBlur="javascript:inputBoxLabelShow(this, 'Search more...');this.className='onBlur'"
+		   onKeyUp="javascript:ajaxCall('inv_item','ajaxSearchItemType&searchq='+this.value,'chkInfo');" /></td>
+
+          <td width="289" style="color:#004080; font-size:16px; font-weight:bold" align="center">Not Pending Bill List </td>
+          <td width="502" style="color:#CC0066; font-weight:bold">&nbsp;</td>
+        </tr>
+      </table> </td>
+
+  </tr>
+
+  <tr>
+
+    <td><div id="billInfo"  class="layoutBox" style="overflow: auto; width:1000px; height:350px;">
+
+    <?php echo $notPending ?></div></td>
+
+  </tr>
+
+  <tr>
+
+    <td valign="bottom">&nbsp;</td>
+  </tr>
+
+  <tr><td colspan="3">
+
+  </td></tr>
+</table>

@@ -1,0 +1,161 @@
+ <script language="javascript">
+function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+</script>
+<!--<body onLoad="printDiv('print_area')">-->
+<body onLoad="printDiv('print_area')">
+<table width="700" align="center" id="print_area" bgcolor="#FFFFFF">
+
+  <tr>
+
+    <td colspan="3"><table width="100%" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" id="print_area">
+
+  <tr>
+    <td rowspan="2"  valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0" style=" border:solid 1px #003399;-moz-border-radius: 5px; -webkit-border-radius: 5px;">
+      <tr>
+        <td width="18%" rowspan="2" align="center"><img src="images/wormi1.png" width="45" height="45"  /></td>
+        <td width="82%" height="35" style="font-size:30px; font-weight:bolder;color:#000099;"> WOORIM WORLD</td>
+      </tr>
+      <tr>
+        <td valign="top" style="color:#0000CC; font-size:12px"> &nbsp;&nbsp;&nbsp;Computer Parts Importer, Wholesaler & Retailer</td>
+      </tr>
+    </table></td>
+    <td width="1%" align="center" valign="top" >&nbsp;</td>
+    <td width="50%" rowspan="5" valign="top" ><table width="100%" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style=" border:solid 1px #003399;-moz-border-radius: 5px; -webkit-border-radius: 5px;">
+  <tr>
+    <td width="9%" align="center" valign="top" ><img src="images/map.png" /></td>
+    <td width="91%" style="font-family:Verdana; font-size:12px" >Room No : B4,1st Floor, kjs Mansion, New Elephant Road,Dhaka-1205. </td>
+  </tr>
+  <tr>
+    <td align="center" ><img src="images/mob.png" /></td>
+    <td width="91%" style="font-family:Verdana; font-size:12px">019700788606, 01971178606, 01918178606</td>
+  </tr>
+  <tr>
+    <td width="9%" align="center" ><img src="images/em.png" /></td>
+    <td width="91%" style="font-family:Verdana; font-size:12px">jtbd.woorim2006@gmail.com</td>
+  </tr>
+  <tr>
+    <td width="9%" align="center" ><img src="images/ww.png" /></td>
+    <td style="font-family:Verdana; font-size:12px">www.woorimworld.com</td>
+  </tr>
+  <tr>
+    <td align="center" ><img src="images/fb.png" height="18" /></td>
+    <td style="font-family:Verdana; font-size:12px">woorim woorim</td>
+  </tr>
+</table></td>
+  </tr>
+  <tr>
+    <td align="center" >&nbsp;</td>
+    </tr>
+  <tr>
+    <td  valign="top">&nbsp;</td>
+    <td width="1%" rowspan="2" align="center" >&nbsp;</td>
+    </tr>
+  <tr>
+    <td rowspan="3"  valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0" >
+      <tr>
+        <td width="18%" nowrap style="font-family:Verdana; font-size:12px"><strong>Customer </strong></td>
+        <td width="82%">&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="font-family:Verdana; font-size:12px"><strong>Shop</strong></td>
+        <td style="font-family:Verdana; font-size:12px"><strong>: <?php echo $store_name; ?></strong></td>
+      </tr>
+      <tr>
+        <td><span style="font-family:Verdana; font-size:12px">Mobile </span></td>
+        <td><span style="font-family:Verdana; font-size:12px">: <?php echo $mobile; ?></span></td>
+      </tr>
+      <tr>
+        <td><span style="font-family:Verdana; font-size:12px">Address </span></td>
+        <td><span style="font-family:Verdana; font-size:12px">: <?php echo $address; ?></span></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td width="1%" align="center" >&nbsp;</td>
+    </tr>
+  <tr>
+    <td align="center" >&nbsp;</td>
+    <td valign="top" ><table width="100%" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+  <tr>
+    <td colspan="2" ><span style="font-family:Verdana; font-size:12px"><strong>Invoice  No. : <?php echo  $invoice; ?></strong></span></td>
+  </tr>
+  <tr>
+    <td colspan="2" ><span style="font-family:Verdana; font-size:12px">Sales Date &amp; Time :<?php echo _date($sales_date); ?>&nbsp;&nbsp;
+          <?php date_default_timezone_set("Asia/Dhaka"); echo date("h:i:sa", $sale_time); ?>
+    </span></td>
+  </tr>
+</table></td>
+  </tr>
+  <tr>
+    <td colspan="3" align="center" style="font-weight:bolder;font-size:14px;color:#002953; font-style:normal;"></td>
+  </tr>
+  <tr>
+    <td colspan="3" align="center" style="font-weight:bolder;font-size:14px;color:#002953; font-style:normal;"></td>
+  </tr>
+ <tr>
+    <td colspan="3" align="center" style="font-weight:bolder;font-size:14px;color:#002953; font-style:normal;"></td>
+  </tr>
+<!-- <tr>
+   <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;"><?php echo getFromSession('compweb'); ?></td>
+ </tr>
+-->
+ <tr>
+   <td colspan="3" align="center" style="font-weight:bolder;font-size:18px;color:#002953; font-style:oblique;">
+   <table width="100%" border="0" cellspacing="0" cellpadding="0">
+     
+     <tr>
+       <td colspan="3" align="center" nowrap="nowrap"><div style="width:130px; border:solid 2px #003399; font-size:22px; font-weight:bold; background-color:#000066; color:#FFFFFF;-moz-border-radius: 5px; -webkit-border-radius: 5px;">INVOICE</div></td>
+       </tr>
+     <tr>
+       <td width="9%" nowrap="nowrap"></td>
+       <td width="42%"></td>
+       <td width="49%"></td>
+     </tr>
+   </table></td>
+ </tr>
+</table></td>
+  </tr>
+  <tr>
+
+    <td colspan="3" align="center" valign="top"><?php echo $printView; ?></td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp;</td>
+    <td align="center"><img src="images/signature.png" width="30" height="25"  /></td>
+  </tr>
+  <tr>
+    <td width="200"><strong style="text-decoration:overline; font-size:12px">Customer Signature</strong></td>
+    <td width="225" align="center">&nbsp;</td>
+    <td width="259" align="center"><strong style="text-decoration:overline; font-size:12px">Authorized Signature </strong></td>
+  </tr>
+  <tr>
+    <td colspan="3">
+	<table width="100%" cellpadding="0" cellspacing="0" style="border:1px dashed #333333">
+	<tr>
+    <td height="19" align="center" style="font-family:Verdana; font-size:12px"><strong>***&#2451;&#2527;&#2494;&#2480;&#2503;&#2472;&#2509;&#2463;&#2495; &#2488;&#2468;&#2480;&#2509;&#2453;&#2496;&#2453;&#2480;&#2467;***</strong></td>
+    </tr>
+	<tr>
+	  <td style="font-family:Verdana; font-size:14px;"><i>&#2535;. &#2447;&#2439; &#2439;&#2472;&#2477;&#2527;&#2503;&#2488;&#2463;&#2495; &#2438;&#2474;&#2472;&#2494;&#2480; &#2460;&#2472;&#2509;&#2479; &#2451;&#2527;&#2494;&#2480;&#2503;&#2472;&#2509;&#2463;&#2495; &#2453;&#2494;&#2480;&#2509;&#2465;&#2404;</i></td>
+	  </tr>
+	<tr>
+	  <td style="font-family:Verdana; font-size:14px;"><i>&#2536;. &#2474;&#2467;&#2509;&#2479; &#2453;&#2503;&#2472;&#2494;&#2480; &#2488;&#2478;&#2527; &#2437;&#2476;&#2486;&#2509;&#2479;&#2439; &#2474;&#2467;&#2509;&#2479;&#2463;&#2495; &#2477;&#2494;&#2482;&#2507; &#2453;&#2480;&#2503; &#2479;&#2494;&#2458;&#2494;&#2439; &#2453;&#2480;&#2503; &#2472;&#2503;&#2476;&#2503;&#2472;&#2404;</i></td>
+	  </tr>
+	<tr>
+	  <td style="font-family:Verdana; font-size:14px;"><i>&#2537;. &#2474;&#2467;&#2509;&#2479;&#2463;&#2495; &#2477;&#2494;&#2457;&#2494;, &#2474;&#2507;&#2524;&#2494;, &#2488;&#2509;&#2463;&#2495;&#2453;&#2494;&#2480;/&#2488;&#2496;&#2482; &#2459;&#2495;&#2433;&#2524;&#2503; &#2476;&#2494; &#2451;&#2464;&#2503; &#2455;&#2503;&#2482;&#2503; &#2451;&#2527;&#2494;&#2480;&#2503;&#2472;&#2509;&#2463;&#2495; &#2474;&#2509;&#2480;&#2470;&#2494;&#2472; &#2453;&#2480;&#2494; &#2489;&#2476;&#2503; &#2472;&#2494;&#2404;</i></td>
+	  </tr>
+	<tr>
+	  <td style="font-family:Verdana; font-size:14px;"><i>&#2538;. &#2439;&#2472;&#2477;&#2527;&#2503;&#2488;&#2503;&#2480; &#2468;&#2494;&#2480;&#2495;&#2454; &#2437;&#2472;&#2497;&#2479;&#2494;&#2527;&#2496; &#2486;&#2480;&#2509;&#2468; &#2488;&#2494;&#2474;&#2503;&#2453;&#2509;&#2487;&#2503; &#2451;&#2527;&#2494;&#2480;&#2503;&#2472;&#2509;&#2463;&#2495; &#2474;&#2509;&#2480;&#2470;&#2494;&#2472; &#2453;&#2480;&#2494; &#2489;&#2476;&#2503;&#2404;</i></td>
+	  </tr>
+	</table></td>
+  </tr>
+</table>
+</body>

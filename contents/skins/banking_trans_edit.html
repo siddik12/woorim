@@ -1,0 +1,166 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/common.js"></script>
+<link rel="stylesheet" href="<?php echo REL_CONTENT_DIR?>/css/admin/validationEngine.jquery.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+<link rel="stylesheet" href="<?php echo REL_CONTENT_DIR?>/css/admin/student_attend.css" type="text/css">
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/applicant/jquery-1.3.2.min.js" type="text/javascript"></script>
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/applicant/student_attend.js"></script>
+
+<script type="text/javascript">
+var J = jQuery.noConflict();
+</script>
+
+<script language="JavaScript"  src="<?php echo REL_CONTENT_DIR?>/js/applicant/jquery.validationEngine.js"></script>
+<script language="javascript1.3">
+  J("[class^=validate]").validationEngine({
+  inlineValidation: false,
+  success :  false,
+  failure : function() { callFailFunction()  }
+  })
+</script>
+
+
+<style>
+
+body{
+ /* fallback */ 
+ background-color: #1a82f7; 
+ background: url(images/linear_bg_2.png); 
+ background-repeat: repeat-x; 
+ /* Safari 4-5, Chrome 1-9 */ 
+ background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1a82f7), to(#2F2727)); 
+ /* Safari 5.1, Chrome 10+ */ 
+ background: -webkit-linear-gradient(top, #2F2727, #1a82f7); 
+ /* Firefox 3.6+ */
+ background: -moz-linear-gradient(top, #2F2727, #1a82f7); 
+ /* IE 10 */ 
+ background: -ms-linear-gradient(top, #2F2727, #1a82f7); 
+ /* Opera 11.10+ */ 
+ background: -o-linear-gradient(top, #2F2727, #1a82f7); 
+ }
+</style>
+
+<style type="text/css">
+<!--
+.style1 {color: #FF0000}
+-->
+.btnClass{
+	border:1px solid #0681BB;
+	background-color: #013450;
+	color: #F8F8F8;
+	-moz-border-radius:5px; -webkit-border-radius:5px;
+	padding:3px 7px 3px 7px;
+	font-weight:bold;
+	font-size:12px;
+	cursor:pointer;
+}
+.onFocus{
+	color: #000000;
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border:2px solid #035874 ;
+	background-color:#FFFFFF;
+}
+.onBlur{
+	color: #000000;
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border:2px solid #035874 ;
+	background-color:#CDE8FC;
+}
+
+</style>
+
+<form name="frmapplicant_signup" method="post" action="?app=banking&cmd=editBkTrans">
+     <!--div align="center"-->
+      <table style="width:1200px; background-color:#FDFDFD; border: #EEEEEE solid 1px;" border="0"   align="center" cellpadding="3" cellspacing="0" >
+
+		<tr>
+		    <td height="302" colspan="2" >
+		      <table  border="0" align="center"cellpadding="8" cellspacing="5" bgcolor="#FFFFFF" style="border: #F2F9FF solid 1px;-moz-border-radius: 5px 5px 5px 5px;-webkit-border-radius: 5px 5px 5px 5px;">
+									  <tr style="background-color:#F1EAF2;" >
+									    <td height="19" colspan="3"  nowrap="nowrap"><h4>Edit  Bank Transaction </h4></td>
+						      </tr>
+									  <tr >
+									    <td height="19" colspan="3"  nowrap="nowrap">&nbsp;</td>
+			    </tr>
+									  <tr>
+									    <td nowrap="nowrap" style="border-right:1px solid #F2F9FF;padding:2px;border-bottom:1px solid #F2F9FF;"><div class="allFieldName" >Bank A/C </div></td>
+									    <td nowrap="nowrap" style="padding:2px;border-bottom:1px solid #F2F9FF;"><?php echo $SelectBankList; ?></td>
+									    <td width="670" rowspan="17" valign="top" style="padding:2px;border-bottom:1px solid #F2F9FF;">&nbsp;</td>
+									  </tr>
+
+					          <tr>
+          <td width="87" nowrap="nowrap" style="border-right:1px solid #F2F9FF;padding:2px;border-bottom:1px solid #F2F9FF;"><div class="allFieldName">Transaction Date
+            <!--span class="style1">*</span-->
+          </div></td>
+          <td width="210" nowrap="nowrap" style="padding:2px;border-bottom:1px solid #F2F9FF;"><input type="text" name="trans_date" id="trans_date" class="validate[required]" value="<?php echo $trans_date; ?> ">&nbsp;<img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" width="20" height="20" 
+			onclick="gfPop.fPopCalendar(document.frmapplicant_signup.elements['trans_date']);return false;" title="calendar" /></td>
+          </tr>
+				<tr>
+          <td nowrap="nowrap" style="border-right:1px solid #F2F9FF;padding:2px;border-bottom:1px solid #F2F9FF;"><div class="allFieldName"> Transaction Type 
+            <!--span class="style1">*</span-->
+          </div></td>
+          <td nowrap="nowrap" style="padding:2px;border-bottom:1px solid #F2F9FF;">
+            <select name="transtyp" id="transtyp" style='width:150px' >
+			  <option value="Deposit" <?php if($transtyp!='Deposit'){ echo "selected";} ?> >Deposit</option>
+			  <option value="Withdraw" <?php if($transtyp!='Withdraw'){ echo "selected";} ?> >Withdraw</option>
+              </select></td>
+				</tr>
+                
+                <tr>
+                  <td nowrap="nowrap" style="border-right:1px solid #F2F9FF;padding:2px;border-bottom:1px solid #F2F9FF;"><div class="allFieldName">Amount </div></td>
+                  <td nowrap="nowrap" style="padding:2px;border-bottom:1px solid #F2F9FF;"><input type="text" name="amount" id="amount" class="validate[required]" value="<?php echo $amount; ?>" /></td>
+                </tr>
+                
+                <tr>
+                  <td nowrap="nowrap" style="border-right:1px solid #F2F9FF;padding:2px;border-bottom:1px solid #F2F9FF;"><div class="allFieldName">Branch</div></td>
+                  <td nowrap="nowrap" style="padding:2px;border-bottom:1px solid #F2F9FF;"><?php echo $SelectBranch; ?></td>
+                </tr>
+                <tr>
+          <td nowrap="nowrap" style="border-right:1px solid #F2F9FF;padding:2px;border-bottom:1px solid #F2F9FF;"><div class="allFieldName">Description </div></td>
+            <td nowrap="nowrap" style="padding:2px;border-bottom:1px solid #F2F9FF;"><textarea name="descrip" class="validate[required]" id="descrip"><?php echo$descrip; ?> </textarea></td>
+                </tr>
+<tr>
+          <td colspan="2" align="center" style="border-right:1px solid #F2F9FF;padding:2px;border-bottom:1px solid #F2F9FF;"><input  type="submit" name="submit" value="Save" class="btnClass" onfocus="this.className='onFocus'" onblur="this.className='onBlur'" /></td>
+            </tr>
+        <tr>
+          <td colspan="2" valign="top" style="border-right:1px solid #F2F9FF;padding:2px;border-bottom:1px solid #F2F9FF;">
+		  <input type="hidden" name="bnktransid" id="bnktransid" value="<?php echo $bnktransid; ?>" /></td>
+          </tr>
+        <tr>
+          <td colspan="2" align="center" valign="top" style="border-right:1px solid #F2F9FF;padding:2px;border-bottom:1px solid #F2F9FF;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td valign="top" style="border-right:1px solid #F2F9FF;padding:2px;border-bottom:1px solid #F2F9FF;">&nbsp;</td>
+          <td valign="top" nowrap="nowrap" style="padding:2px;border-bottom:1px solid #F2F9FF;">&nbsp;</td>
+          </tr>
+        <tr>
+          <td valign="top" style="border-right:1px solid #F2F9FF;padding:2px;border-bottom:1px solid #F2F9FF;">&nbsp;</td>
+          <td valign="top" nowrap="nowrap" style="padding:2px;border-bottom:1px solid #F2F9FF;">&nbsp;</td>
+          </tr>
+        <tr>
+          <td valign="top" style="border-right:1px solid #F2F9FF;padding:2px;border-bottom:1px solid #F2F9FF;">&nbsp;</td>
+          <td valign="top" nowrap="nowrap" style="padding:2px;border-bottom:1px solid #F2F9FF;">&nbsp;</td>
+          </tr>
+        <tr>
+          <td valign="top" style="border-right:1px solid #F2F9FF;padding:2px;border-bottom:1px solid #F2F9FF;">&nbsp;</td>
+          <td valign="top" nowrap="nowrap" style="padding:2px;border-bottom:1px solid #F2F9FF;">&nbsp;</td>
+          </tr>
+        <tr>
+          <td valign="top" style="border-right:1px solid #F2F9FF;padding:2px;border-bottom:1px solid #F2F9FF;">&nbsp;</td>
+          <td valign="top" nowrap="nowrap" style="padding:2px;border-bottom:1px solid #F2F9FF;">&nbsp;</td>
+          </tr>
+        <tr>
+          <td valign="top" style="border-right:1px solid #F2F9FF;padding:2px;border-bottom:1px solid #F2F9FF;">&nbsp;</td>
+          <td valign="top" nowrap="nowrap" style="padding:2px;border-bottom:1px solid #F2F9FF;">&nbsp;</td>
+          </tr>
+	  </table></td>
+	    </tr>
+        <tr>
+          <td width="412" align="center">&nbsp;</td>
+          <td width="774" align="center">&nbsp;</td>
+        </tr>
+  </table>
+  <!--/div-->
+</form>  
+
+<?php dateIFrame(REL_EXT_DIR); ?>

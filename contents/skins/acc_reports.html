@@ -1,0 +1,567 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR;?>/js/common.js"></script>
+<link rel="stylesheet" href="<?php echo REL_CONTENT_DIR;?>/css/common/common.css" type="text/css">
+
+<script language="javascript">
+function validateForm()
+{
+	valid = true;
+     if ( document.summaryReport.smbill_month.value == ""  )
+        {
+		        alert ( "Please select Bill Month." );
+                valid = false;
+        }
+		
+        return valid;
+}
+
+</script>
+
+<script language="javascript">
+$(document).ready(function(){
+    //  When user clicks on tab, this code will be executed
+    $("#tabs li").click(function() {
+        //  First remove class "active" from currently active tab
+        $("#tabs li").removeClass('active');
+ 
+        //  Now add class "active" to the selected/clicked tab
+        $(this).addClass("active");
+ 
+        //  Hide all tab content
+        $(".tab_content").hide();
+ 
+        //  Here we get the href value of the selected tab
+        var selected_tab = $(this).find("a").attr("href");
+ 
+        //  Show the selected tab content
+        $(selected_tab).fadeIn();
+ 
+        //  At the end, we add return false so that the click on the link is not executed
+        return false;
+    });
+});
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		//$("#hide_tbl").css('display','none');
+		$("#more_tbl").click(function(){
+			$(this).css('display','none');
+			$("#hide_tbl").css('display','inline-block');
+			$(".more_bus_type").css('display','');			
+		});
+		$("#hide_tbl").click(function(){
+			$(this).css('display','none');
+			$("#more_tbl").css('display','inline-block');
+			$(".more_bus_type").css('display','none');
+		});
+	});
+</script>
+
+<style>
+#tabs_wrapper {
+width: 810px;
+}
+/*#tabs_container {
+    border-bottom: 1px solid #ccc;
+}*/
+#tabs {
+    list-style: none;
+    padding: 5px 0 4px 0;
+    margin:0;
+font-family: verdana;
+font-size:12px;
+/*font-weight:bold;
+*/}
+#tabs li {
+    display: inline;
+}
+#tabs li a {
+    border: 1px solid #ccc;
+    padding: 4px 6px;
+    text-decoration: none;
+/*    background-color: #eeeeee;*/    
+	background-color: #E6E6E6;
+	border-bottom: none;
+    outline: none;
+    border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+	font-weight:bold;
+}
+#tabs li a:hover {
+    background-color: #dddddd;
+    padding: 4px 6px;
+}
+#tabs li.active a {
+    border-bottom: 1px solid #fff;
+    background-color: #fff;
+    padding: 4px 6px 5px 6px;
+    border-bottom: none;
+}
+#tabs li.active a:hover {
+    background-color: #eeeeee;
+    padding: 4px 6px 5px 6px;
+    border-bottom: none;
+}
+
+#tabs_content_container {
+    border: 1px solid #ccc;
+    /*border-top: none;
+    padding: 6px;
+    width: 514px;*/
+}
+.tab_content {
+    display: none;
+}
+</style>
+
+
+<table  align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="width:1200px;">
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+  <tr>
+    <td><fieldset style="border:1px solid #CCCCCC;">
+		<legend style="font-family:Verdana; font-size:11px; font-weight:bold; color:#004080;">Daily Accounts Reports </legend>
+		<div id="tabs_container" style="background-color:#FFFFFF;font-family:Verdana; font-size:11px;" width=160>
+					<ul id="tabs">
+						<li class="active" ><a href="#tab1" style="color:#0066FF">Expence</a></li>
+						<li><a href="#tab3" style="color:#0066FF">Income</a></li>
+						<!--<li><a href="#tab7" style="color:#0066FF">Salary</a></li>-->
+						<li><a href="#tab9" style="color:#0066FF">&nbsp;Daily Cash</a></li>
+						
+						<li><a href="#tab5" style="color:#0066FF">Banking</a></li>
+<!--						<li><a href="#tab6" style="color:#0066FF">bKash</a></li>
+-->						
+
+					</ul>			
+	  </div>
+			<div id="tabs_content_container" style="width:985px;">
+    			<div id="tab1" class="tab_content" style="display: block;">
+					<table width="100%" border="0">
+											<tr>
+											  <td width="27%"><form name="rec" id="rec" method="post" action="?app=finance&cmd=ExpAllReportSkin"  target="_blank">
+								  <table width="214" border="0" cellpadding="5" cellspacing="6" class="layoutBox" >
+							  <tr>
+							    <td colspan="2" align="center" nowrap="nowrap"><u><em>All Expence Transactions </em></u></td>
+							    </tr>
+							  <tr>
+								<td width="70" nowrap="nowrap">From date :</td>
+								<td width="141" nowrap="nowrap"><input name="fromexpall" type="text"  id="fromexpall" size="15" />
+								  <img src="<?php echo IMAGE_DIR;?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onclick="gfPop.fPopCalendar(document.getElementById('fromexpall'));return false;" style="cursor:pointer;" title="calendar" /></td>
+							  </tr>
+							  <tr>
+								<td nowrap="nowrap">To  date : </td>
+								<td nowrap="nowrap"><input name="toexpall" type="text"  id="toexpall" size="15" />
+								  <img src="<?php echo IMAGE_DIR;?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onclick="gfPop.fPopCalendar(document.getElementById('toexpall'));return false;" style="cursor:pointer;" title="calendar" /></td>
+							  </tr>
+							  <tr>
+							    <td nowrap="nowrap">Branch : </td>
+							    <td nowrap="nowrap"><?php echo $SelectBranch; ?></td>
+							    </tr>
+								<tr>
+								  <td colspan="2" align="center" nowrap="nowrap">&nbsp;</td>
+								  </tr>
+								<tr>
+								<td colspan="2" align="center" nowrap="nowrap"><input name="submit" type="submit" value="Show" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"/>
+								   &nbsp;
+								   <input  type="reset" name="submit" value="Reset" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"/></td>
+							  </tr>
+							</table>
+					
+									  </form></td>
+									  <!--========================================================================================================
+					======================================   Expence Group Reports  ================================================
+					=========================================================================================-->
+									  <td><form name="rec" id="rec" method="post" action="?app=finance&cmd=ExpGroupReportSkin"  target="_blank">
+								  <table width="214" border="0" cellpadding="5" cellspacing="6" class="layoutBox" >
+							  <tr>
+							    <td colspan="2" align="center" nowrap="nowrap"><u><em>According to Expence Accounts </em></u></td>
+							    </tr>
+							  <tr>
+								<td width="70" nowrap="nowrap">From date :</td>
+								<td width="141" nowrap="nowrap"><input name="fromexpgr" type="text"  id="fromexpgr" size="15" />
+								  <img src="<?php echo IMAGE_DIR;?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onclick="gfPop.fPopCalendar(document.getElementById('fromexpgr'));return false;" style="cursor:pointer;" title="calendar" /></td>
+							  </tr>
+							  <tr>
+								<td nowrap="nowrap">To  date : </td>
+								<td nowrap="nowrap"><input name="toxpgr" type="text"  id="toxpgr" size="15" />
+								  <img src="<?php echo IMAGE_DIR;?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onclick="gfPop.fPopCalendar(document.getElementById('toxpgr'));return false;" style="cursor:pointer;" title="calendar" /></td>
+							  </tr>
+							  <tr>
+							    <td nowrap="nowrap">Branch : </td>
+							    <td nowrap="nowrap"><?php echo $SelectBranch; ?></td>
+							    </tr>
+								<tr>
+								  <td colspan="2" align="center" nowrap="nowrap">&nbsp;</td>
+								  </tr>
+								<tr>
+								<td colspan="2" align="center" nowrap="nowrap"><input name="submit" type="submit" value="Show" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"/>
+								   &nbsp;
+								   <input  type="reset" name="submit" value="Reset" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"/></td>
+							  </tr>
+							</table>
+					
+									  </form></td>
+									  </tr>
+								  </table>	
+				</div>
+					
+			<!--========================================================================================================
+					======================================   Balance Sheet  ================================================
+					=========================================================================================-->
+				<div id="tab9" class="tab_content">	
+
+		<table width="100%" border="0">
+						<tr>
+						  <td ><form name="rec" id="rec" method="post" action="?app=finance&cmd=DailyCahReportSkin"  target="_blank">
+						  <table width="220" border="0" cellpadding="5" cellspacing="6" class="layoutBox" >
+							  <tr>
+							    <td colspan="2" align="center" nowrap="nowrap"><u><em>Daily Cash Balance Sheet </em></u></td>
+							    </tr>
+							  <tr>
+								<td nowrap="nowrap">From date :</td>
+								<td  nowrap="nowrap"><input name="slfrom2" type="text"  id="slfrom2" size="15" />
+									<img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onclick="gfPop.fPopCalendar(document.getElementById('slfrom2'));return false;" style="cursor:pointer;" title="calendar" /></td>
+								</tr>
+							  <!--<tr>
+								<td nowrap="nowrap">To  date: </td>
+								<td nowrap="nowrap"><input name="disto2" type="text"  id="disto2" size="15" />
+								  <img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onclick="gfPop.fPopCalendar(document.getElementById('disto2'));return false;" style="cursor:pointer;" title="calendar" /></td>
+								</tr>-->
+								
+					  
+							  <tr>
+								<td colspan="2" align="center" nowrap="nowrap"><input name="submit" type="submit" value="Show" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"/>&nbsp;&nbsp;<input  type="reset" name="submit22" value="Reset" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/></td>
+							  </tr>
+							  </table>
+		
+					</form></td>
+						</tr>
+					  </table>
+			  </div>
+			  
+						<!--========================================================================================================
+					======================================   Income Reports  ================================================
+					=========================================================================================-->
+				
+		
+				<div id="tab3" class="tab_content">
+					<table width="100%" border="0">
+                <tr>
+                  <td width="27%"><form name="rec" id="rec" method="post" action="?app=finance&cmd=IncAllReportSkin"  target="_blank">
+						<table width="220" border="0" cellpadding="5" cellspacing="6" class="layoutBox" >
+							  <tr>
+							    <td colspan="2" align="center" nowrap="nowrap"><u><em>All Income Transaction </em></u></td>
+							    </tr>
+									<tr>
+						
+									<td nowrap="nowrap">From date :</td>
+									<td  nowrap="nowrap"><input name="slfrominall" type="text"  id="slfrominall" size="15" />
+										<img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('slfrominall'));return false;" style="cursor:pointer;" title="calendar" /></td>
+									</tr>
+								  <tr>
+									<td nowrap="nowrap">To  date: </td>
+									<td  nowrap="nowrap"><input name="sltoinall" type="text"  id="sltoinall" size="15" />
+									  <img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('sltoinall'));return false;" style="cursor:pointer;" title="calendar" /></td>
+									</tr>
+						
+								  								  <tr>
+									<td colspan="2" align="center" nowrap="nowrap"><input name="submit" type="submit" value="Show" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/>&nbsp;&nbsp;<input  type="reset" name="submit" value="Reset" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/></td>
+								  </tr>
+								  </table>
+	        </form></td>
+			<!--========================================================================================================
+					======================================   Income Group Reports  ================================================
+					=========================================================================================-->
+			<td><!--<form name="rec" id="rec" method="post" action="?app=finance&cmd=IncGroupReportSkin"  target="_blank">
+						<table width="220" border="0" cellpadding="5" cellspacing="6" class="layoutBox" >
+							  <tr>
+							    <td colspan="2" align="center" nowrap="nowrap"><u><em>According to Income Accounts Name</em></u></td>
+							    </tr>
+									<tr>
+						
+									<td nowrap="nowrap">From date :</td>
+									<td  nowrap="nowrap"><input name="slfromingr" type="text"  id="slfromingr" size="15" />
+										<img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('slfromingr'));return false;" style="cursor:pointer;" title="calendar" /></td>
+									</tr>
+								  <tr>
+									<td nowrap="nowrap">To  date: </td>
+									<td  nowrap="nowrap"><input name="sltoingr" type="text"  id="sltoingr" size="15" />
+									  <img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('sltoingr'));return false;" style="cursor:pointer;" title="calendar" /></td>
+									</tr>
+						
+																  <tr>
+									<td colspan="2" align="center" nowrap="nowrap"><input name="submit" type="submit" value="Show" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/>&nbsp;&nbsp;<input  type="reset" name="submit" value="Reset" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/></td>
+								  </tr>
+								  </table>
+	        </form>--></td>
+
+              </table>	
+			  </div>
+					
+
+
+
+<!--========================================================================================================
+					======================================   Fixed Assets Reports  ================================================
+					=========================================================================================-->
+				
+		
+				<div id="tab4" class="tab_content">
+					<table width="100%" border="0">
+                <tr>
+                  <td width="27%"><form name="rec" id="rec" method="post" action="?app=finance&cmd=IncAllReportSkin"  target="_blank">
+						<table width="220" border="0" cellpadding="5" cellspacing="6" class="layoutBox" >
+							  <tr>
+							    <td colspan="2" align="center" nowrap="nowrap"><u><em>All Fixed Assets </em></u></td>
+							    </tr>
+									<tr>
+						
+									<td nowrap="nowrap">From date :</td>
+									<td  nowrap="nowrap"><input name="slfrominall" type="text"  id="slfrominall" size="15" />
+										<img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('slfrominall'));return false;" style="cursor:pointer;" title="calendar" /></td>
+									</tr>
+								  <tr>
+									<td nowrap="nowrap">To  date: </td>
+									<td  nowrap="nowrap"><input name="sltoinall" type="text"  id="sltoinall" size="15" />
+									  <img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('sltoinall'));return false;" style="cursor:pointer;" title="calendar" /></td>
+									</tr>
+								 <tr>
+									<td colspan="2" align="center" nowrap="nowrap"><input name="submit" type="submit" value="Show" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/>&nbsp;&nbsp;<input  type="reset" name="submit" value="Reset" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/></td>
+								  </tr>
+								  </table>
+	        </form></td>
+			<!--========================================================================================================
+					======================================   Fixed Assets Group Reports  ================================================
+					=========================================================================================-->
+			<td><form name="rec" id="rec" method="post" action="?app=finance&cmd=IncGroupReportSkin"  target="_blank">
+						<table width="220" border="0" cellpadding="5" cellspacing="6" class="layoutBox" >
+							  <tr>
+							    <td colspan="2" align="center" nowrap="nowrap"><u><em>According to Fixed Assets Type</em></u></td>
+							    </tr>
+									<tr>
+						
+									<td nowrap="nowrap">From date :</td>
+									<td  nowrap="nowrap"><input name="slfromingr" type="text"  id="slfromingr" size="15" />
+										<img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('slfromingr'));return false;" style="cursor:pointer;" title="calendar" /></td>
+									</tr>
+								  <tr>
+									<td nowrap="nowrap">To  date: </td>
+									<td  nowrap="nowrap"><input name="sltoingr" type="text"  id="sltoingr" size="15" />
+									  <img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('sltoingr'));return false;" style="cursor:pointer;" title="calendar" /></td>
+									</tr>
+						
+								<tr>
+									<td colspan="2" align="center" nowrap="nowrap"><input name="submit" type="submit" value="Show" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/>&nbsp;&nbsp;<input  type="reset" name="submit" value="Reset" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/></td>
+								  </tr>
+								  </table>
+	        </form></td>
+
+              </table>	
+			  </div>			  
+			  
+			  			<!--========================================================================================================
+					======================================   Bank  ================================================
+					=========================================================================================-->
+				<div id="tab5" class="tab_content">
+					<table width="100%" border="0">
+                <tr>
+                  <td width="18%"><form name="rec" id="rec" method="post" action="?app=finance&cmd=BankDepoReportSkin"  target="_blank">
+						<table width="220" border="0" cellpadding="5" cellspacing="6" class="layoutBox" >
+							  <tr>
+							    <td colspan="2" align="center" nowrap="nowrap"><u><em>Banking deposit </em></u></td>
+					      </tr>
+									<tr>
+						
+									<td nowrap="nowrap">From date :</td>
+									<td  nowrap="nowrap"><input name="slfrombd" type="text"  id="slfrombd" size="12" />
+										<img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('slfrombd'));return false;" style="cursor:pointer;" title="calendar" /></td>
+									</tr>
+								  <tr>
+									<td nowrap="nowrap">To  date: </td>
+									<td  nowrap="nowrap"><input name="sltobd" type="text"  id="sltobd" size="12" />
+									  <img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('sltobd'));return false;" style="cursor:pointer;" title="calendar" /></td>
+						  </tr>
+								  <tr>
+								    <td nowrap="nowrap">Acc. No. </td>
+								    <td  nowrap="nowrap"><?php echo $SelectBankList; ?></td>
+					      </tr>
+
+								<tr>
+						  <tr>
+									<td colspan="2" align="center" nowrap="nowrap"><input name="submit" type="submit" value="Show" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/>&nbsp;&nbsp;<input  type="reset" name="submit" value="Reset" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/></td>
+						  </tr>
+				    </table>
+	        </form></td>
+				<td width="18%"><form name="rec" id="rec" method="post" action="?app=finance&cmd=BankWithdrawReportSkin"  target="_blank">
+						<table width="220" border="0" cellpadding="5" cellspacing="6" class="layoutBox" >
+							  <tr>
+							    <td colspan="2" align="center" nowrap="nowrap"><u><em>Banking withdraw </em></u></td>
+					      </tr>
+									<tr>
+						
+									<td nowrap="nowrap">From date :</td>
+									<td  nowrap="nowrap"><input name="slfrombw" type="text"  id="slfrombw" size="12" />
+										<img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('slfrombw'));return false;" style="cursor:pointer;" title="calendar" /></td>
+									</tr>
+								  <tr>
+									<td nowrap="nowrap">To  date: </td>
+									<td  nowrap="nowrap"><input name="sltobw" type="text"  id="sltobw" size="12" />
+									  <img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('sltobw'));return false;" style="cursor:pointer;" title="calendar" /></td>
+						  </tr>
+								  <tr>
+								    <td nowrap="nowrap">Acc. No </td>
+								    <td  nowrap="nowrap"><?php echo $SelectBankList; ?></td>
+					      </tr>
+								<tr>
+						  <tr>
+									<td colspan="2" align="center" nowrap="nowrap"><input name="submit" type="submit" value="Show" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/>&nbsp;&nbsp;<input  type="reset" name="submit" value="Reset" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/></td>
+						  </tr>
+				  </table>
+	        </form></td>
+			<td width="64%"><form name="rec" id="rec" method="post" action="?app=finance&cmd=BankBlncShtSkin"  target="_blank">
+						<table width="220" border="0" cellpadding="5" cellspacing="6" class="layoutBox" >
+							  <tr>
+							    <td colspan="2" align="center" nowrap="nowrap"><u><em>Banking Balance Sheet </em></u></td>
+					      </tr>
+									<tr>
+						
+									<td nowrap="nowrap">From date :</td>
+									<td  nowrap="nowrap"><input name="slfromsht" type="text"  id="slfromsht" size="12" />
+										<img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('slfromsht'));return false;" style="cursor:pointer;" title="calendar" /></td>
+									</tr>
+								  <tr>
+									<td nowrap="nowrap">To  date: </td>
+									<td  nowrap="nowrap"><input name="sltosht" type="text"  id="sltosht" size="12" />
+									  <img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('sltosht'));return false;" style="cursor:pointer;" title="calendar" /></td>
+						  </tr>
+								  <tr>
+								    <td nowrap="nowrap">Acc. No. </td>
+								    <td  nowrap="nowrap"><?php echo $SelectBankList; ?></td>
+					      </tr>
+						
+								<tr>
+						  <tr>
+									<td colspan="2" align="center" nowrap="nowrap"><input name="submit" type="submit" value="Show" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/>&nbsp;&nbsp;<input  type="reset" name="submit" value="Reset" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/></td>
+						  </tr>
+			  </table>
+	        </form></td>
+              </table>	
+			  </div>
+
+			  			<!--========================================================================================================
+					======================================   bKash Transaction  ================================================
+					=========================================================================================-->
+				<!--<div id="tab6" class="tab_content">
+					<table width="100%" border="0">
+                <tr>
+                  <td width="18%"><form name="rec" id="rec" method="post" action="?app=finance&cmd=bKashCashInSkin"  target="_blank">
+						<table width="220" border="0" cellpadding="5" cellspacing="6" class="layoutBox" >
+							  <tr>
+							    <td colspan="2" align="center" nowrap="nowrap"><u><em>bKash Cash In </em></u></td>
+					      </tr>
+									<tr>
+						
+									<td nowrap="nowrap">From date :</td>
+									<td  nowrap="nowrap"><input name="bkinfrombd" type="text"  id="bkinfrombd" size="12" />
+										<img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('bkinfrombd'));return false;" style="cursor:pointer;" title="calendar" /></td>
+									</tr>
+								  <tr>
+									<td nowrap="nowrap">To  date: </td>
+									<td  nowrap="nowrap"><input name="bkintobd" type="text"  id="bkintobd" size="12" />
+									  <img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('bkintobd'));return false;" style="cursor:pointer;" title="calendar" /></td>
+						  </tr>
+								  <tr>
+								    <td nowrap="nowrap">Transaction Type </td>
+								    <td  nowrap="nowrap">
+									<select name="trans_type" id="trans_type" style="width:120px" class="textBox">
+									<option value="">Select</option>
+									<option value="1">Cash In</option>
+									<option value="2">Cash Out</option>
+									</select></td>
+					      </tr>
+
+								<tr>
+						  <tr>
+									<td colspan="2" align="center" nowrap="nowrap"><input name="submit" type="submit" value="Show" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/>&nbsp;&nbsp;<input  type="reset" name="submit" value="Reset" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/></td>
+						  </tr>
+				    </table>
+	        </form></td>
+				<td width="18%"><form name="rec" id="rec" method="post" action="?app=finance&cmd=bKashCashOutSkin"  target="_blank">
+						<table width="220" border="0" cellpadding="5" cellspacing="6" class="layoutBox" >
+							  <tr>
+							    <td colspan="2" align="center" nowrap="nowrap"><u><em>bKash Cash Out </em></u></td>
+					      </tr>
+									<tr>
+						
+									<td nowrap="nowrap">From date :</td>
+									<td  nowrap="nowrap"><input name="bkoutfrombw" type="text"  id="bkoutfrombw" size="12" />
+										<img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('bkoutfrombw'));return false;" style="cursor:pointer;" title="calendar" /></td>
+									</tr>
+								  <tr>
+									<td nowrap="nowrap">To  date: </td>
+									<td  nowrap="nowrap"><input name="bkouttobw" type="text"  id="bkouttobw" size="12" />
+									  <img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('bkouttobw'));return false;" style="cursor:pointer;" title="calendar" /></td>
+						  </tr>
+								  <tr>
+								    <td nowrap="nowrap">Transaction Type </td>
+								    <td  nowrap="nowrap">
+									<select name="trans_type" id="trans_type" style="width:120px" class="textBox">
+									<option value="">Select</option>
+									<option value="1">Cash In</option>
+									<option value="2">Cash Out</option>
+									</select></td>
+					      </tr>
+								<tr>
+						  <tr>
+									<td colspan="2" align="center" nowrap="nowrap"><input name="submit" type="submit" value="Show" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/>&nbsp;&nbsp;<input  type="reset" name="submit" value="Reset" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/></td>
+						  </tr>
+				  </table>
+	        </form></td>
+			<td width="64%"><form name="rec" id="rec" method="post" action="?app=finance&cmd=bKashBlncShtSkin"  target="_blank">
+						<table width="220" border="0" cellpadding="5" cellspacing="6" class="layoutBox" >
+							  <tr>
+							    <td colspan="2" align="center" nowrap="nowrap"><u><em>Banking Balance Sheet </em></u></td>
+					      </tr>
+									<tr>
+						
+									<td nowrap="nowrap">From date :</td>
+									<td  nowrap="nowrap"><input name="bkfromsht" type="text"  id="bkfromsht" size="12" />
+										<img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('bkfromsht'));return false;" style="cursor:pointer;" title="calendar" /></td>
+									</tr>
+								  <tr>
+									<td nowrap="nowrap">To  date: </td>
+									<td  nowrap="nowrap"><input name="bktosht" type="text"  id="bktosht" size="12" />
+									  <img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('bktosht'));return false;" style="cursor:pointer;" title="calendar" /></td>
+						  </tr>
+								  <tr>
+								    <td nowrap="nowrap">Transaction Type </td>
+								    <td  nowrap="nowrap">
+									<select name="trans_type" id="trans_type" style="width:120px" class="textBox">
+									<option value="">Select</option>
+									<option value="1">Cash In</option>
+									<option value="2">Cash Out</option>
+									</select></td>
+					      </tr>
+						
+								<tr>
+						  <tr>
+									<td colspan="2" align="center" nowrap="nowrap"><input name="submit" type="submit" value="Show" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/>&nbsp;&nbsp;<input  type="reset" name="submit" value="Reset" class="btnClass" onMouseOver="this.className='btnPress'" onMouseOut="this.className='btnClass'"/></td>
+						  </tr>
+			  </table>
+	        </form></td>
+              </table>	
+			  </div>-->
+
+
+			</div>
+		</fieldset></td>
+  </tr>
+</table>
+</div>
+<?php dateIFrame(REL_EXT_DIR); ?>

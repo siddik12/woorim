@@ -1,0 +1,140 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/InventorySystem/item_return.js"></script>
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/StudentManagement/common.js"></script>
+
+<style>
+div.pagination {
+	padding: 3px;
+	margin: 3px;
+}
+
+div.pagination a {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #AAAADD;
+	
+	text-decoration: none; /* no underline */
+	color: #000099;
+}
+div.pagination a:hover, div.pagination a:active {
+	border: 1px solid #000099;
+
+	color: #000;
+}
+div.pagination span.current {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+		border: 1px solid #000099;
+		
+		font-weight: bold;
+		background-color: #000099;
+		color: #FFF;
+	}
+	div.pagination span.disabled {
+		padding: 2px 5px 2px 5px;
+		margin: 2px;
+		border: 1px solid #EEE;
+	
+		color: #DDD;
+	}
+	
+</style>
+
+
+        <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+
+  <tr>
+    <td style="color:#004080; font-size:16px; font-weight:bold; color:#FF3300">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center" style="color:#004080; font-size:16px; font-weight:bold; color:#FF3300">Item Return Option </td>
+    </tr>
+  <tr><td width="718" valign="top" align="center"><table width="700" height="143" border="0" cellpadding="0" cellspacing="6" >
+      
+
+      <tr>
+
+        
+        <td  valign="top"><table width="100%" border="0" class="layoutBox">
+          <tr>
+            <td width="677" nowrap="nowrap"><form name="complfrm" id="complfrm" action="?app=item_return&cmd=ItemReturn" method="post" onsubmit="return check()">
+			<table width="100%" height="231" border="0" cellpadding="0" cellspacing="0">
+
+              <tr>
+                <td colspan="4" nowrap="nowrap" style="color:#CC3300"><?php echo getRequest('msg'); ?></td>
+                </tr>
+              <tr>
+                <td nowrap="nowrap"><strong>Branch  : </strong></td>
+                <td><?php echo $branch_name; ?></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td nowrap="nowrap"><strong>Item Name : </strong></td>
+                <td><?php echo $item_name; ?></td>
+                <td nowrap="nowrap">&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td nowrap="nowrap"><strong>Item Code :</strong></td>
+                <td><?php echo getRequest('item_code'); ?></td>
+                <td align="center" nowrap="nowrap">&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td width="16%" nowrap="nowrap"><strong>Enter Quantity  :</strong></td>
+                <td width="16%"><input name="quantity" type="text" class="textBox" id="quantity"  size="15" onKeyPress="return isNumberKey(event)"/></td>
+                <td width="12%" nowrap="NOWRAP">&nbsp;</td>
+                <td width="56%">&nbsp;</td>
+              </tr>
+              <tr>
+                <td nowrap="nowrap"><strong>Return Date : </strong></td>
+                <td nowrap="nowrap"><input name="damage_date" type="text" class="textBox" id="damage_date" size="15" /><img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('damage_date'));return false;" style="cursor:pointer;" title="calendar" /></td>
+                <td align="center" nowrap="nowrap">&nbsp;</td>
+                <td><label></label></td>
+              </tr>
+              <tr>
+                <td height="28" nowrap="nowrap"><strong>Return For : </strong></td>
+                <td>
+				<select name="return_purpose" id="return_purpose">
+				<option value="">Select</option>
+				<option value="Damage">Damage</option>
+				<option value="Branch">Branch</option>
+				</select></td>
+                <td align="center" nowrap="nowrap">&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td nowrap="nowrap"><input type="hidden" name="tqnt1c"  id="tqnt1c" value="<?php echo getRequest('tqnt1c'); ?>"/>
+                  <input type="hidden" name="item_id" id="item_id" value="<?php echo $item_id; ?>" />
+				  <input type="hidden" name="item_name" id="item_name" value="<?php echo $item_name; ?>" />
+                  <input type="hidden" name="cost_price" id="cost_price"  value="<?php echo $cost_price; ?>"/>
+                  <input type="hidden" name="item_code"  id="item_code" value="<?php echo getRequest('item_code'); ?>"/>
+				  <input type="hidden" name="branch_id"  id="branch_id" value="<?php echo getRequest('branch_id'); ?>"/></td>
+                <td align="center"><input name="submit" type="submit" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" value="Save" /></td>
+                <td align="center" nowrap="nowrap">&nbsp;</td>
+                <td><label></label></td>
+              </tr>
+            </table>
+			</form></td>
+            </tr>
+        </table>          </td>
+        </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td valign="top" align="center">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top" align="center">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top" align="center">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top" align="center">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top" align="center">&nbsp;</td>
+  </tr>
+</table>
+<?php  dateIFrame(REL_EXT_DIR); ?>

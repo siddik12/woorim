@@ -1,0 +1,54 @@
+<script language="javascript">
+function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+</script>
+
+
+<body onLoad="printDiv('print_area')">
+  <table width="700"  id="print_area" bgcolor="#FFFFFF" align="center">
+  <tr>
+
+    <td colspan="2"><table width="700" align="center" id="print_area" bgcolor="#FFFFFF">
+
+  <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:18px;color:#002953; font-style:oblique;"><img src="images/icon.png" width="55" height="55" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:16px;color:#002953; font-style:oblique;"><strong>WOORIM WORLD</strong></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;"><?php echo getfromSession('compaddress'); ?></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;"><?php echo getfromSession('compmobile'); ?></td>
+  </tr>
+ <tr>
+    <td colspan="2" align="center" style="font-weight:bolder;font-size:12px;color:#002953; font-style:oblique;"><?php echo getfromSession('compemail'); ?></td>
+  </tr>
+ <tr>
+    <td colspan="2" align="center"><hr /></td>
+  </tr>
+</table></td>
+  </tr>
+
+  <tr>
+    <td colspan="2"  align="center" valign="top" style="font-weight:bold; 	font-size:15px;color:#002953; font-family:Verdana; font-size:14px">Product Information</td></tr>
+  <tr>
+
+    <td colspan="2" align="center" valign="top"><?php echo $ItemReport; ?></td>
+  </tr>
+
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <!--<tr height=22><td width="647" style="border-bottom:1px dotted #000066">Copyright &copy;  <?php echo date('Y'); ?> <b>PEERAGE SHOES.</b></td>
+    <td width="241" align="right" style="border-bottom:1px dotted #000066" nowrap="nowrap"><a href="http://www.sarkerit.com/">Powered By Sarker IT</a></td>
+  </tr>-->
+</table>
+</body>

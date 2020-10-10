@@ -1,0 +1,97 @@
+<script language="javascript">
+function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+</script>
+<div align="center" style="widows:900px;"><input type="button" onclick="printDiv('print_area')" value="Print" class="btnClass"  onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" /></div>
+  <table width="1200" align="center" id="print_area" bgcolor="#FFFFFF" cellpadding="0" cellspacing="0">
+
+  <tr>
+
+    <td align="center"><div style="font-weight:bolder; 	font-size:18px;color:#002953; font-style:oblique;">M/S ZAHIR TRADER'S</div> 
+	<div style="font-weight:bold; font-size:12px;color:#002953; font-style:normal;">Group Income Report<br />
+	<?php if($rsfrom && $rsto) {?>
+    From : <?php echo _date($rsfrom); ?> &nbsp;&nbsp;&nbsp;To : <?php echo _date($rsto); } else { echo 'Challan No : '.$challan_no; } ?></div><hr /></td>
+  </tr>
+
+  <tr>
+    <td height="22" align="center" valign="top" style="font-weight:bold; border-bottom:solid 1px;font-size:13px;color:#002953;">ABUL KHAIR </td>
+    </tr>
+  <tr>
+
+    <td height="91" align="center" valign="top"><?php echo $ABKSales; ?></td>
+    </tr>
+  <tr>
+    <td height="36" align="center" valign="middle" >&nbsp;</td>
+    </tr>
+  <tr>
+    <td height="36" align="center" valign="middle" style="font-weight:bold; border-bottom:solid 1px;border-top:solid 1px;font-size:13px;color:#002953;">FAVICOL</td>
+    </tr>
+  <tr>
+    <td height="91" valign="top" align="center"><?php echo $FviSales; ?></td>
+    </tr>
+  <tr>
+    <td height="36" align="center" valign="middle" >&nbsp;</td>
+    </tr>
+  <tr>
+    <td height="36" align="center" valign="middle" style="font-weight:bold; border-bottom:solid 1px;border-top:solid 1px;font-size:13px;color:#002953;">DABOUR</td>
+    </tr>
+  <tr>
+    <td height="91" valign="top" align="center"><?php echo $DburSales; ?></td>
+    </tr>
+  <tr>
+    <td height="36" align="center" valign="middle" >&nbsp;</td>
+    </tr>
+  <tr>
+    <td height="36" align="center" valign="middle" style="font-weight:bold; border-bottom:solid 1px;border-top:solid 1px;font-size:13px;color:#002953;">JOHNSON &amp; JOHNSON </td>
+    </tr>
+  <tr>
+    <td height="91" align="center" valign="top"><?php echo $JohnSales; ?></td>
+    </tr>
+  <tr>
+    <td height="36" align="center" valign="middle" >&nbsp;</td>
+    </tr>
+  <tr>
+    <td height="36" align="center" valign="middle" style="font-weight:bold; border-bottom:solid 1px;border-top:solid 1px;font-size:13px;color:#002953;">SB DISTRIBUTION </td>
+    </tr>
+  <tr>
+    <td height="91" align="center" valign="top"><?php echo $SBSales; ?></td>
+    </tr>
+  <tr>
+    <td height="36" align="center" valign="middle" >&nbsp;</td>
+    </tr>
+  <tr>
+    <td height="36" align="center" valign="middle" style="font-weight:bold; border-bottom:solid 1px;border-top:solid 1px;font-size:13px;color:#002953;">DABOUR SUPERSHOP </td>
+    </tr>
+  <tr>
+    <td height="91" align="center" valign="top"><?php echo $SuprSales; ?></td>
+    </tr>
+	
+<tr>
+    <td height="36" align="center" valign="middle" style="font-weight:bold; border-bottom:solid 1px;border-top:solid 1px;font-size:13px;color:#002953;">S.B. DISTRIBUTION SUPER SHOP </td>
+    </tr>
+  <tr>
+    <td height="91" align="center" valign="top"><?php echo $SBSuprSales; ?></td>
+    </tr>	
+ 
+  <tr>
+    <td height="91" align="center" valign="top"><hr style="border:solid #CC0000 1px;" /></td>
+  </tr>
+  <tr>
+
+    <td height="91" align="center" valign="top">
+	<label style="color:#CC0000; font-size:14px; font-weight:bold">Company's Total Current Assets :</label>
+	&nbsp;&nbsp;
+	<label style="color:#009933; font-size:14px; font-weight:bold"><?php echo $ABKtotal+$FviTotal+$Dburtotal+$JohnTotal+$SBtotal+$SuprTotal+$SBSuperTotal; ?>=/ Taka</label></td>
+    </tr>
+  <!--<tr height=22><td colspan="3" style="border-bottom:1px dotted #000066">Copyright &copy;  <?php echo date('Y'); ?> <b>M/S Zahir Trader's.</b></td>
+    <td width="162" align="right" style="border-bottom:1px dotted #000066" nowrap="nowrap"><a href="http://www.sarkerit.com/">Powered By Sarker IT</a></td>
+  </tr>-->
+</table>

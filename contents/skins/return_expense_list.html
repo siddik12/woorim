@@ -1,0 +1,78 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR;?>/js/common.js"></script>
+<link rel="stylesheet" href="<?php echo REL_CONTENT_DIR;?>/css/common/common.css" type="text/css">
+
+<script language="JavaScript" type="text/JavaScript">
+
+function clearSelected(){
+    var elements = document.getElementById("bankid").options;
+
+    for(var i = 0; i < elements.length; i++){
+      elements[i].selected = false;
+    }
+  }
+
+</script>
+
+<style>
+
+.navlinks {
+	font-size: 11px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #003A75;
+}
+
+</style>
+
+<style>
+div.pagination {
+	padding: 3px;
+	margin: 3px;
+}
+
+div.pagination a {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #AAAADD;
+	
+	text-decoration: none; /* no underline */
+	color: #000099;
+}
+div.pagination a:hover, div.pagination a:active {
+	border: 1px solid #000099;
+
+	color: #000;
+}
+div.pagination span.current {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+		border: 1px solid #000099;
+		
+		font-weight: bold;
+		background-color: #000099;
+		color: #FFF;
+	}
+	div.pagination span.disabled {
+		padding: 2px 5px 2px 5px;
+		margin: 2px;
+		border: 1px solid #EEE;
+	
+		color: #DDD;
+	}
+	
+</style>
+<table border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="width:1200px;">
+  <tr>
+    <td colspan="3" align="right" style="font-family:Verdana; color:#004080; font-weight:bold; font-size:13px"></td>
+  </tr>
+  <tr>
+	<td width="484" height="28" align="left"  style="font-family:Verdana; color:#004080; font-weight:bold; font-size:13px; border-bottom:solid 1px #003366;">Return Expense List&nbsp;</td>  
+    <td width="283" align="right"  style="border-bottom:solid 1px #003366;">&nbsp;&nbsp;</td>
+    <td width="433" align="right"  style="border-bottom:solid 1px #003366;">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="3"><div style="height:400px; width:870px; overflow:auto; border:solid 1px #97CBFF;"><?php echo $list; ?></div></td>
+  </tr>
+</table>
+</fieldset>
+<?php dateIFrame(REL_EXT_DIR); ?>

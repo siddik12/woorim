@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<LINK REL="SHORTCUT ICON" HREF="images/icon.png">
+<link rel="stylesheet" href="<?php echo REL_CONTENT_DIR;?>/css/headermenu/HeaderMenu.css" type="text/css">
+<link rel="stylesheet" href="<?php echo REL_CONTENT_DIR;?>/css/headermenu/jqueryslidemenu.css" type="text/css">
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR;?>/js/headermenu/jquery.min.js"></script>
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR;?>/js/headermenu/jqueryslidemenu.js"></script>
+<link rel="stylesheet" href="<?php echo REL_CONTENT_DIR;?>/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="<?php echo REL_CONTENT_DIR;?>/css/common/common.css" type="text/css">
+
+<?php 
+$user_group_id=getFromSession('user_group_id');
+$branch_id=getFromSession('branch_id');
+$sql2="select branch_name from branch where branch_id=$branch_id";
+		$res2= mysql_query($sql2);
+		$row2 = mysql_fetch_array($res2);
+		$branch_name=$row2['branch_name'];
+?>
+<style>
+#JOBSBDmenu LABEL a
+	{
+	color:#004284;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+#JOBSBDmenu LABEL a:hover {
+	color:#FF0000;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	font-weight:bold;
+	text-decoration:underline;
+}
+
+</style>
+
+<title> WOORIM WORLD - Computer Parts Importer, Wholesaler & Retailer</title>
+</head>
+<!-- header -->
+<body>
+<table style="width:1200px;" align="center" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+  <tr>
+    <td>  <div id="logo"><table width="1198" height="80"  border="0">
+          <tr>
+            <td width="70"><img src="images/wormi1.png" height="70"></td>
+            <td width="1008" style="font-family:Verdana, Arial, Helvetica, sans-serif; color:#004080; font-size:28px; font-weight:bold">&nbsp;&nbsp;WOORIM WORLD</td>
+            <td align="center" valign="middle">&nbsp;</td>
+          </tr>
+        </table>
+    </div>
+      <div id="myslidemenu" class="jqueryslidemenu">
+
+<ul>
+
+<li><a href="?app=userhome">Dashboard</a></li>
+<?php if($user_group_id=='1'){ ?>
+<li><a href="?app=godown_entry">Purches</a>
+<?php
+$sqlCt="SELECT main_item_category_id, main_item_category_name FROM inv_item_category_main";
+$resCt= mysql_query($sqlCt);
+?>
+	<ul>
+	<?php
+	while($rowCt = mysql_fetch_array($resCt)){?>
+	<li><a href="?app=godown_entry&main_item_category_id=<?php echo $rowCt['main_item_category_id'];?>&brand=<?php echo $rowCt['main_item_category_name'];?>"><?php echo $rowCt['main_item_category_name'];?></a></li>
+<?php } ?>
+	</ul>
+</li>
+<!--<li><a href="?app=item_distribute">Item Distribute</a></li>-->
+<?php } ?>
+
+
+<li><a href="#">Sales Invoice</a>
+			<ul>
+				<li><a href="?app=inv_item_sales">Cash Sales</a></li>
+				<li><a href="?app=inv_item_sales_emi">Dues Sales</a></li>
+<!--				<li><a href="?app=inv_item_sales_return">Return</a></li>
+-->				<li><a href="?app=inv_item_sales_list">Sales List</a></li>
+			</ul>
+</li>
+
+<!--<li><a href="#">Whole Sales</a>
+	<ul>
+		<li><a href="?app=inv_item_sales_whole">Sales</a></li>
+		<li><a href="?app=inv_item_sales_list_whole">Sales List</a></li>
+		<li><a href="?app=inv_item_sales_return_whole">Return Sales</a></li>
+	</ul>
+</li>-->
+<li><a href="?app=accounts_whole&cmd=CollectionEnterSkin">Dues Receive</a></li>
+<li><a href="?app=accounts_total_whole">Dues List</a></li>
+
+<li><a href="?app=inv_report_generator">Reports</a></li>
+
+
+<li><a href="#">Accounts</a>
+  		<ul>
+		<li><a href="#">Supplier Accounts</a>
+				<ul>
+					<li><a href="?app=supplier_payments">Supplier Payments</a></li>
+					<li><a href="?app=accounts_total">Supplier Transaction</a></li>
+					<li><a href="?app=accounts_whole&cmd=OpeningDuesEnterSkin">Opening Dues</a></li>
+<!--					<li><a href="?app=finance&cmd=Reports">Reports</a></li>
+-->				</ul>
+			</li>
+			<li><a href="?app=customer_ob">Customer Opening Dues</a></li>
+			<!--<li><a href="?app=cash_deposit">Cash Deposit</a></li>-->
+			<!--<li><a href="?app=banking&cmd=BankTransFetchSkin">Banking</a>-->
+			<li><a href="?app=finance&cmd=ReturnExpenseList">Sales Return Expense</a></li>
+			<li><a href="#">Daily Accounts</a>
+				<ul>
+					<li><a href="?app=finance&cmd=Expence">Expense</a></li>
+					<li><a href="?app=finance&cmd=Income">Income</a></li>
+					<li><a href="?app=finance&cmd=Reports">Reports</a></li>
+				</ul>
+			</li>
+	  	</ul>
+
+</li>
+
+
+
+<?php if($user_group_id=='1'){ ?>
+<li><a href="#">Settings</a>
+  		<ul>
+			<li><a href="?app=inv_supplierinfo">Supplier Info</a></li>
+			<li><a href="?app=inv_item_cat_main">Item Catagory Main</a></li>
+			<li><a href="?app=inv_item_cat_sub">Item Catagory Sub</a></li>
+			<li><a href="?app=finance">Set Expense Chart</a></li>
+			<li><a href="?app=finance&cmd=IncomeCht">Set Income Chart</a></li>
+			<li><a href="?app=customer_info_whole">Customer Info</a>
+			<!--<ul>
+				<li><a href="?app=customer_info">Retail</a></li>
+				
+				<li><a href="?app=customer_info_whole">Whole Sales </a></li>
+				
+			</ul>-->
+		</li>
+
+<!--			<li><a href="?app=banking">Add Bank Info</a></li>
+			<li><a href="?app=institute">Shop Info</a></li>
+			<li><a href="?app=institute_head">Head Office</a></li>
+			<li><a href="?app=share_holder">Set Share Holder</a></li>
+-->	  	</ul>
+
+</li>
+
+<li><a href="#">HR Management</a>
+
+  <ul>
+  <li><a href="?app=department">Department</a></li>
+  <li><a href="?app=designation">Designation</a></li>
+  <li><a href="?app=branch">Branch</a></li>
+  <li><a href="?app=employee">Employee Profile List </a></li>
+
+  <!--<li><a href="#">Profile</a>
+  		<ul>
+			<li><a href="?app=admin">Personal Profile List </a></li>
+
+	  		<li><a href="?app=employee">Employee Profile List </a></li>
+		</ul>
+	 </li>-->
+ </ul>
+
+</li> 
+<li><a href="?app=employee&cmd=UsersListSkin">User List</a></li>
+<?php } ?>
+
+
+<li style="vertical-align:middle"><a href="#"><img <?php if(getFromSession('photo')=='') {?>src="<?php echo IMAGE_DIR?>/photo/nouser.png" <?php 
+						}else{?> src="<?php echo IMAGE_DIR.'/'.getFromSession('photo');?>" <?php }?> width="15" height="15" >&nbsp;<?php if($user_group_id=='1'){ echo getFromSession('username'); }else{ echo getFromSession('designation'); } ?></a>
+
+  <ul>
+
+<!--		<li><a href="?app=change_pass&cmd=ViewPersonalProfile"> <i class="fa fa-user"></i> Personal Information</a></li>
+		<li><a href="?app=change_pass&cmd=ViewEmployeeProfile"> <i class="fa fa-user"></i> Employee Information</a></li>
+-->		<li><a href="?app=change_pass"> <i class="fa fa-gear"></i> Change Password</a></li>
+		<li><a href="?app=logout"> <i class="fa fa-key"></i> Logout</a></li>
+
+    </ul>
+</li>
+</ul>
+
+
+<br style="clear: left" />
+
+</div>
+</td>
+  </tr>
+</table>
+<img id="loaderImg" class="floatBox" src="<?php echo IMAGE_DIR ?>/common/ajaxloader.gif" style="visibility:hidden;" />

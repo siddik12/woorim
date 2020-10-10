@@ -1,0 +1,73 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/InventorySystem/customer_info.js"></script>
+
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/StudentManagement/common.js"></script>
+
+
+        <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+</tr>
+    <td width="834" >
+      <table width="100%"  border="0" cellpadding="0" cellspacing="0" >
+        <tr>
+          <td></td>
+          <td style="color:#004080; font-size:16px; font-weight:bold" align="center" >&nbsp;</td>
+          <td style="color:#CC0066; font-weight:bold">&nbsp;</td>
+        </tr>
+        <tr>
+
+          <td width="187">
+
+	       <input type="text" id="searchq" name="searchq" value="Search" size="20" class="textBox" 
+			 onfocus="javascript:inputBoxLabelHide(this, 'Search');this.className='onFocus'" 
+			 onBlur="javascript:inputBoxLabelShow(this, 'Search');this.className='onBlur'"
+		   onKeyUp="javascript:ajaxCall('customer_info','ajaxSearchCustomer&searchq='+this.value,'CustomerInfoDiv');" /></td>
+
+          <td width="704" style="color:#004080; font-size:16px; font-weight:bold" >Retail Customer's Information</td>
+          <td width="309" style="color:#CC0066; font-weight:bold"><?php echo getRequest('Dmsg');?>  <?php echo $msg; ?></td>
+        </tr>
+      </table> </td>
+
+  </tr>
+
+  <tr>
+
+    <td><div id="CustomerInfoDiv"  class="layoutBox" style="overflow: auto; width:800px; height:300px;">
+
+    <?php echo $CustomerInfoFetch; ?></div></td>
+  </tr>
+  <tr>
+
+    <td valign="bottom">
+
+  <form id="customer_form" name="customer_form" method="post" action="?app=customer_info" onSubmit="return validate_form()">
+    <table width="613" border="0" cellpadding="5" cellspacing="6" class="layoutBox">
+      <tr>
+        <td>Customer Name :</td>
+        <td><input name="name" type="text" class="textBox" id="name" /></td>
+        <td>Mobile : </td>
+        <td><input name="mobile" id="mobile" type="text" class="textBox" /></td>
+        </tr>
+      <tr>
+        <td nowrap="nowrap">Membership Date : </td>
+        <td><span style="padding:2px;border-bottom:1px solid #F2F9FF;">
+          <input type="text" name="member_date"  id="member_date" class="textBox" size="15" />
+          <img src="<?php echo IMAGE_DIR?>/common/icons/calendar.gif" width="20" height="20" 
+			onclick="gfPop.fPopCalendar(document.customer_form.elements['member_date']);return false;" title="calendar" /></span></td>
+        <td>Email : </td>
+        <td><input name="email" id="email" type="text" class="textBox" /></td>
+        </tr>
+      <tr>
+        <td nowrap="nowrap"><input type="hidden" name="customer_id" id="customer_id" />
+          <input type="hidden" name="mode" id="mode" value="add" /></td>
+        <td colspan="3">&nbsp;</td>
+        </tr>
+      <tr>
+        <td colspan="4" align="center" nowrap="nowrap"><input name="submit" type="submit" value="Save" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'"/>
+          <input type="reset" name="reseat" value="Clear" class="btnClass" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" /></td>
+        </tr>
+    </table>
+  </form>  </td>
+  </tr>
+
+  <tr><td colspan="3">&nbsp;</td></tr>
+</table>         
+<?php dateIFrame(REL_EXT_DIR); ?>

@@ -1,0 +1,264 @@
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/InventorySystem/inv_item_receive.js"></script>
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/InventorySystem/check_item.js"></script>
+
+<script language="JavaScript" src="<?php echo REL_CONTENT_DIR?>/js/StudentManagement/common.js"></script>
+
+
+<style>
+div.pagination {
+	padding: 3px;
+	margin: 3px;
+}
+
+div.pagination a {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #AAAADD;
+	
+	text-decoration: none; /* no underline */
+	color: #000099;
+}
+div.pagination a:hover, div.pagination a:active {
+	border: 1px solid #000099;
+
+	color: #000;
+}
+div.pagination span.current {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+		border: 1px solid #000099;
+		
+		font-weight: bold;
+		background-color: #000099;
+		color: #FFF;
+	}
+	div.pagination span.disabled {
+		padding: 2px 5px 2px 5px;
+		margin: 2px;
+		border: 1px solid #EEE;
+	
+		color: #DDD;
+	}
+	
+</style>
+
+
+
+        <table style="width:1200px;" align="center"  border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" >
+
+  <tr>
+    <td style="color:#004080; font-size:16px; font-weight:bold" align="center">SKU Receive Form</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr><td width="840" valign="top"><table width="893" height="465" border="0" cellpadding="0" cellspacing="6" >
+      
+
+      <tr>
+
+        <td width="315" valign="top"><table width="299" border="0" class="layoutBox">
+          <tr>
+            <td colspan="2"><label  class="btnClass" id="button" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" 
+		onclick="javascript:loadItemIdCond('condense');CleateGrmVal()">+ Condense Milk</label>
+		  <div id="condense"  class="dialogBox" style=" visibility:hidden;" >
+		    <table  border="0" cellpadding="0" cellspacing="0">
+		      <tr>
+		        <td ></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td align="center"><span class="btnClass" onclick="hideItemCindense('condense')">X</span></td>
+              </tr>
+		      </table>
+            <div >
+              <div id="ItemListCondense"><?php  echo $ItemListCondense; ?></div>
+            </div>
+          </div></td>
+            </tr>
+          <tr>
+            <td width="160">&nbsp;</td>
+            <td width="197">&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="2"><label  class="btnClass" id="button" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" 
+		onclick="javascript:loadItemIdPowder('powder');CleateGrmVal()">+ Powder Milk</label>
+		  <div id="powder"  class="dialogBox" style=" visibility:hidden;" >
+		    <table  border="0" cellpadding="0" cellspacing="0">
+		      <tr>
+		        <td ></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td align="center"><span class="btnClass" onclick="hideItemPowder('powder')">X</span></td>
+              </tr>
+		      </table>
+            <div >
+              <div id="ItemListPowder"><?php  echo $ItemListPowder; ?></div>
+            </div>
+          </div></td>
+            </tr>
+          <tr>
+            <td></td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="2"><label  class="btnClass" id="button" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" 
+		onclick="javascript:loadItemIdTea('tea')">+ Tea</label>
+		  <div id="tea"  class="dialogBox" style=" visibility:hidden;" >
+		    <table  border="0" cellpadding="0" cellspacing="0">
+		      <tr>
+		        <td ></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td align="center"><span class="btnClass" onclick="hideItemTea('tea')">X</span></td>
+              </tr>
+		      </table>
+            <div >
+              <div id="ItemListTea"><?php  echo $ItemListTea; ?></div>
+            </div>
+          </div></td>
+            </tr>
+          <tr>
+            <td></td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="2"><label  class="btnClass" id="button" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" 
+		onclick="javascript:loadItemIdBev('beverage');CleateGrmVal()">+ Beverage</label>
+		  <div id="beverage"  class="dialogBox" style=" visibility:hidden;" >
+		    <table  border="0" cellpadding="0" cellspacing="0">
+		      <tr>
+		        <td ></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td align="center"><span class="btnClass" onclick="hideItemBev('beverage')">X</span></td>
+              </tr>
+		      </table>
+            <div >
+              <div id="ItemListBev"><?php  echo $ItemListBev; ?></div>
+            </div>
+          </div></td>
+            </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="2"><label  class="btnClass" id="button" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" 
+		onclick="javascript:loadItemIdSnak('snack')">+ Snacks</label>
+		  <div id="snack"  class="dialogBox" style=" visibility:hidden;" >
+		    <table  border="0" cellpadding="0" cellspacing="0">
+		      <tr>
+		        <td ></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td align="center"><span class="btnClass" onclick="hideItemSnak('snack')">X</span></td>
+              </tr>
+		      </table>
+            <div >
+              <div id="ItemListSnak"><?php  echo $ItemListSnak; ?></div>
+            </div>
+          </div></td>
+            </tr>
+			<tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="2"><label  class="btnClass" id="button" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" 
+		onclick="javascript:loadItemIdCand('candy')">+ Candy </label>
+		  <div id="candy"  class="dialogBox" style=" visibility:hidden;" >
+		    <table  border="0" cellpadding="0" cellspacing="0">
+		      <tr>
+		        <td ></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td align="center"><span class="btnClass" onclick="hideItemCandy('candy')">X</span></td>
+              </tr>
+		      </table>
+            <div >
+              <div id="ItemListCandy"><?php  echo $ItemListCandy; ?></div>
+            </div>
+          </div></td>
+            </tr>
+        </table></td>
+        <td width="560" valign="top"><table width="561" border="0" class="layoutBox">
+          <tr>
+            <td width="98" nowrap="nowrap">Quanity(pcs) : </td>
+            <td width="84"><input name="totalpcs" type="text" class="textBox" id="totalpcs" onBlur="getUserId()" size="12"/></td>
+            <td width="100" nowrap="nowrap">Receive Price :</td>
+            <td width="97" nowrap="nowrap"><input name="unit_price" type="text" class="textBox" id="unit_price" onfocus="this.className='onFocus'" onblur="this.className='onBlur'" size="7"/></td>
+            <td width="73" nowrap="nowrap">Sales Price : </td>
+            <td width="83" nowrap="nowrap"><input name="issu_unit_cost" type="text" class="textBox" id="issu_unit_cost" onfocus="this.className='onFocus'" onblur="this.className='onBlur'" size="7" /></td>
+          </tr>
+          <tr>
+            <td nowrap="nowrap">&nbsp;</td>
+            <td nowrap="nowrap">&nbsp;</td>
+            <td nowrap="nowrap">&nbsp;</td>
+            <td nowrap="nowrap">&nbsp;</td>
+            <td colspan="2" nowrap="nowrap"><div  id="uidmsg" class="message"></div></td>
+            </tr>
+          <tr>
+            <td nowrap="nowrap">Item Name : </td>
+            <td colspan="4" nowrap="nowrap"><label style="color:#FF0000" id="speci_name_lbl"></label></td>
+            <td nowrap="nowrap"><input name="button2" type="button" class="btnClass" 
+		onclick="javascript:if(validate_4ItemReceive()){ajaxCall4ItemReceiveAddEdit();}" onmouseover="this.className='btnPress'" onmouseout="this.className='btnClass'" value="Save"/></td>
+          </tr>
+          <tr>
+            <td nowrap="nowrap"><input name="receive_dtlid" type="hidden"  id="receive_dtlid"  size="8" /></td>
+            <td colspan="5" nowrap="nowrap"><input name="mode" type="hidden" id="mode" value="add" size="8" />
+              <input name="unit_value" type="hidden" id="unit_value"  size="8"/>
+              <input name="grm" type="hidden"  id="grm"  size="8" /></td>
+          </tr>
+                    <tr>
+            <td colspan="2" nowrap="nowrap"><span style="font-family:Verdana; font-size:11px; font-weight:bold; color:#DD0000">
+      <?php if(getRequest('page')){echo 'Showing &nbsp;'.$res1.' - '.$res2.' of '.$total_pages;}else{ echo 'Showing &nbsp; 0 - 29 of '.$total_pages; } ?>
+    </span>&nbsp;&nbsp;</td>
+            <td colspan="4" align="right" nowrap="nowrap"><?php echo $pagination; ?></td>
+            </tr>
+
+          <tr>
+            <td colspan="6" nowrap="nowrap">
+			<div id="ItemTypeDiv"  class="layoutBox" style="overflow: auto; width:550px; height:300px;"><?php echo $ItemReceive ?></div></td>
+            </tr>
+          <tr>
+            <td nowrap="nowrap">&nbsp;</td>
+            <td colspan="5" nowrap="nowrap">&nbsp;</td>
+          </tr>
+        </table>          </td>
+        </tr>
+    </table></td><td width="405" valign="top"><table width="148" border="0" cellspacing="5" class="layoutBox">
+      <tr>
+        <td>Challan No : </td>
+        </tr>
+      <tr>
+        <td><input name="challan_no" type="text" class="textBox" id="challan_no" onfocus="this.className='onFocus'" onblur="this.className='onBlur'" size="15"/></td>
+        </tr>
+      <tr>
+        <td>Received Date : </td>
+        </tr>
+      <tr>
+        <td><input name="receive_date" type="text" class="textBox" id="receive_date" onfocus="this.className='onFocus'" onblur="this.className='onBlur'" size="10"/>
+        <img src="<?=IMAGE_DIR?>/common/icons/calendar.gif" align="absmiddle" width="20" height="20" onClick="gfPop.fPopCalendar(document.getElementById('receive_date'));return false;" style="cursor:pointer;" title="calendar" /></td>
+        </tr>
+      <tr>
+        <td>Remarks : </td>
+      </tr>
+      <tr>
+        <td><input name="remark" type="text" class="textBox" id="remark" onfocus="this.className='onFocus'" onblur="this.className='onBlur'" size="15"/>
+        <input name="Item_ID" type="hidden" id="Item_ID" size="8" readonly="readonly"/>
+          <input name="mst_receiv_id" type="hidden"  id="mst_receiv_id"  size="8" /></td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</div>
+
+                
+<?php  dateIFrame(REL_EXT_DIR); ?>
